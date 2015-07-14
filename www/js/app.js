@@ -5,15 +5,27 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
-.run(function($ionicPlatform) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-    }
-    if(window.StatusBar) {
-      StatusBar.styleDefault();
-    }
-  });
+.run(function ($ionicPlatform) {
+	$ionicPlatform.ready(function () {
+		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+		// for form inputs)
+		if (window.cordova && window.cordova.plugins.Keyboard) {
+			cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+		}
+		if (window.StatusBar) {
+			StatusBar.styleDefault();
+		}
+	});
+})
+
+.config(function ($ionicAppProvider) {
+	// Identify app
+	$ionicAppProvider.identify({
+		// The App ID (from apps.ionic.io) for the server
+		app_id: 'b5459458',
+		// The public API key all services will use for this app
+		api_key: '3dba898087ab6ad516d3bd91dc801fba79ddaf871b12ca36',
+		// Set the app to use development pushes
+		dev_push: false
+	});
 })
