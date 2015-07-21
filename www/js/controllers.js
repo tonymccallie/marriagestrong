@@ -33,7 +33,7 @@ angular.module('greyback.controllers', [])
 		//		}, function (err) {
 		//			$scope.log('Ionic Deploy: Unable to check for updates', err);
 		//		});
-		
+
 	});
 
 	$scope.trust = function (snippet) {
@@ -49,13 +49,26 @@ angular.module('greyback.controllers', [])
 			scope: 'email,public_profile'
 		}).then(function (response) {
 			if (response.status === 'connected') {
-				console.log(['Facebook login succeeded',response]);
+				console.log(['Facebook login succeeded', response]);
+				ngFB.api({
+					path: '/me',
+					params: {
+						fields: 'id,name,email'
+					}
+				}).then(function (user) {
+					console.log(user);
+					
+					//MAKE AN APP USER
+					//$scope.user = user;
+				}, function (error) {
+					alert('Facebook error: ' + error.error_description);
+				});
 			} else {
 				alert('Facebook login failed');
 			}
 		});
 	}
-	
+
 	$scope.fblogout = function () {
 		console.log('fblogout');
 		ngFB.logout().then(function (response) {

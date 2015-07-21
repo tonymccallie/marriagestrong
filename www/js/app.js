@@ -11,6 +11,9 @@ if (devtest) {
 	isMobile = false;
 }
 
+//TEMP
+var DOMAIN = 'http://office.threeleaf.net:8080/marriagestrong_server';
+
 var onclickFix = function (html) {
 	html = html.replace(/href=\"\//ig, 'href="http://www.marriagestrong.org/');
 	html = html.replace(/src=\"\//ig, 'src="http://www.marriagestrong.org/');
@@ -21,7 +24,11 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 
 .run(function ($rootScope, $ionicPlatform, $ionicAnalytics, $cordovaSplashscreen, ImgCache, ngFB) {
 	console.log('run');
-	ngFB.init({appId: '850066335072761'});
+	ngFB.init({
+		appId: '850066335072761',
+		oauthRedirectURL: DOMAIN + '/users/oauthlogin',
+		logoutRedirectURL: DOMAIN + '/users/oauthlogout',
+	});
 	$ionicPlatform.ready(function () {
 		console.log('platform.ready');
 		$ionicAnalytics.register();
@@ -49,7 +56,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		// Set the app to use development pushes
 		dev_push: false
 	});
-	
+
 	ImgCacheProvider.manualInit = true;
 
 	$ionicConfigProvider.backButton.previousTitleText(false).text('<i class="threeleaf">5</i>').icon('');
@@ -63,7 +70,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		templateUrl: "templates/menu.html",
 		controller: 'AppController',
 		resolve: {
-			user: function(UserService) {
+			user: function (UserService) {
 				console.log('menu resolve user');
 				return UserService.checkUser();
 			}
@@ -89,24 +96,24 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('login', {
 		url: "/login",
 		templateUrl: "templates/login.html",
 		controller: 'LoginController'
 	})
-	
+
 	.state('signup', {
 		url: "/signup",
 		templateUrl: "templates/signup.html",
 		controller: 'SignupController'
 	})
-	
+
 	.state('forgot', {
 		url: "/forgot",
 		templateUrl: "templates/forgot.html",
 		controller: 'ForgotController'
 	})
-	
+
 	$urlRouterProvider.otherwise('/menu/tabs/home');
 })
