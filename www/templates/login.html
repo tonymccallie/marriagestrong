@@ -1,0 +1,37 @@
+<ion-view view-title="Login">
+	<ion-content class="user_form" id="login_page" has-bouncing="false">
+		<div class="padding">
+			<img src="img/logo_tag_rev.png" class="logo" />
+			<form>
+				<div class="list list-inset">
+					<div class="item item-input">
+						<input ng-model="User.username" type="text" placeholder="USERNAME" />
+					</div>
+				</div>
+				<div class="list list-inset">
+					<div class="item item-input">
+						<input ng-model="User.password" type="text" placeholder="PASSWORD" />
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-50 item item-checkbox">
+						<label class="checkbox">
+							<input type="checkbox">
+						</label>
+						Remember Me
+					</div>
+					<div class="col col-50">
+						<a ui-sref="forgot">Forgot Password</a>
+					</div>
+				</div>
+				<input ng-click="login()" type="submit" value="Sign In" class="button button-block button-positive" />
+				<input ng-click="fblogin()" type="button" value="Use Facebook Login" class="button button-block button-dark" />
+				<input ng-click="fblogout()" type="button" value="Logout" class="button button-block button-dark" />
+			</form>
+		</div>
+		<div class="light text-center">
+			Don't have an account?<br />
+			<a href="#" ui-sref="signup">Sign Up</a>
+		</div>
+	</ion-content>
+</ion-view>

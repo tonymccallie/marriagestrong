@@ -15,9 +15,210 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$positive: #8f2b21;
+//$dark: #808184;
+
+$font-bold: "LatoBold";
+$font-default: "LatoLight";
+
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@import "scss/fonts.scss";
+
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+ 	@include transform(rotate(#{$deg}deg));
+}
+
+.light {
+	background: $light;
+	color: $dark;
+	a {
+		color: $positive;
+	}
+}
+
+.text-center {
+	text-align: center;
+}
+
+.pane, .view, .menu-left {
+	background-image: url(../img/marriage-blur.jpg);
+	background-size: cover;
+	background-position: center top;
+}
+
+.tab-content .pane {
+	background: $light;
+}
+
+.menu-left {
+	font-family: $font-bold;
+	.title {
+		text-align: left;
+		font-family: $font-bold;
+		.threeleaf {
+			@include rotate(180);
+		}
+	}
+	.threeleaf {
+		font-weight: bold;
+	}
+	.item {
+		background: none;
+		border: none;
+		a {
+			color: $light;
+		}
+	}
+	.item-complex .item-content, .item-radio .item-content {
+		background: none;
+	}
+}
+
+body, h1, h2, h3, h4, h5, h6, input, button, select, textarea {
+	font-family: $font-default;
+}
+
+input[placeholder] {
+	//color: $dark;
+}
+
+.checkbox input:before, .checkbox-icon:before {
+	border-radius: 0px;
+}
+
+.padding {
+	padding: 15px;
+	a {
+		color: $positive;
+		text-decoration: none;
+		font-family: "LatoBold";
+	}
+	.button {
+		font-family: "LatoLight";
+		color: $light;
+	}
+}
+
+.scaleVid {
+	position:relative;
+	height:0;
+}
+
+.ratio16x9 {
+	padding-bottom:56.25%;
+}
+
+.ratio4x3 {
+	padding-bottom:75%;
+}
+
+.audioPlayerRatio {
+	padding-bottom:15%;
+}
+
+.scaleVid {
+	background: url(../img/loading.gif) center center no-repeat #9d9d9d;
+	background-size: 20%;
+}
+
+.scaleVid div,
+.scaleVid object,
+.scaleVid embed,
+.scaleVid iframe,
+.scaleVid video {
+	position:absolute !important;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+.title-image {
+	margin-top: 7px;
+	height: 30px;
+}
+
+.threeleaf {
+	font-family: 'Threeleaf';
+	font-size: 1.5em;
+	vertical-align: -.15em;
+	font-weight: normal;
+}
+
+.threeleaf-separator {
+	color: $light;
+	font-size: 18px;
+	text-align: center;
+	.threeleaf {
+		vertical-align: -.13em;
+	}
+	background: $positive;
+	line-height: 30px;
+	padding: 10px;
+	margin-top: -5px;
+}
+
+.tabs {
+	height: 58px;
+	padding-top: 5px;
+}
+
+.tabs-icon-top > .tabs .tab-item, .tabs-icon-top.tabs .tab-item, .tabs-icon-bottom > .tabs .tab-item, .tabs-icon-bottom.tabs .tab-item {
+	line-height: 16px;
+}
+
+.tab-item .threeleaf {
+	font-size: 40px;
+	line-height: 38px;
+	
+}
+
+.threeleaf-usness {content: url(../img/icon_usness.png);}
+.threeleaf-cycles {content: url(../img/icon_cycles.png);}
+.threeleaf-4steps {content: url(../img/icon_4steps.png);}
+.threeleaf-quizzes {content: url(../img/icon_quizzes.png);}
+.threeleaf-decisions {content: url(../img/icon_decisions.png);}
+
+.user_form {
+	.logo {
+		width: 100%;
+	}
+	
+	.padding {
+		padding: 60px 40px 40px;
+	}
+	
+	.list, .list-inset {
+		border-radius: 0px;
+	}
+	
+	.item {
+		border-radius: 0px;
+		background: none;
+		color: $light;
+		border: none;
+	}
+	
+	.item-checkbox {
+		padding: 5px 5px 5px 60px;
+	}
+	
+	.button {
+		border-radius: 30px;
+		border-width: 0px;
+	}
+}
