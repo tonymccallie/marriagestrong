@@ -49,8 +49,7 @@ angular.module('greyback.controllers', [])
 			scope: 'email,public_profile'
 		}).then(function (response) {
 			if (response.status === 'connected') {
-				console.log('Facebook login succeeded');
-				$scope.closeLogin();
+				console.log(['Facebook login succeeded',response]);
 			} else {
 				alert('Facebook login failed');
 			}
