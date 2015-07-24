@@ -118,16 +118,17 @@ angular.module('greyback.controllers', [])
 	// Form data for the login modal
 	$scope.loginData = {};
 
-	ngFB.api({
-		path: '/me',
-		params: {
-			fields: 'id,name'
-		}
-	}).then(function (user) {
-		$scope.user = user;
-	}, function (error) {
-		alert('Facebook error: ' + error.error_description);
-	});
+    //FACEBOOK API REFERENCE
+//	ngFB.api({
+//		path: '/me',
+//		params: {
+//			fields: 'id,name'
+//		}
+//	}).then(function (user) {
+//		$scope.user = user;
+//	}, function (error) {
+//		alert('Facebook error: ' + error.error_description);
+//	});
 
 	// Create the login modal that we will use later
 	$ionicModal.fromTemplateUrl('templates/login.html', {
