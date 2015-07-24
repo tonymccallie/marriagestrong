@@ -1,12 +1,22 @@
-<ion-view view-title="Home">
+<ion-view view-title="US-ness">
 	<ion-nav-title>
 		<img src="img/logo.png" class="title-image" />
 	</ion-nav-title>
 	<ion-content delegate-handle="home_pull">
 		<ion-refresher pulling-text="Pull to refresh..." on-refresh="update()"></ion-refresher>
 		<div class="padding">
-			HOME
-            <a ui-sref="login" class="button button-block button-positive">Login Page</a>
+			<h1>US-ness</h1>
+			<a ui-sref="login" class="button button-positive">Login Page</a>
+			<h3>Sample Form</h3>
+			<form name="simpleForm" novalidate="" ng-submit="signup(simpleForm)">
+				<div class="list list-inset">
+					<div class="item item-input" ng-class="{ 'has-errors' : simpleForm.first_name.$invalid && simpleForm.$submitted, 'no-errors' : simpleForm.first_name.$valid  && simpleForm.$submitted}">
+						<input name="field_name" ng-model="data.field_name" type="text" placeholder="FIELD NAME" required />
+					</div>
+					<div class="form-errors" ng-show="simpleForm.field_name.$error && simpleForm.$submitted" ng-messages="simpleForm.field_name.$error" ng-messages-include="templates/errors.html"></div>
+				</div>
+				<input type="submit" value="Button Text" class="button button-block button-positive" />
+			</form>
 		</div>
 	</ion-content>
 </ion-view>

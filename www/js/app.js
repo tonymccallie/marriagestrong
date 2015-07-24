@@ -105,6 +105,105 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
+	
+	.state('menu.tabs.4steps', {
+		url: "/4steps",
+		views: {
+			'tab-4steps': {
+				templateUrl: "templates/4steps.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.quizzes', {
+		url: "/quizzes",
+		views: {
+			'tab-quizzes': {
+				templateUrl: "templates/quizzes.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.decisions', {
+		url: "/decisions",
+		views: {
+			'tab-decisions': {
+				templateUrl: "templates/decisions.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.about', {
+		url: "/about",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/about.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.find_group', {
+		url: "/find_group",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/find_group.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.lead_group', {
+		url: "/lead_group",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/lead_group.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.resources', {
+		url: "/resources",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/resources.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.products', {
+		url: "/products",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/products.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.app_info', {
+		url: "/app_info",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/app_info.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.profile', {
+		url: "/profile",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/profile.html",
+			}
+		}
+	})
+	
+	.state('menu.tabs.notifications', {
+		url: "/notifications",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/notifications.html",
+			}
+		}
+	})
 
 	.state('login', {
 		url: "/login",
