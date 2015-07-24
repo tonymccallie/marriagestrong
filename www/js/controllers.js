@@ -1,11 +1,12 @@
 angular.module('greyback.controllers', [])
 
-.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $state, $ionicSideMenuDelegate) {
+.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $state, $ionicSideMenuDelegate, UserService) {
 	console.log('AppController');
 	//app wide variables
 	$scope.DOMAIN = DOMAIN;
 	$scope.imageDir = DOMAIN + '/img/thumb/';
 	$scope.logs = [];
+	$scope.user = {};
 	$scope.log = function (obj) {
 		$scope.logs.push(moment().format('h:mm:ss') + ': ' + obj);
 	}
@@ -39,12 +40,22 @@ angular.module('greyback.controllers', [])
 	$scope.trust = function (snippet) {
 		return $sce.trustAsHtml(snippet);
 	};
+
+	$scope.logout = function () {
+		$scope.user = {};
+		UserService.logout();
+	}
 })
 
-.controller('LoginController', function ($scope, ngFB) {
+.controller('LoginController', function ($scope, ngFB, UserService) {
 	console.log('LoginController');
+
+	$scope.login = function (data) {
+		console.log(data);
+	}
+
 	$scope.fblogin = function () {
-		console.log('fblogin');
+		console.log('LoginController.fblogin');
 		ngFB.login({
 			scope: 'email,public_profile'
 		}).then(function (response) {
@@ -53,11 +64,12 @@ angular.module('greyback.controllers', [])
 				ngFB.api({
 					path: '/me',
 					params: {
-						fields: 'id,name,email'
+						fields: 'id,email,first_name,last_name'
 					}
 				}).then(function (user) {
-					console.log(user);
-					
+					UserService.saveFacebook(user).then(function (user) {
+						$scope.user = user;
+					});
 					//MAKE AN APP USER
 					//$scope.user = user;
 				}, function (error) {
@@ -77,8 +89,17 @@ angular.module('greyback.controllers', [])
 	}
 })
 
-.controller('SignupController', function ($scope, ngFB) {
+.controller('SignupController', function ($scope, UserService) {
 	console.log('SignupController');
+	$scope.User = {};
+
+	$scope.signup = function (form) {
+		if (form.$valid) {
+			UserService.createUser($scope.User).then(function (data) {
+
+			});
+		}
+	}
 })
 
 .controller('ForgotController', function ($scope, ngFB) {

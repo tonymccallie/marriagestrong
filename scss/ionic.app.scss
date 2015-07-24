@@ -29,6 +29,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 @import "www/lib/ionic/scss/ionic";
 
 @import "scss/fonts.scss";
+@import "scss/greyback.scss";
 
 @mixin transform($transforms) {
 	-moz-transform: $transforms;
@@ -48,10 +49,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 	a {
 		color: $positive;
 	}
-}
-
-.text-center {
-	text-align: center;
 }
 
 .pane, .view, .menu-left {

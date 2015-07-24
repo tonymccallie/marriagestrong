@@ -1,22 +1,22 @@
 angular.module('greyback.services', [])
 
-.service('UserService', function($q, $http, $location, $localStorage, $state) {
+.service('UserService', function ($q, $http, $location, $localStorage, $state) {
 	var self = this;
-	self.user = {};
-	
+	self.user = null;
+
 	self.local = function ($category) {
-		console.log('UserService.local ' + $category);
+		console.log('UserService.local');
 		var deferred = $q.defer();
 		var localUser = $localStorage.getObject('User');
 		deferred.resolve(localUser);
 		return deferred.promise;
 	}
-	
-	self.init = function() {
+
+	self.init = function () {
 		console.log('UserService.init');
 		var deferred = $q.defer();
 		self.local().then(function (storedUser) {
-			if (storedUser) {
+			if (typeof storedUser.id === 'undefined') {
 				console.log('UserService: need to login');
 				$state.go('login');
 			} else {
@@ -31,11 +31,31 @@ angular.module('greyback.services', [])
 
 		return deferred.promise;
 	}
-	
-	self.checkUser = function() {
+
+	self.saveFacebook = function (fbuser) {
+		console.log('saveFacebook')
+		var promise = $http.post(DOMAIN + '/users/ajax_facebook', fbuser)
+			.success(function (response, status, headers, config) {
+
+			if (response.status === 'SUCCESS') {
+				self.user = response.data.User;
+				$localStorage.setObject('User', self.user);
+				$state.go('menu.tabs.home');
+			} else {
+				alert('there was a server error for Messages');
+				console.log(response);
+			}
+		})
+			.error(function (response, status, headers, config) {
+			console.log(['error', status, headers, config]);
+		});
+		return promise;
+	}
+
+	self.checkUser = function () {
 		console.log('UserService.checkUser');
 		var deferred = $q.defer();
-		if (self.user) {
+		if (!self.user) {
 			console.log('UserService: no user');
 			self.init().then(function (initUser) {
 				deferred.resolve(self.user);
@@ -44,8 +64,19 @@ angular.module('greyback.services', [])
 			console.log('UserService: had user');
 			deferred.resolve(self.user);
 		}
-		$ionicSlideBoxDelegate.update();
 		return deferred.promise;
+	}
+
+	self.createUser = function (user) {
+		var deferred = $q.defer();
+		console.log(user);
+		return deferred.promise;
+	}
+
+	self.logout = function () {
+		self.user = null;
+		$localStorage.remove('User');
+		$state.go('login');
 	}
 })
 

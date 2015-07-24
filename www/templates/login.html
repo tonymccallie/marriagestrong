@@ -2,29 +2,21 @@
 	<ion-content class="user_form" id="login_page" has-bouncing="false">
 		<div class="padding">
 			<img src="img/logo_tag_rev.png" class="logo" />
-			<form>
+			<form name="loginForm" ng-submit="login(loginForm)">
 				<div class="list list-inset">
 					<div class="item item-input">
-						<input ng-model="User.username" type="text" placeholder="USERNAME" />
+						<input ng-model="User.email" name="email" type="text" placeholder="EMAIL" />
 					</div>
 				</div>
 				<div class="list list-inset">
 					<div class="item item-input">
-						<input ng-model="User.password" type="text" placeholder="PASSWORD" />
+						<input ng-model="User.password" name="password" type="text" placeholder="PASSWORD" />
 					</div>
 				</div>
-				<div class="row">
-					<div class="col col-50 item item-checkbox">
-						<label class="checkbox">
-							<input type="checkbox">
-						</label>
-						Remember Me
-					</div>
-					<div class="col col-50">
-						<a ui-sref="forgot">Forgot Password</a>
-					</div>
+				<div class="text-right">
+					<a ui-sref="forgot">Forgot Password</a>
 				</div>
-				<input ng-click="login()" type="submit" value="Sign In" class="button button-block button-positive" />
+				<input ng-click="login(loginForm)" type="submit" value="Sign In" class="button button-block button-positive" />
 				<input ng-click="fblogin()" type="button" value="Use Facebook Login" class="button button-block button-dark" />
 				<input ng-click="fblogout()" type="button" value="Logout" class="button button-block button-dark" />
 			</form>
