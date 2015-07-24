@@ -96,6 +96,15 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
+    
+    .state('menu.tabs.cycles', {
+		url: "/cycles",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/cycles.html",
+			}
+		}
+	})
 
 	.state('login', {
 		url: "/login",
