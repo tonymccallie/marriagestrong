@@ -97,11 +97,93 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		}
 	})
     
+    .state('menu.tabs.usness', {
+		url: "/usness",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/usness.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.usness_activities', {
+		url: "/usness-activities",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/usness_activities.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.usness_further', {
+		url: "/usness-further",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/usness_further.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.usness_personality', {
+		url: "/usness-personality",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/usness_personality.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.usness_personality_results', {
+		url: "/usness-personality-results",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/usness_personality_results.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.usness_gifts', {
+		url: "/usness-gifts",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/usness_gifts.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.usness_gifts_results', {
+		url: "/usness-gifts-results",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/usness_gifts_results.html",
+			}
+		}
+	})
+    
+    
     .state('menu.tabs.cycles', {
 		url: "/cycles",
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.cycles_pain', {
+		url: "/cycles-pain",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/cycles_pain.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.cycles_peace', {
+		url: "/cycles-peace",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/cycles_peace.html",
 			}
 		}
 	})

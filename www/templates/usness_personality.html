@@ -1,0 +1,37 @@
+<ion-view view-title="Usness">
+<ion-nav-title>
+    <img src="img/logo.png" class="title-image" />
+</ion-nav-title>
+	<ion-content>
+        <h2>(RING ICON)&nbsp;Personality</h2>   
+		<div class="padding">
+            <p>Many couples think of the differences between one another as a negative thing. We believe both similarities and differences can be positives for the couple and actually strengthen their Us-ness. 
+            </p>
+            <p>Identify some of your personality traits by choosing the answer in each section that best describes you most of the time.
+            </p>
+        </div>
+            <form class="usnessPersonalityForm" name="usnessPersonalityForm" novalidate="" ng-submit="usnessPersonality(usnessPersonalityForm)">
+                <div class="padding">
+                    <hr>
+                    <h3>Relating to People</h3>
+                    <input type="radio" name="personality.relating" value="extrovert">A People-Person, More Extroverted   <br>
+                    <input type="radio" name="personality.relating" value="introvert">Prefers One-on-One Time, More Introverted <br><br>
+                    <hr>
+                    <h3>ACCOMPLISHING TASKS</h3>
+                    <input type="radio" name="personality.tasks" value="extrovert">More Orderly, Intentional, Prepared, Controlled  <br>
+                    <input type="radio" name="personality.tasks" value="introvert">More Flexible, Spontaneous, Easygoing, Adaptable <br><br>
+                    <hr>
+                    <h3>MAKING DECISIONS</h3>
+                    <input type="radio" name="personality.decisions" value="extrovert">Rational, Straightforward, Seek Justice, Certain  <br>
+                    <input type="radio" name="personality.decisions" value="introvert">Compassionate, Gentle, Cooperative, Lenient <br><br>
+                    <hr>
+                    <h3>LEARNING INFORMATION</h3>
+                    <input type="radio" name="personality.learning" value="extrovert">Relying on Common Sense, Facts, History   <br>
+                    <input type="radio" name="personality.learning" value="introvert">Relying on Ideas, Theory, Possibilities <br><br>
+                    <input type="submit" value="Save and Continue" class="button button-block button-positive" />
+                    <button href="#" class="button button-block button-calm">Compare with Spouse</button>
+
+                </div>
+            </form>
+	</ion-content>
+</ion-view>

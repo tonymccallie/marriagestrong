@@ -1,7 +1,61 @@
 <ion-view view-title="Profile">
+<ion-nav-title>
+    <img src="img/logo.png" class="title-image" />
+</ion-nav-title>
 	<ion-content>
-		<div class="padding">
-			Profile
+        <h2><i class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></i>&nbsp;Your Couple’s Profile</h2>
+        <img src="img/upload-photo.jpg" alt="Usness" width="100%">
+        <div class="padding">
+            <button href="#" class="button button-block button-calm">Link to Spouse’s Account</button>
+            <form name="profileForm" novalidate="" ng-submit="profile(profileForm)">
+				<div class="list list-inset">
+					<div class="item item-input" ng-class="{ 'has-errors' : profileForm.first_name.$invalid && profileForm.$submitted, 'no-errors' : profileForm.last_name.$valid  && profileForm.$submitted}">
+						<input name="last_name" ng-model="User.last_name" type="text" placeholder="LAST NAME" required />
+					</div>
+					<div class="form-errors" ng-show="profileForm.last_name.$error && profileForm.$submitted" ng-messages="profileForm.last_name.$error" ng-messages-include="templates/errors.html"></div>
+				</div>
+				<div class="list list-inset">
+					<div class="item item-input" ng-class="{ 'has-errors' : profileForm.wifes_first_name.$invalid && profileForm.$submitted, 'no-errors' : profileForm.wifes_first_name.$valid  && profileForm.$submitted}">
+						<input name="wifes_first_name" ng-model="User.wifes_first_name" type="text" placeholder="WIFE'S FIRST NAME" required />
+					</div>
+					<div class="form-errors" ng-show="profileForm.wifes_first_name.$error && profileForm.$submitted" ng-messages="profileForm.wifes_first_name.$error" ng-messages-include="templates/errors.html"></div>
+				</div>
+                <div class="list list-inset">
+					<div class="item item-input">
+						<input name="husbands_first_name" ng-model="User.husbands_first_name" type="text" placeholder="HUSBAND'S FIRST NAME" required />
+					</div>
+					<div class="form-errors" ng-show="profileForm.husbands_first_name.$error && profileForm.$submitted" ng-messages="profileForm.husbands_first_name.$error" ng-messages-include="templates/errors.html"></div>
+				</div>
+                
+                
+<!--Needs Validation-->
+                
+                
+				<div class="list list-inset">
+					<div class="item item-input">
+                        <div class="item-icon-right">
+                            <i class="icon ion-calendar"></i>
+                            <input name="wedding_anniversary" ng-model="User.wedding_anniversary" type="text" placeholder="WEDDING ANNIVERSARY" required />
+                        </div>
+					</div>
+				</div>
+              
+				
+                <div class="list list-inset">
+					<div class="item item-input">
+                        <div class="item-icon-right">
+                            <i class="icon ion-calendar"></i>
+                            <input name="first_date_anniversary" ng-model="User.first_date_anniversary" type="text" placeholder="FIRST DATE ANNIVERSARY" required />
+                        </div>
+					</div>
+				</div>
+                
+<!--End Needs Validation-->
+                
+  
+                
+				<input type="submit" value="NEXT STEP" class="button button-block button-positive" />
+			</form>
 		</div>
 	</ion-content>
 </ion-view>

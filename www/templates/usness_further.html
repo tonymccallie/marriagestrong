@@ -1,0 +1,43 @@
+<ion-view view-title="Usness">
+<ion-nav-title>
+    <img src="img/logo.png" class="title-image" />
+</ion-nav-title>
+	<ion-content>
+        <h2>(RING ICON)&nbsp;Usness - Take it Further</h2>   
+		<div class="padding">
+            <p>TAKE IT FURTHER</p>
+            <p>
+                1. Talk with your spouse about 3 of the activities you chose for your Us; share what they mean to you and how you believe they make your Us more connected.
+                <br><br>
+                2. Based on the activities you chose what are 3 collective characteristics of your Us identity:
+            </p>
+        </div>
+            <form class="usnessFurtherForm" name="usnessFurtherForm" novalidate="" ng-submit="usnessFurther(usnessFurtherForm)">
+                <div class="grey_bg">
+                    <div class="padding">
+                        <div class="list list-inset">
+                          <label class="item item-input">
+                            1 &nbsp;
+						  <input name="usnessFurtherOne" type="text" required />				
+                          </label>
+                        </div>
+                         <div class="list list-inset">
+                          <label class="item item-input">
+                            2 &nbsp;
+						  <input name="usnessFurtherTwo" type="text" required />				
+                          </label>
+                        </div>
+                         <div class="list list-inset">
+                          <label class="item item-input">
+                            3 &nbsp;
+						  <input name="usnessFurtherThree" type="text" required />				
+                          </label>
+                        </div>
+                    <p>Life gets busy and it can be hard to maintain the activities that connect you to your spouse.  Use this list in the days and years to come to remind you of how to recharge your Us to keep it strong.  Be sure to add to this list as you grow and experience life together as a couple.</p>
+                    <br>
+                    <input type="submit" value="Save and Continue" class="button button-block button-positive" />
+                    </div>
+                </div>
+            </form>
+	</ion-content>
+</ion-view>
