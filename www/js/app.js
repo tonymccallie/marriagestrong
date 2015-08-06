@@ -100,7 +100,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
     .state('menu.tabs.usness', {
 		url: "/usness",
 		views: {
-			'tab-cycles': {
+			'tab-home': {
 				templateUrl: "templates/usness.html",
 			}
 		}
@@ -109,7 +109,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
     .state('menu.tabs.usness_activities', {
 		url: "/usness-activities",
 		views: {
-			'tab-cycles': {
+			'tab-home': {
 				templateUrl: "templates/usness_activities.html",
 			}
 		}
@@ -118,7 +118,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
     .state('menu.tabs.usness_further', {
 		url: "/usness-further",
 		views: {
-			'tab-cycles': {
+			'tab-home': {
 				templateUrl: "templates/usness_further.html",
 			}
 		}
@@ -127,7 +127,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
     .state('menu.tabs.usness_personality', {
 		url: "/usness-personality",
 		views: {
-			'tab-cycles': {
+			'tab-home': {
 				templateUrl: "templates/usness_personality.html",
 			}
 		}
@@ -136,7 +136,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
     .state('menu.tabs.usness_personality_results', {
 		url: "/usness-personality-results",
 		views: {
-			'tab-cycles': {
+			'tab-home': {
 				templateUrl: "templates/usness_personality_results.html",
 			}
 		}
@@ -145,7 +145,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
     .state('menu.tabs.usness_gifts', {
 		url: "/usness-gifts",
 		views: {
-			'tab-cycles': {
+			'tab-home': {
 				templateUrl: "templates/usness_gifts.html",
 			}
 		}
@@ -154,7 +154,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
     .state('menu.tabs.usness_gifts_results', {
 		url: "/usness-gifts-results",
 		views: {
-			'tab-cycles': {
+			'tab-home': {
 				templateUrl: "templates/usness_gifts_results.html",
 			}
 		}
