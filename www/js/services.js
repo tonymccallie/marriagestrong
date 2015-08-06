@@ -18,7 +18,8 @@ angular.module('greyback.services', [])
 		self.local().then(function (storedUser) {
 			if (typeof storedUser.id === 'undefined') {
 				console.log('UserService: need to login');
-				$state.go('login');
+				//REMOVE FOR DEV
+				//$state.go('login');
 				self.user = {
 					'id': 'test'
 				};
