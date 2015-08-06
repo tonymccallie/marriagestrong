@@ -49,9 +49,15 @@ angular.module('greyback.controllers', [])
 
 .controller('LoginController', function ($scope, ngFB, UserService) {
 	console.log('LoginController');
+	$scope.loginUser = {};
 
-	$scope.login = function (data) {
-		console.log(data);
+	$scope.login = function (form) {
+		console.log(['LoginController.login',$scope.loginUser]);
+		if (form.$valid) {
+			UserService.loginUser($scope.loginUser).then(function (data) {
+
+			});
+		}
 	}
 
 	$scope.fblogin = function () {
@@ -91,11 +97,12 @@ angular.module('greyback.controllers', [])
 
 .controller('SignupController', function ($scope, UserService) {
 	console.log('SignupController');
-	$scope.User = {};
+	$scope.signupUser = {};
 
 	$scope.signup = function (form) {
+		console.log(['SignupController.signup',$scope.signupUser]);
 		if (form.$valid) {
-			UserService.createUser($scope.User).then(function (data) {
+			UserService.createUser($scope.signupUser).then(function (data) {
 
 			});
 		}

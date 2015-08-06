@@ -18,11 +18,10 @@ angular.module('greyback.services', [])
 		self.local().then(function (storedUser) {
 			if (typeof storedUser.id === 'undefined') {
 				console.log('UserService: need to login');
-				//REMOVE FOR TESTING
-                //$state.go('login');
-                self.user = {
-                    'id': 'test'
-                };
+				$state.go('login');
+				self.user = {
+					'id': 'test'
+				};
 				deferred.resolve(self.user);
 			} else {
 				console.log('UserService: use local');
@@ -35,6 +34,31 @@ angular.module('greyback.services', [])
 		//		$location.replace();
 
 		return deferred.promise;
+	}
+
+	self.loginUser = function (user) {
+		var promise = $http.post(DOMAIN + '/users/ajax_login', user)
+			.success(function (response, status, headers, config) {
+			switch (response.status) {
+			case 'SUCCESS':
+				self.user = response.data.User;
+				$localStorage.setObject('User', self.user);
+				$state.go('menu.tabs.home');
+				break;
+			case 'MESSAGE':
+				alert(response.data);
+				$state.go('login');
+				break;
+			default:
+				alert('there was a server error for Messages');
+				console.log(response);
+				break;
+			}
+		})
+			.error(function (response, status, headers, config) {
+			console.log(['error', status, headers, config]);
+		});
+		return promise;
 	}
 
 	self.saveFacebook = function (fbuser) {
@@ -73,9 +97,28 @@ angular.module('greyback.services', [])
 	}
 
 	self.createUser = function (user) {
-		var deferred = $q.defer();
-		console.log(user);
-		return deferred.promise;
+		var promise = $http.post(DOMAIN + '/users/ajax_register', user)
+			.success(function (response, status, headers, config) {
+			switch (response.status) {
+			case 'SUCCESS':
+				self.user = response.data.User;
+				$localStorage.setObject('User', self.user);
+				$state.go('menu.tabs.home');
+				break;
+			case 'MESSAGE':
+				alert(response.data);
+				$state.go('login');
+				break;
+			default:
+				alert('there was a server error for Messages');
+				console.log(response);
+				break;
+			}
+		})
+			.error(function (response, status, headers, config) {
+			console.log(['error', status, headers, config]);
+		});
+		return promise;
 	}
 
 	self.logout = function () {

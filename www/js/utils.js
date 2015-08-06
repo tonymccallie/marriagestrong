@@ -6,12 +6,6 @@ angular.module('greyback.utils', [])
 	};
 })
 
-.filter('trusted', function ($sce) {
-	return function (url) {
-		return $sce.trustAsResourceUrl(url);
-	};
-})
-
 .factory('$localStorage', function ($window) {
 	return {
 		set: function (key, value) {
@@ -32,8 +26,27 @@ angular.module('greyback.utils', [])
 		getArray: function (key) {
 			return JSON.parse($window.localStorage[key] || '[]');
 		},
-		remove: function(key) {
+		remove: function (key) {
 			return $window.localStorage.removeItem(key);
 		}
 	}
+})
+
+.directive('compareTo', function () {
+	return {
+		require: "ngModel",
+		scope: {
+			otherModelValue: "=compareTo"
+		},
+		link: function (scope, element, attributes, ngModel) {
+
+			ngModel.$validators.compareTo = function (modelValue) {
+				return modelValue == scope.otherModelValue;
+			};
+
+			scope.$watch("otherModelValue", function () {
+				ngModel.$validate();
+			});
+		}
+	};
 })
