@@ -7698,6 +7698,10 @@ a.button {
   src: url('../fonts/ThreeLeafApp.ttf') format('truetype'); }
 
 @font-face {
+  font-family: 'HelveticaNeue';
+  src: url('../fonts/HelveticaNeue.ttf') format('truetype'); }
+
+@font-face {
   font-family: 'LatoRegular';
   src: url('../fonts/Lato-Regular.ttf') format('truetype'); }
 
@@ -7800,7 +7804,7 @@ a.button {
     background: none; }
 
 body, h1, h2, h3, h4, h5, h6, input, button, select, textarea {
-  font-family: "LatoLight";
+  font-family: "HelveticaNeue";
   font-weight: 400;
   letter-spacing: 1px;
   color: #808184; }
