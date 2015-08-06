@@ -368,3 +368,11 @@ input[type="radio"] {
     clear: both;
     padding-top: 15px;
 }
+
+.cycle_circle {
+    border: 1px $lightGrey solid;
+    width: 300px;
+    height: 300px;
+    display: block;
+    border-radius: 150px;
+}

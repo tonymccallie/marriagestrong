@@ -179,6 +179,24 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		}
 	})
     
+    .state('menu.tabs.cycles_copes', {
+		url: "/cycles-copes",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/cycles_copes.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.cycles_pain_results', {
+		url: "/cycles-pain-results",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/cycles_pain_results.html",
+			}
+		}
+	})
+    
     .state('menu.tabs.cycles_peace', {
 		url: "/cycles-peace",
 		views: {

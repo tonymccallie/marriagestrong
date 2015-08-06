@@ -8015,3 +8015,10 @@ input[type="radio"] {
   display: block;
   clear: both;
   padding-top: 15px; }
+
+.cycle_circle {
+  border: 1px #d0d2d3 solid;
+  width: 300px;
+  height: 300px;
+  display: block;
+  border-radius: 150px; }
