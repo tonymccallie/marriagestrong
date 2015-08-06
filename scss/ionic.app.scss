@@ -17,6 +17,8 @@ $dark:                            #444 !default;
 
 $positive: #8f2b21;
 //$dark: #808184;
+$calm: #808184;
+$lightGrey: #d0d2d3;
 
 $font-bold: "LatoBold";
 $font-default: "LatoLight";
@@ -87,6 +89,55 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 body, h1, h2, h3, h4, h5, h6, input, button, select, textarea {
 	font-family: $font-default;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: $calm;
+}
+
+p {
+    text-align: justify;
+}
+
+h2 {
+    width: 100%;
+    background: $positive;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    padding: 6px 0px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+}
+
+h3 {
+    
+    padding-left: 14px;
+    color: $positive;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+h4 {
+    width: 100%;
+    background: $lightGrey;
+    color: $calm;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    padding: 20px 0px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+
+hr {
+    border: 0;
+    height: 1px;
+    background: $lightGrey;
 }
 
 input[placeholder] {
@@ -190,6 +241,7 @@ input[placeholder] {
 .threeleaf-quizzes {content: url(../img/icon_quizzes.png);}
 .threeleaf-decisions {content: url(../img/icon_decisions.png);}
 
+
 .user_form {
 	.logo {
 		width: 100%;
@@ -218,4 +270,101 @@ input[placeholder] {
 		border-radius: 30px;
 		border-width: 0px;
 	}
+}
+
+.button {
+    border-radius: 50px;
+    text-transform: uppercase;
+    border-width: 0;
+}
+
+.item-icon-right {
+    color: $calm;
+}
+
+.item-checkbox {
+    border-width: 0px;
+    font-size: 13px;
+}
+
+.grey_bg {
+    background: $lightGrey;
+    color: $calm;
+}
+
+input[type="radio"] {
+    margin-left: 14px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+
+.personalityResults p {
+    padding-left: 14px;
+    margin-bottom: 18px;
+}
+
+.usnessGiftsForm {
+    
+    .item {
+    font-size: 12px;
+    }
+    
+    strong {
+        color: $positive;
+        font-size: 16px;
+    }
+}
+
+.circle-number {
+    font-size: 26px;
+    width: 60px;
+    height: 60px;
+    border: 1px $calm solid;
+    border-radius: 30px;
+    display: inline-block;
+    text-align: center;
+    line-height: 55px;
+}
+
+.gifts-list li {
+    font-size: 24px;
+}
+
+.paragraph-list {
+    font-size: 13px;
+    line-height: 17px;
+    padding: 10px 15px;
+    border-bottom: 1px $lightGrey solid;
+}
+
+.cycles {
+
+    li {
+    width: 50%;
+    float:left;
+    display:inline;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0px;
+    }
+    
+    .checkbox {
+        padding: 12px 0px;
+    }
+    
+    .checkbox input {
+        height: 18px;
+        width: 18px;
+    }
+    
+    .item-checkbox  {
+        padding-left: 34px;
+    }
+}
+
+.tip-text {
+    display: block;
+    clear: both;
+    padding-top: 15px;
 }

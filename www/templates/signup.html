@@ -3,12 +3,14 @@
 		<div class="padding">
 			<img src="img/logo_tag_rev.png" class="logo" />
 			<form name="signupForm" novalidate="" ng-submit="signup(signupForm)">
+<!-- form item -->
 				<div class="list list-inset">
 					<div class="item item-input" ng-class="{ 'has-errors' : signupForm.first_name.$invalid && signupForm.$submitted, 'no-errors' : signupForm.first_name.$valid  && signupForm.$submitted}">
 						<input name="first_name" ng-model="signupUser.first_name" type="text" placeholder="FIRST NAME" required />
 					</div>
 					<div class="form-errors" ng-show="signupForm.first_name.$error && signupForm.$submitted" ng-messages="signupForm.first_name.$error" ng-messages-include="templates/errors.html"></div>
 				</div>
+<!-- form item -->
 				<div class="list list-inset">
 					<div class="item item-input">
 						<input name="last_name" ng-model="signupUser.last_name" type="text" placeholder="LAST NAME" required />
