@@ -1,0 +1,75 @@
+<ion-view view-title="Cycles">
+<ion-nav-title>
+    <img src="img/logo.png" class="title-image" />
+</ion-nav-title>
+	<ion-content>
+       <h2><img src="img/decision-icon-small.png" class="cycles-icon" />&nbsp;OUR DECISIONS</h2>
+        <form name="decisionsForm" novalidate="" ng-submit="decisions(decisionsForm)">
+                <div class="list list-inset">
+                  <label class="item item-input item-stacked-label">
+                    WHAT’S THE DECISION TO MAKE?
+                  <input name="gift" type="text" value="decision" ng-model="decisions.decision" />				
+                  </label>
+                </div>
+        <div class="padding">
+            <p>REMINDER:</p>
+            <p>You’re on the same team! Do you need to remind each other right now?</p>
+            <button href="#" class="button button-block button-calm">Review your Pain/Peace Cycle</button>
+		</div>
+         <div class="grey_bg">
+            <div class="padding">
+                <p>Brainstorm six possible options to the decision. It is important to be creative and think outside the box. Six options are so much better than two. .</p>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                    1&nbsp;
+                    <input name="gift" type="text" value="decision1" ng-model="decisions.decision1" />				
+                    </label>
+                </div>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                    2&nbsp;
+                    <input name="gift" type="text" value="decision2" ng-model="decisions.decision2" />				
+                    </label>
+                </div>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                    3&nbsp;
+                    <input name="gift" type="text" value="decision3" ng-model="decisions.decision3" />				
+                    </label>
+                </div>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                    4&nbsp;
+                    <input name="gift" type="text" value="decision4" ng-model="decisions.decision4" />				
+                    </label>
+                </div>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                    5&nbsp;
+                    <input name="gift" type="text" value="decision5" ng-model="decisions.decision5" />				
+                    </label>
+                </div>
+                <div class="list list-inset">
+                    <label class="item item-input">
+                    6&nbsp;
+                    <input name="gift" type="text" value="decision6" ng-model="decisions.decision6" />				
+                    </label>
+                </div>
+            </div>
+         </div>
+             <div class="list list-inset">
+              <label class="item item-input item-stacked-label">
+                CHOOSE YOUR US SOLUTION:
+              <input name="gift" type="text" value="solution" ng-model="decisions.solution" />				
+              </label>
+            </div>
+            <div class="padding">
+            <p>HINT:</p>
+            <p>An Us decision does not include the thought, “okay, we will do it your way this time.” You must decide together.</p>
+            <p>Choose a date in the future to reevaluate your choice. Your MarriageStrong app will remind you on this date to rethink your decision.</p>
+            <input type="submit" value="Save and Continue" class="button button-block button-positive" />      
+            </div>
+            <br>
+        </form>
+	</ion-content>
+</ion-view>

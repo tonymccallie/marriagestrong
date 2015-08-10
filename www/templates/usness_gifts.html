@@ -1,9 +1,9 @@
-<ion-view view-title="Usness">
+ <ion-view view-title="Usness">
 <ion-nav-title>
     <img src="img/logo.png" class="title-image" />
 </ion-nav-title>
 	<ion-content>
-        <h2>(RING ICON)&nbsp;Spiritual Gifts</h2>   
+        <h2><img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Spiritual Gifts</h2>   
 		<div class="padding">
             <p>For couples interested in their spiritual Us-ness, you can take a spiritual gift inventory online; there are a lot available from different theological perspectives. If you are more familiar with spiritual gifts, choose your top three from the list below:</p>
         </div>
@@ -12,112 +12,112 @@
                     <ul class="list">
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="TEACHING">
+                            <input type="checkbox" name="gift" value="TEACHING" ng-model="usness.gifts.teaching">
                             </label>
                             <strong>TEACHING</strong><br>
                             Communicates Information Well
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="WISDOM">
+                            <input type="checkbox" name="gift" value="WISDOM" ng-model="usness.gifts.wisdom">
                             </label>
                             <strong>WISDOM</strong><br>
                             Deep Insight Into Application Of Knowledge
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="KNOWLEDGE">
+                            <input type="checkbox" name="gift" value="KNOWLEDGE" ng-model="usness.gifts.knowledge">
                             </label>
                             <strong>KNOWLEDGE</strong><br>
                             Loves Information
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="EXHORTATION">
+                            <input type="checkbox" name="gift" value="EXHORTATION" ng-model="usness.gifts.exhortation">
                             </label>
                             <strong>EXHORTATION</strong><br>
                             Comforting And Encouraging
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="DISCERNMENT">
+                            <input type="checkbox" name="gift" value="DISCERNMENT" ng-model="usness.gifts.discernment">
                             </label>
                             <strong>DISCERNMENT</strong><br>
                             Easily Sees Truth
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="GIVING">
+                            <input type="checkbox" name="gift" value="GIVING" ng-model="usness.gifts.giving">
                             </label>
                             <strong>GIVING</strong><br>
                             Joyfully Contributes Time And Money
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="MERCY">
+                            <input type="checkbox" name="gift" value="MERCY" ng-model="usness.gifts.mercy">
                             </label>
                             <strong>MERCY</strong><br>
                             Great Compassion
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="EVANGELISM">
+                            <input type="checkbox" name="gift" value="EVANGELISM" ng-model="usness.gifts.evangelism">
                             </label>
                             <strong>EVANGELISM</strong><br>
                             Telling Others About Christ
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="HOSPITALITY">
+                            <input type="checkbox" name="gift" value="HOSPITALITY" ng-model="usness.gifts.hospitality">
                             </label>
                             <strong>HOSPITALITY</strong><br>
                             Provides A Warm Welcome
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="FAITH">
+                            <input type="checkbox" name="gift" value="FAITH" ng-model="usness.gifts.faith">
                             </label>
                             <strong>FAITH</strong><br>
                             Extraordinary Confidence In God
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="LEADERSHIP">
+                            <input type="checkbox" name="gift" value="LEADERSHIP" ng-model="usness.gifts.leadership">
                             </label>
                             <strong>LEADERSHIP</strong><br>
                             Sets And Achieves Goals For Groups With Ease 
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="ADMINISTRATION">
+                            <input type="checkbox" name="gift" value="ADMINISTRATION" ng-model="usness.gifts.administration">
                             </label>
                             <strong>ADMINISTRATION</strong><br>
                             Creates And Executes Effective Plans
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="HEALING">
+                            <input type="checkbox" name="gift" value="HEALING" ng-model="usness.gifts.healing">
                             </label>
                             <strong>HEALING</strong><br>
                             Restores Health
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="TONGUES">
+                            <input type="checkbox" name="gift" value="TONGUES" ng-model="usness.gifts.tongues">
                             </label>
                             <strong>TONGUES</strong><br>
                             Speaking In Another Language
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="INTERCESSION">
+                            <input type="checkbox" name="gift" value="INTERCESSION" ng-model="usness.gifts.intercession">
                             </label>
                             <strong>INTERCESSION</strong><br>
                             Loves To Pray
                         </li>
                         <li class="item item-checkbox">
                             <label class="checkbox">
-                            <input type="checkbox" name="gift" value="SERVICE">
+                            <input type="checkbox" name="gift" value="SERVICE" ng-model="usness.gifts.service">
                             </label>
                             <strong>SERVICE</strong><br>
                             Identifies Need And Completes Tasks
@@ -130,19 +130,19 @@
                         <div class="list list-inset">
                           <label class="item item-input">
                             1 &nbsp;
-						  <input name="gift" type="text" />				
+						  <input name="gift" type="text" value="variable1" ng-model="usness.gifts.variable1" />				
                           </label>
                         </div>
                          <div class="list list-inset">
                           <label class="item item-input">
                             2 &nbsp;
-						  <input name="gift" type="text" />				
+						  <input name="gift" type="text" value="variable2" ng-model="usness.gifts.variable2" />				
                           </label>
                         </div>
                          <div class="list list-inset">
                           <label class="item item-input">
                             3 &nbsp;
-						  <input name="gift" type="text" />				
+						  <input name="gift" type="text" value="variable3" ng-model="usness.gifts.variable3" />				
                           </label>
                         </div>
                     <input type="submit" value="Save and Continue" class="button button-block button-positive" />

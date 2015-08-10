@@ -115,11 +115,11 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		}
 	})
     
-    .state('menu.tabs.usness_further', {
-		url: "/usness-further",
+    .state('menu.tabs.usness_activities_further', {
+		url: "/usness-activities-further",
 		views: {
 			'tab-home': {
-				templateUrl: "templates/usness_further.html",
+				templateUrl: "templates/usness_activities_further.html",
 			}
 		}
 	})
@@ -179,11 +179,11 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		}
 	})
     
-    .state('menu.tabs.cycles_copes', {
-		url: "/cycles-copes",
+    .state('menu.tabs.cycles_pain_copes', {
+		url: "/cycles-pain-copes",
 		views: {
 			'tab-cycles': {
-				templateUrl: "templates/cycles_copes.html",
+				templateUrl: "templates/cycles_pain_copes.html",
 			}
 		}
 	})
@@ -205,12 +205,39 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
+    
+    .state('menu.tabs.cycles_peace_response', {
+		url: "/cycles-peace-response",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/cycles_peace_response.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.cycles_results', {
+		url: "/cycles-results",
+		views: {
+			'tab-cycles': {
+				templateUrl: "templates/cycles_results.html",
+			}
+		}
+	})
 	
 	.state('menu.tabs.4steps', {
 		url: "/4steps",
 		views: {
 			'tab-4steps': {
 				templateUrl: "templates/4steps.html",
+			}
+		}
+	})
+    
+    .state('menu.tabs.4steps_setup', {
+		url: "/4steps-setup",
+		views: {
+			'tab-4steps': {
+				templateUrl: "templates/4steps_setup.html",
 			}
 		}
 	})
@@ -223,12 +250,49 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+    
+	.state('menu.tabs.quizzes_usness', {
+		url: "/quizzes-usness",
+		views: {
+			'tab-quizzes': {
+				templateUrl: "templates/quizzes_usness.html",
+			}
+		}
+	})
+    
+	.state('menu.tabs.quizzes_usness_results', {
+		url: "/quizzes-usness-results",
+		views: {
+			'tab-quizzes': {
+				templateUrl: "templates/quizzes_usness_results.html",
+			}
+		}
+	})
+
+    
 	.state('menu.tabs.decisions', {
 		url: "/decisions",
 		views: {
 			'tab-decisions': {
 				templateUrl: "templates/decisions.html",
+			}
+		}
+	})
+    
+	.state('menu.tabs.decisions_create', {
+		url: "/decisions-create",
+		views: {
+			'tab-decisions': {
+				templateUrl: "templates/decisions_create.html",
+			}
+		}
+	})
+    
+	.state('menu.tabs.decisions_revisit', {
+		url: "/decisions-revisit",
+		views: {
+			'tab-decisions': {
+				templateUrl: "templates/decisions_revisit.html",
 			}
 		}
 	})

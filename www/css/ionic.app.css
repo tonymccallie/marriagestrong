@@ -7783,10 +7783,10 @@ a.button {
   background: #fff; }
 
 .menu-left {
-  font-family: "LatoBold"; }
+  font-family: "HelveticaNeue"; }
   .menu-left .title {
     text-align: left;
-    font-family: "LatoBold"; }
+    font-family: "HelveticaNeue"; }
     .menu-left .title .threeleaf {
       -moz-transform: rotate(180deg);
       -o-transform: rotate(180deg);
@@ -7822,7 +7822,10 @@ h2 {
   padding: 6px 0px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  line-height: 20px; }
+  h2 img {
+    vertical-align: sub; }
 
 h3 {
   padding-left: 14px;
@@ -7856,9 +7859,9 @@ hr {
   .padding a {
     color: #8f2b21;
     text-decoration: none;
-    font-family: "LatoBold"; }
+    font-family: "HelveticaNeue"; }
   .padding .button {
-    font-family: "LatoLight";
+    font-family: "HelveticaNeue";
     color: #fff; }
 
 .scaleVid {
@@ -7952,7 +7955,8 @@ hr {
 .button {
   border-radius: 50px;
   text-transform: uppercase;
-  border-width: 0; }
+  border-width: 0;
+  padding: 5px 10px; }
 
 .item-icon-right {
   color: #808184; }
@@ -7982,17 +7986,22 @@ input[type="radio"] {
   font-size: 16px; }
 
 .circle-number {
-  font-size: 26px;
+  font-size: 36px;
   width: 60px;
   height: 60px;
   border: 1px #808184 solid;
   border-radius: 30px;
   display: inline-block;
   text-align: center;
-  line-height: 55px; }
+  line-height: 62px;
+  margin-right: 10px; }
 
 .gifts-list li {
   font-size: 24px; }
+
+.step-list li {
+  font-size: 28px;
+  text-align: center; }
 
 .paragraph-list {
   font-size: 13px;
@@ -8000,20 +8009,31 @@ input[type="radio"] {
   padding: 10px 15px;
   border-bottom: 1px #d0d2d3 solid; }
 
-.cycles li {
-  width: 50%;
+.cycles-pain li, .cycles-peace li {
+  width: 54%;
   float: left;
   display: inline;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 12px;
+  letter-spacing: 0px;
+  margin-left: -4%; }
+.cycles-pain .checkbox, .cycles-peace .checkbox {
+  padding: 6px 0px; }
+.cycles-pain .item-checkbox, .cycles-peace .item-checkbox {
+  padding-left: 44px; }
+.cycles-pain #measure, .cycles-peace #measure {
+  width: 100%; }
+
+.cyclesCopes li {
+  text-transform: uppercase;
+  font-size: 16px;
   letter-spacing: 0px; }
-.cycles .checkbox {
-  padding: 12px 0px; }
-.cycles .checkbox input {
-  height: 18px;
-  width: 18px; }
-.cycles .item-checkbox {
-  padding-left: 34px; }
+.cyclesCopes .checkbox {
+  padding: 6px 0px; }
+.cyclesCopes .item-checkbox {
+  padding-left: 44px; }
+.cyclesCopes #measure {
+  width: 100%; }
 
 .tip-text {
   display: block;
@@ -8026,3 +8046,196 @@ input[type="radio"] {
   height: 300px;
   display: block;
   border-radius: 150px; }
+
+.small-button-text {
+  font-size: 10px;
+  line-height: 10px; }
+
+.two-line-button {
+  line-height: 16px; }
+
+li.item {
+  white-space: normal; }
+
+.item-stacked-label {
+  font-size: 12px;
+  color: #808184; }
+
+.decisions .grey_bg {
+  font-size: 20px;
+  padding-top: 7px;
+  border-top: 1px solid #808184; }
+
+.green-check.checkbox input:before {
+  border-radius: 0px;
+  background-color: #7db584;
+  border-radius: 30px; }
+
+.yellow-check.checkbox input:before {
+  border-radius: 0px;
+  background-color: #f7b568;
+  border-radius: 30px; }
+
+.red-check.checkbox input:before {
+  border-radius: 0px;
+  background-color: #ed7479;
+  border-radius: 30px; }
+
+.quiz-left-text {
+  text-align: right;
+  font-size: 10px;
+  float: right; }
+
+.quizzesUnessForm input[type="radio"] {
+  font-size: 24px; }
+.quizzesUnessForm label {
+  line-height: 30px; }
+.quizzesUnessForm h3 {
+  text-align: center;
+  font-size: 22px;
+  line-height: 20px; }
+
+.red-circle {
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  border: 0px #808184 solid;
+  border-radius: 30px;
+  display: inline-block;
+  text-align: center;
+  line-height: 62px;
+  margin-right: 10px;
+  text-indent: -3000px;
+  background: #ed7479;
+  vertical-align: middle; }
+
+.green-circle {
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  border: 0px #808184 solid;
+  border-radius: 30px;
+  display: inline-block;
+  text-align: center;
+  line-height: 62px;
+  margin-right: 10px;
+  text-indent: -3000px;
+  background: #7db584; }
+
+.orange-circle {
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  border: 0px #808184 solid;
+  border-radius: 30px;
+  display: inline-block;
+  text-align: center;
+  line-height: 62px;
+  margin-right: 10px;
+  text-indent: -3000px;
+  background: #f7b568; }
+
+.yellow-circle {
+  font-size: 36px;
+  width: 60px;
+  height: 60px;
+  border: 0px #808184 solid;
+  border-radius: 30px;
+  display: inline-block;
+  text-align: center;
+  line-height: 62px;
+  margin-right: 10px;
+  text-indent: -3000px;
+  background: #fae76b; }
+
+.circle-selceted {
+  border: 5px #808184 solid; }
+
+.quizzes-results-list li {
+  font-size: 12px; }
+
+.quizzes-circle-container {
+  float: left;
+  width: 25%; }
+
+.quizzes-circle-text {
+  float: left;
+  width: 75%; }
+
+.cycles {
+  display: block;
+  position: absolute;
+  padding-top: 120;
+  width: 100%; }
+
+.cycles-results {
+  display: block;
+  position: absolute;
+  margin: 24% 10% 5%; }
+  .cycles-results h5 {
+    text-transform: uppercase;
+    line-height: 12px;
+    margin-bottom: 0px;
+    color: #8f2b21; }
+  .cycles-results img {
+    padding: 28%; }
+
+.circle-cycle {
+  display: block;
+  position: absolute;
+  top: 30px; }
+
+.top-left {
+  width: 25%;
+  float: left;
+  text-align: center;
+  vertical-align: middle; }
+
+.top-middle {
+  width: 50%;
+  float: left;
+  text-align: center;
+  vertical-align: middle; }
+
+.top-right {
+  width: 25%;
+  float: left;
+  text-align: center; }
+  .top-right img {
+    text-align: left; }
+
+.middle-left {
+  width: 50%;
+  float: left;
+  text-align: center;
+  vertical-align: middle; }
+
+.middle-middle {
+  width: 0%;
+  float: left;
+  text-align: center;
+  vertical-align: middle; }
+
+.middle-right {
+  width: 50%;
+  float: left;
+  text-align: center;
+  vertical-align: middle; }
+
+.bottom-left {
+  width: 25%;
+  float: left;
+  text-align: center;
+  vertical-align: middle; }
+
+.bottom-middle {
+  width: 50%;
+  float: left;
+  text-align: center;
+  vertical-align: middle; }
+
+.bottom-right {
+  width: 25%;
+  float: left;
+  text-align: center;
+  vertical-align: middle; }

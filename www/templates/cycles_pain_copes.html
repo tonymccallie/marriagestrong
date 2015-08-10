@@ -1,0 +1,231 @@
+<ion-view view-title="Cycles">
+<ion-nav-title>
+    <img src="img/logo.png" class="title-image" />
+</ion-nav-title>
+	<ion-content>
+        <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Pain Cycle</h2>
+        <div class="paragraph-list">When I feel this way, I react by (choose up to three): </div>
+        <div class="padding">
+            <form name="cyclesPainCopesForm" novalidate="" ng-submit="cycles(cyclesPainCopesForm)">
+             <ul class="cyclesCopes list">
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Blame Others" value="Blame Others" ng-model="cycles.copes.BlameOthers">                         
+                        </label>  
+                        Blame Others
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Depressed" value="Depressed" ng-model="cycles.copes.Depressed">                         
+                        </label>                         
+                        Depressed
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Controlling" value="Controlling" ng-model="cycles.copes.Controlling">                         
+                        </label>                         
+                        Controlling
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Addicted" value="Addicted" ng-model="cycles.copes.Addicted">                         
+                        </label>                         
+                        Addicted
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Angry" value="Angry" ng-model="cycles.copes.Angry">                         
+                        </label>                         
+                        Angry
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Negative" value="Negative" ng-model="cycles.copes.Negative">                         
+                        </label>                         
+                        Negative
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Perfectionistic" value="Perfectionistic" ng-model="cycles.copes.Perfectionistic">                          
+                        </label>                        
+                        Perfectionistic
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Numbs Out" value="Numbs Out" ng-model="cycles.copes.NumbsOut">                         
+                        </label>                         
+                        Numbs Out
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Sarcastic" value="Sarcastic" ng-model="cycles.copes.Sarcastic">                         
+                        </label>                         
+                        Sarcastic
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Isolate" value="Isolate" ng-model="cycles.copes.Isolate">                         
+                        </label>                         
+                        Isolate
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Performing" value="Performing" ng-model="cycles.copes.Performing">                         
+                        </label>                         
+                        Performing
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Irresponsible" value="Irresponsible" ng-model="cycles.copes.Irresponsible">                         
+                        </label>                         
+                        Irresponsible
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Arrogant" value="Arrogant" ng-model="cycles.copes.Arrogant">                         
+                        </label>                         
+                        Arrogant
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Inconsolable" value="Inconsolable" ng-model="cycles.copes.Inconsolable">                         
+                        </label>                         
+                        Inconsolable
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Intellectualizing" value="Intellectualizing" ng-model="cycles.copes.Intellectualizing">                         
+                        </label>                         
+                        Intellectualizing
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Impulsive" value="Impulsive" ng-model="cycles.copes.Impulsive">                         
+                        </label>                         
+                        Impulsive
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Threatening" value="Threatening" ng-model="cycles.copes.Threatening">                         
+                        </label>                         
+                        Threatening
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Catastrophizing" value="Catastrophizing" ng-model="cycles.copes.Catastrophizing">                         
+                        </label>                         
+                        Catastrophizing
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Demanding" value="Demanding" ng-model="cycles.copes.Demanding">                         
+                        </label>                        
+                        Demanding
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Out Of Control" value="Out Of Control" ng-model="cycles.copes.OutOfControl">                         
+                        </label>                         
+                        Out Of Control
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Retaliatory" value="Retaliatory" ng-model="cycles.copes.Retaliatory">                         
+                        </label>                         
+                        Retaliatory
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Whine/Needy" value="Whine/Needy" ng-model="cycles.copes.WhineNeedy">                         
+                        </label>                         
+                        Whine/Needy
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Critical" value="Critical" ng-model="cycles.copes.Critical">                         
+                        </label>                         
+                        Critical
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Selfish" value="Selfish" ng-model="cycles.copes.Selfish">                         
+                        </label>                         
+                        Selfish
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Withdraw To Punish" value="Withdraw To Punish" ng-model="cycles.copes.WithdrawToPunish">                         
+                        </label>                        
+                        Withdraw To Punish
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Manipulates" value="Manipulates" ng-model="cycles.copes.Manipulates">                         
+                        </label>                         
+                        Manipulates
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Withdraw To Defend" value="Withdraw To Defend" ng-model="cycles.copes.WithdrawToDefend">                         
+                        </label>                         
+                        Withdraw To Defend
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Unreliable"  value="Unreliable" ng-model="cycles.copes.Unreliable">                         
+                        </label>                         
+                        Unreliable
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Withdraw To Pout" value="Withdraw To Pout" ng-model="cycles.copes.WithdrawToPout">                         
+                        </label>                         
+                        Withdraw To Pout
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Withdraw To Avoid" value="Withdraw To Avoid" ng-model="cycles.copes.WithdrawToAvoid">                         
+                        </label>                         
+                        Withdraw To Avoid
+                    
+                </li>
+            </ul>
+            <div class="tip-text">
+                <p>REFLECT A SEC:</p>
+                <p>Where did you learn how to cope like this? Did someone model this behavior for you or did you have to employ this coping to survive? For instance, if you grew up in a house of anger, you might have withdrawn to cope. Again, typically this coping existed before you married.</p>
+                <br>
+            </div>
+            <input type="submit" value="View Your Pain Cycle" class="button button-block button-positive" />
+            <button href="#" class="button button-block button-calm">Discover Your Peace Cycle</button>
+            </form>
+        </div>
+	</ion-content>
+</ion-view>
