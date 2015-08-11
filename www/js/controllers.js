@@ -207,9 +207,9 @@ angular.module('greyback.controllers', [])
             quality: 50,
             destinationType: Camera.DestinationType.FILE_URI,
 			correctOrientation: true,
-//			allowEdit: true,
-//			targetWidth: 800,
-//			targetHeight: 450,
+			allowEdit: true,
+			targetWidth: 600,
+			targetHeight: 600,
             sourceType: type,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
             encodingType: 0     // 0=JPG 1=PNG
         }
@@ -218,18 +218,18 @@ angular.module('greyback.controllers', [])
 	
 	var picSuccess = function(FILE_URI) {
 		console.log(FILE_URI);
-		//$scope.picData = FILE_URI;
-		$jrCrop.crop({
-			url: FILE_URI,
-			width: 800,
-			height: 450
-		}).then(function(canvas) {
-			console.log(canvas);
-			$scope.picData = canvas.toDataURL();
-			console.log($scope.picData);
-		}, function(data) {
-			console.log(['error',data]);
-		})
+		$scope.picData = FILE_URI;
+//		$jrCrop.crop({
+//			url: FILE_URI,
+//			width: 800,
+//			height: 450
+//		}).then(function(canvas) {
+//			console.log(canvas);
+//			$scope.picData = canvas.toDataURL();
+//			console.log($scope.picData);
+//		}, function(data) {
+//			console.log(['error',data]);
+//		})
 	}
 	
 	var picFail = function() {
