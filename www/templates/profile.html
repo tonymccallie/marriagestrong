@@ -9,6 +9,7 @@
 		</a>
 		<img ng-if="user.picData" img-cache ic-src="{{user.picData}}" width="100%">
 		<div class="padding">
+			<a ui-sref="menu.tabs.photo" class="button button-block button-calm">Change Photo</a>
 			<form name="profileForm" novalidate="" ng-submit="profile(profileForm)">
 				<a ui-sref="menu.tabs.photo">TEST</a>
 				<div class="list list-inset">
