@@ -356,6 +356,17 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-static': {
 				templateUrl: "templates/profile.html",
+				controller: "UserController"
+			}
+		}
+	})
+	
+	.state('menu.tabs.link', {
+		url: "/link",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/link.html",
+				controller: "UserController"
 			}
 		}
 	})

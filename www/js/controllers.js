@@ -1,12 +1,12 @@
 angular.module('greyback.controllers', [])
 
-.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $state, $ionicSideMenuDelegate, UserService) {
+.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $state, $ionicSideMenuDelegate, UserService, user) {
 	console.log('AppController');
 	//app wide variables
 	$scope.DOMAIN = DOMAIN;
 	$scope.imageDir = DOMAIN + '/img/thumb/';
 	$scope.logs = [];
-	$scope.user = {};
+	$scope.user = user;
 	$scope.log = function (obj) {
 		$scope.logs.push(moment().format('h:mm:ss') + ': ' + obj);
 	}
@@ -113,7 +113,8 @@ angular.module('greyback.controllers', [])
 	console.log('ForgotController');
 })
 
-.controller('HomeController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB) {
+.controller('HomeController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
+	console.log(user);
 	console.log('HomeController');
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
@@ -190,4 +191,8 @@ angular.module('greyback.controllers', [])
 		//console.log("View loaded! Triggering PTR");
 		//PtrService.triggerPtr('home_pull');
 	});
+})
+
+.controller('UserController', function($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
+	$scope.link_code = "";
 })

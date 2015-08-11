@@ -7918,7 +7918,11 @@ hr {
 
 .tab-item .threeleaf {
   font-size: 40px;
-  line-height: 38px; }
+  line-height: 38px;
+  font-family: "HelveticaNeue"; }
+
+.tab-title {
+  font-family: "HelveticaNeue"; }
 
 .threeleaf-usness {
   content: url(../img/icon_usness.png); }

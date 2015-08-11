@@ -20,7 +20,7 @@ $positive: #8f2b21;
 $calm: #808184;
 $lightGrey: #d0d2d3;
 
-$font-default: "LatoBold";
+//$font-default: "LatoBold";
 $font-default: "HelveticaNeue";
 
 
@@ -237,7 +237,11 @@ input[placeholder] {
 .tab-item .threeleaf {
 	font-size: 40px;
 	line-height: 38px;
-	
+	font-family: $font-default;
+}
+
+.tab-title {
+	font-family: $font-default;
 }
 
 .threeleaf-usness {content: url(../img/icon_usness.png);}

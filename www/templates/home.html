@@ -5,9 +5,76 @@
 	<ion-content delegate-handle="home_pull">
 		<ion-refresher pulling-text="Pull to refresh..." on-refresh="update()"></ion-refresher>
 		<div class="padding">
-			<h1>US-ness</h1>
-			<a ui-sref="login" class="button button-positive">Login Page</a>
-			<h3>Sample Form</h3>
+			<h2>US-ness</h2>
+			<div class="row">
+				<div class="col">
+					<a ui-sref="menu.tabs.usness">USNess</a>
+				</div>
+				<div class="col">
+					<a ui-sref="menu.tabs.usness_activities">Activities</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a ui-sref="menu.tabs.usness_activities_further">Activities Further</a>
+				</div>
+				<div class="col">
+					<a ui-sref="menu.tabs.usness_gifts">Gifts</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a ui-sref="menu.tabs.usness_gifts_results">Gifts Results</a>
+				</div>
+				<div class="col">
+					<a ui-sref="menu.tabs.usness_personality">Personality</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a ui-sref="menu.tabs.usness_personlity_results">Personality Results</a>
+				</div>
+			</div>
+			<h2>Cycles</h2>
+			<div class="row">
+				<div class="col">
+					<a ui-sref="menu.tabs.cycles">Cycles</a>
+				</div>
+				<div class="col">
+					<a ui-sref="menu.tabs.cycles_pain_copes">Pain Copes</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a ui-sref="menu.tabs.cycles_pain_results">Pain Results</a>
+				</div>
+				<div class="col">
+					<a ui-sref="menu.tabs.cycles_pain">Pain</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a ui-sref="menu.tabs.cycles_peace_response">Peace Response</a>
+				</div>
+				<div class="col">
+					<a ui-sref="menu.tabs.cycles_peace">Peace</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<a ui-sref="menu.tabs.cycles_results">Results</a>
+				</div>
+			</div>
+			<h2>4 Steps</h2>
+			<div class="row">
+				<div class="col">
+					<a ui-sref="menu.tabs.4steps">4 Steps</a>
+				</div>
+				<div class="col">
+					<a ui-sref="menu.tabs.4steps_setup">Setup</a>
+				</div>
+			</div>
+			
 			<form name="simpleForm" novalidate="" ng-submit="signup(simpleForm)">
 				<div class="list list-inset">
 					<div class="item item-input" ng-class="{ 'has-errors' : simpleForm.first_name.$invalid && simpleForm.$submitted, 'no-errors' : simpleForm.first_name.$valid  && simpleForm.$submitted}">

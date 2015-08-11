@@ -6,3 +6,12 @@ git pull
 ionic serve
 
 option-command-J
+
+
+Questions:
+	Menu side
+	back button
+	Order for wizard
+	Home page
+	Can't find task items
+	

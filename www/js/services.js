@@ -3,6 +3,13 @@ angular.module('greyback.services', [])
 .service('UserService', function ($q, $http, $location, $localStorage, $state) {
 	var self = this;
 	self.user = null;
+	
+	var steps = [
+		{
+			title: "US-ness",
+			url: "menu.tabs.usness"
+		},
+	];
 
 	self.local = function ($category) {
 		console.log('UserService.local');
@@ -18,8 +25,8 @@ angular.module('greyback.services', [])
 		self.local().then(function (storedUser) {
 			if (typeof storedUser.id === 'undefined') {
 				console.log('UserService: need to login');
-				//REMOVE FOR DEV
-				//$state.go('login');
+				//HIDE FOR DEV
+				$state.go('login');
 				self.user = {
 					'id': 'test'
 				};
