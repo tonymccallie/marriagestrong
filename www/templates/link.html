@@ -11,7 +11,7 @@
 					<p>For both you and your spouse to get the most of this app, you will need to link your accounts so that you can sync each other's information. Both of you do not need to do this, just one of you will activate the link.</p>
 					<h5>Your Code</h5>
 					<h2>{{user.link_code}}</h2>
-					<button onclick="window.plugins.socialsharing.share('{{user.link_code}}')" class="button button-block button-calm">Share My Code</button>
+					<button ng-click="window.plugins.socialsharing.share('{{user.link_code}}')" class="button button-block button-calm">Share My Code</button>
 				</div>
                 <div class="list list-inset">
 					<div class="item item-input">
