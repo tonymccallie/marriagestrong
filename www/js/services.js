@@ -146,11 +146,11 @@ angular.module('greyback.services', [])
 		params.user_id = self.user.id;
         options.params = params;
         var ft = new FileTransfer();
-        ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function(success, status) {
-			console.log(['success',status]);
-			
-			//self.user.picData = 
-			deferred.resolve(self.user);
+        ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function(success) {
+			self.user.picData = DOMAIN + success.response;
+			self.save(self.user).then(function(user) {
+				deferred.resolve(self.user);
+			})
 		}, function(error) {
 			console.log(['error',error]);
 		}, options);
