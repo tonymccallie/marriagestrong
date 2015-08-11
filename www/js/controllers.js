@@ -188,7 +188,7 @@ angular.module('greyback.controllers', [])
 	});
 })
 
-.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
+.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, $jrCrop, ImgCache, PtrService, ngFB, user) {
 	$scope.link_code = "";
 	$scope.user = user;
 	$scope.picData = "";
@@ -206,10 +206,10 @@ angular.module('greyback.controllers', [])
 		var options =   {
             quality: 50,
             destinationType: Camera.DestinationType.FILE_URI,
-			allowEdit: true,
 			correctOrientation: true,
-			targetWidth: 800,
-			targetHeight: 450,
+//			allowEdit: true,
+//			targetWidth: 800,
+//			targetHeight: 450,
             sourceType: type,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
             encodingType: 0     // 0=JPG 1=PNG
         }
@@ -219,6 +219,17 @@ angular.module('greyback.controllers', [])
 	var picSuccess = function(FILE_URI) {
 		console.log(FILE_URI);
 		$scope.picData = FILE_URI;
+//		$jrCrop.crop({
+//			url: FILE_URI,
+//			width: 800,
+//			height: 450
+//		}).then(function(canvas) {
+//			console.log(canvas);
+//			$scope.picData = canvas.toDataURL();
+//			console.log($scope.picData);
+//		}, function(data) {
+//			console.log(['error',data]);
+//		})
 	}
 	
 	var picFail = function() {
