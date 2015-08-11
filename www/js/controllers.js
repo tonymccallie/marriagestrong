@@ -191,6 +191,7 @@ angular.module('greyback.controllers', [])
 .controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
 	$scope.link_code = "";
 	$scope.user = user;
+	$scope.picData = "";
 
 	$scope.share = function (code) {
 		console.log(code);
@@ -205,7 +206,7 @@ angular.module('greyback.controllers', [])
 		var options =   {
             quality: 50,
             destinationType: Camera.DestinationType.FILE_URI,
-			allowEdit: true,
+			//allowEdit: true,
 			correctOrientation: true,
 			targetWidth: 1170,
 			targetHeight: 640,
