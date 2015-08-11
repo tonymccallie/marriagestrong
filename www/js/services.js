@@ -134,6 +134,14 @@ angular.module('greyback.services', [])
 		$localStorage.remove('User');
 		$state.go('login');
 	}
+	
+	self.save = function(user) {
+		var deferred = $q.defer();
+		self.user = user;
+		$localStorage.setObject('User', self.user);
+		deferred.resolve(self.user);
+		return deferred.promise;
+	}
 })
 
 .service('PtrService', function ($timeout, $ionicScrollDelegate) {

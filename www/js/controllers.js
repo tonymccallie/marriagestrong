@@ -188,10 +188,9 @@ angular.module('greyback.controllers', [])
 	});
 })
 
-.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, $jrCrop, ImgCache, PtrService, ngFB, user) {
+.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, $jrCrop, $state, ImgCache, PtrService, ngFB, user, UserService) {
 	$scope.link_code = "";
 	$scope.user = user;
-	$scope.picData = "";
 
 	$scope.share = function (code) {
 		console.log(code);
@@ -218,7 +217,12 @@ angular.module('greyback.controllers', [])
 	
 	var picSuccess = function(FILE_URI) {
 		console.log(FILE_URI);
-		$scope.picData = FILE_URI;
+		$scope.user.picData = FILE_URI;
+		UserService.save($scope.user).then(function(user) {
+			$scope.user = user;
+			$state.go('menu.tabs.profile');
+		});
+		
 //		$jrCrop.crop({
 //			url: FILE_URI,
 //			width: 800,
