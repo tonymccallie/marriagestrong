@@ -4,9 +4,10 @@
 </ion-nav-title>
 	<ion-content>
         <h2><i class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></i>&nbsp;Your Couple’s Profile</h2>
-        <img src="img/upload-photo.jpg" alt="Usness" width="100%">
+		<a ui-sref="menu.tabs.photo"><img src="img/upload-photo.jpg" alt="Usness" width="100%"></a>
         <div class="padding">
             <form name="profileForm" novalidate="" ng-submit="profile(profileForm)">
+            	<a ui-sref="menu.tabs.photo">TEST</a>
 				<div class="list list-inset">
 					<h5>Name</h5>
 					{{user.first_name}} {{user.last_name}}

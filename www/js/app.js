@@ -371,6 +371,16 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		}
 	})
 	
+	.state('menu.tabs.photo', {
+		url: "/photo",
+		views: {
+			'tab-static': {
+				templateUrl: "templates/photo.html",
+				controller: "UserController"
+			}
+		}
+	})
+	
 	.state('menu.tabs.notifications', {
 		url: "/notifications",
 		views: {

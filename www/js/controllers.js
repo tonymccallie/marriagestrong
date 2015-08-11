@@ -114,7 +114,6 @@ angular.module('greyback.controllers', [])
 })
 
 .controller('HomeController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
-	console.log(user);
 	console.log('HomeController');
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
@@ -168,23 +167,19 @@ angular.module('greyback.controllers', [])
 
 	$scope.update = function () {
 		console.log('HomeController.update');
-		var headersPromise = NewsService.update('headers');
-		var newsPromise = NewsService.update('articles');
-
-		//		newsPromise.then(function(data) {
-		//			$scope.articles = data;
-		//			$scope.$broadcast('scroll.refreshComplete');
-		//		});
-
-		$q.all([headersPromise, newsPromise]).then(function (data) {
-			console.log(data);
-			$scope.headers = data[0];
-			$scope.articles = data[1];
-			$scope.$broadcast('scroll.refreshComplete');
-			setTimeout(function () {
-				$ionicSlideBoxDelegate.update();
-			}, 0);
-		});
+//		var headersPromise = NewsService.update('headers');
+//		var newsPromise = NewsService.update('articles');
+//
+//
+//		$q.all([headersPromise, newsPromise]).then(function (data) {
+//			console.log(data);
+//			$scope.headers = data[0];
+//			$scope.articles = data[1];
+//			$scope.$broadcast('scroll.refreshComplete');
+//			setTimeout(function () {
+//				$ionicSlideBoxDelegate.update();
+//			}, 0);
+//		});
 	}
 
 	$scope.$on("$ionicView.loaded", function () {
@@ -195,6 +190,7 @@ angular.module('greyback.controllers', [])
 
 .controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
 	$scope.link_code = "";
+	$scope.user = user;
 
 	$scope.share = function (code) {
 		console.log(code);
@@ -203,5 +199,27 @@ angular.module('greyback.controllers', [])
 		}, function (msg) {
 			console.log(['err', msg]);
 		});
+	}
+	
+	$scope.getPic = function(type) {
+		var options =   {
+            quality: 50,
+            destinationType: Camera.DestinationType.FILE_URI,
+			allowEdit: true,
+			correctOrientation: true,
+			targetWidth: 1170,
+			targetHeight: 640,
+            sourceType: type,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
+            encodingType: 0     // 0=JPG 1=PNG
+        }
+        navigator.camera.getPicture(picSuccess,picFail,options);
+	}
+	
+	var picSuccess = function(FILE_URI) {
+		console.log(FILE_URI);
+	}
+	
+	var picFail = function() {
+		
 	}
 })
