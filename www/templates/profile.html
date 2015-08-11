@@ -3,7 +3,8 @@
 		<img src="img/logo.png" class="title-image" />
 	</ion-nav-title>
 	<ion-content>
-		<h2><i class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></i>&nbsp;Your Couple’s Profile</h2>
+		<h2>
+			<i class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></i>&nbsp;Your Couple’s Profile</h2>
 		<a ng-if="!user.picData" ui-sref="menu.tabs.photo">
 			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
 		</a>
@@ -16,12 +17,7 @@
 					<h5>Name</h5>{{user.first_name}} {{user.last_name}}</div>
 				<div class="list list-inset">
 					<h5>Spouse's Name</h5>
-					<button ng-if="!user.spouse.id" ui-sref="menu.tabs.link" class="button button-block button-calm">Link to Spouse’s Account</button>{{user.spouse.first_name}} {{user.spouse.last_name}}</div>
-				<div class="list list-inset">
-					<div class="item item-input">
-						<input name="husbands_first_name" ng-model="User.husbands_first_name" type="text" placeholder="HUSBAND'S FIRST NAME" required />
-					</div>
-					<div class="form-errors" ng-show="profileForm.husbands_first_name.$error && profileForm.$submitted" ng-messages="profileForm.husbands_first_name.$error" ng-messages-include="templates/errors.html"></div>
+					<button ng-if="!user.spouse.id" ui-sref="menu.tabs.link" class="button button-block button-calm">Link to Spouse’s Account</button>{{user.spouse.first_name}} {{user.spouse.last_name}}
 				</div>
 				<!--Needs Validation-->
 				<div class="list list-inset">
