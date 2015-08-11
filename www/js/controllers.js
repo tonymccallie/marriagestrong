@@ -52,7 +52,7 @@ angular.module('greyback.controllers', [])
 	$scope.loginUser = {};
 
 	$scope.login = function (form) {
-		console.log(['LoginController.login',$scope.loginUser]);
+		console.log(['LoginController.login', $scope.loginUser]);
 		if (form.$valid) {
 			UserService.loginUser($scope.loginUser).then(function (data) {
 
@@ -100,7 +100,7 @@ angular.module('greyback.controllers', [])
 	$scope.signupUser = {};
 
 	$scope.signup = function (form) {
-		console.log(['SignupController.signup',$scope.signupUser]);
+		console.log(['SignupController.signup', $scope.signupUser]);
 		if (form.$valid) {
 			UserService.createUser($scope.signupUser).then(function (data) {
 
@@ -126,17 +126,17 @@ angular.module('greyback.controllers', [])
 	// Form data for the login modal
 	$scope.loginData = {};
 
-    //FACEBOOK API REFERENCE
-//	ngFB.api({
-//		path: '/me',
-//		params: {
-//			fields: 'id,name'
-//		}
-//	}).then(function (user) {
-//		$scope.user = user;
-//	}, function (error) {
-//		alert('Facebook error: ' + error.error_description);
-//	});
+	//FACEBOOK API REFERENCE
+	//	ngFB.api({
+	//		path: '/me',
+	//		params: {
+	//			fields: 'id,name'
+	//		}
+	//	}).then(function (user) {
+	//		$scope.user = user;
+	//	}, function (error) {
+	//		alert('Facebook error: ' + error.error_description);
+	//	});
 
 	// Create the login modal that we will use later
 	$ionicModal.fromTemplateUrl('templates/login.html', {
@@ -193,11 +193,15 @@ angular.module('greyback.controllers', [])
 	});
 })
 
-.controller('UserController', function($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
+.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
 	$scope.link_code = "";
-	
-	$scope.share = function(code) {
+
+	$scope.share = function (code) {
 		console.log(code);
-		window.plugins.socialsharing.share(code);
+		window.plugins.socialsharing.shareViaSMS('My MarriageStrong code: ' + code, null, function (msg) {
+			console.log(['ok', msg]);
+		}, function (msg) {
+			console.log(['err', msg]);
+		});
 	}
 })
