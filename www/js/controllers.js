@@ -218,6 +218,7 @@ angular.module('greyback.controllers', [])
 	
 	var picSuccess = function(FILE_URI) {
 		console.log(FILE_URI);
+		$scope.picData = FILE_URI;
 	}
 	
 	var picFail = function() {
