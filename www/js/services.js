@@ -136,6 +136,8 @@ angular.module('greyback.services', [])
 	}
 	
 	self.picUpload = function(FILE_URI) {
+		console.log('UserService: picUpload');
+		var deferred = $q.defer();
 		var myImg = FILE_URI;
         var options = new FileUploadOptions();
         options.fileKey="post";
@@ -145,12 +147,16 @@ angular.module('greyback.services', [])
         var ft = new FileTransfer();
         ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function(success) {
 			console.log(['success',success]);
+			//self.user.picData = 
+			deferred.resolve(self.user);
 		}, function(error) {
 			console.log(['error',error]);
 		}, options);
+		return deferred.promise;
 	}
 	
 	self.save = function(user) {
+		console.log('UserService: save');
 		var deferred = $q.defer();
 		self.user = user;
 		$localStorage.setObject('User', self.user);
