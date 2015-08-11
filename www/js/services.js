@@ -143,6 +143,7 @@ angular.module('greyback.services', [])
         options.fileKey="post";
         options.chunkedMode = false;
         var params = {};
+		params.user_id = self.user.id;
         options.params = params;
         var ft = new FileTransfer();
         ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function(success) {
