@@ -218,18 +218,18 @@ angular.module('greyback.controllers', [])
 	
 	var picSuccess = function(FILE_URI) {
 		console.log(FILE_URI);
-		$scope.picData = FILE_URI;
-//		$jrCrop.crop({
-//			url: FILE_URI,
-//			width: 800,
-//			height: 450
-//		}).then(function(canvas) {
-//			console.log(canvas);
-//			$scope.picData = canvas.toDataURL();
-//			console.log($scope.picData);
-//		}, function(data) {
-//			console.log(['error',data]);
-//		})
+		//$scope.picData = FILE_URI;
+		$jrCrop.crop({
+			url: FILE_URI,
+			width: 800,
+			height: 450
+		}).then(function(canvas) {
+			console.log(canvas);
+			$scope.picData = canvas.toDataURL();
+			console.log($scope.picData);
+		}, function(data) {
+			console.log(['error',data]);
+		})
 	}
 	
 	var picFail = function() {
