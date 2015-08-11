@@ -1,4 +1,4 @@
-var DOMAIN = 'http://www.marriagestrong.org'
+var DOMAIN = 'http://marriagestrong.server1.greyback.net/'
 //DEVELOPMENT
 var devtest = /localhost/.test(window.location.hostname);
 if (devtest) {
@@ -12,7 +12,7 @@ if (devtest) {
 }
 
 //TEMP
-var DOMAIN = 'http://office.threeleaf.net:8080/marriagestrong_server';
+//var DOMAIN = 'http://office.threeleaf.net:8080/marriagestrong_server';
 
 var onclickFix = function (html) {
 	html = html.replace(/href=\"\//ig, 'href="http://www.marriagestrong.org/');
