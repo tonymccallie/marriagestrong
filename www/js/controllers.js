@@ -216,9 +216,7 @@ angular.module('greyback.controllers', [])
 	}
 	
 	var picSuccess = function(FILE_URI) {
-		console.log(FILE_URI);
-		$scope.user.picData = FILE_URI;
-		UserService.save($scope.user).then(function(user) {
+		UserService.picUpload(FILE_URI).then(function(user) {
 			$scope.user = user;
 			$state.go('menu.tabs.profile');
 		});

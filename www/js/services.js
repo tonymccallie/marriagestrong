@@ -135,6 +135,21 @@ angular.module('greyback.services', [])
 		$state.go('login');
 	}
 	
+	self.picUpload = function(FILE_URI) {
+		var myImg = FILE_URI;
+        var options = new FileUploadOptions();
+        options.fileKey="post";
+        options.chunkedMode = false;
+        var params = {};
+        options.params = params;
+        var ft = new FileTransfer();
+        ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function(success) {
+			console.log(['success',success]);
+		}, function(error) {
+			console.log(['error',error]);
+		}, options);
+	}
+	
 	self.save = function(user) {
 		var deferred = $q.defer();
 		self.user = user;

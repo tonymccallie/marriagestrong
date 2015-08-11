@@ -7,7 +7,7 @@
 		<a ng-if="!user.picData" ui-sref="menu.tabs.photo">
 			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
 		</a>
-		<img ng-src="{{user.picData}}" width="100%">
+		<img ng-if="user.picData" img-cache ic-src="{{user.picData}}" width="100%">
 		<div class="padding">
 			<form name="profileForm" novalidate="" ng-submit="profile(profileForm)">
 				<a ui-sref="menu.tabs.photo">TEST</a>
