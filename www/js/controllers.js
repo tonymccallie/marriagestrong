@@ -208,6 +208,8 @@ angular.module('greyback.controllers', [])
             destinationType: Camera.DestinationType.FILE_URI,
 			allowEdit: true,
 			correctOrientation: true,
+			targetWidth: 800,
+			targetHeight: 450,
             sourceType: type,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
             encodingType: 0     // 0=JPG 1=PNG
         }
