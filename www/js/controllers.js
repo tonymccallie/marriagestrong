@@ -195,4 +195,9 @@ angular.module('greyback.controllers', [])
 
 .controller('UserController', function($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
 	$scope.link_code = "";
+	
+	$scope.share = function(code) {
+		console.log(code);
+		window.plugins.socialsharing.share(code);
+	}
 })
