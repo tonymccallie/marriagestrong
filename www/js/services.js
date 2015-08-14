@@ -135,7 +135,9 @@ angular.module('greyback.services', [])
 			switch (response.status) {
 			case 'SUCCESS':
 				console.log(['SUCCESS',response]);
-				self.updateUser(response.data);
+				self.updateUser(response.data).then(function() {
+					//$state.go('menu.tabs.profile');
+				});
 				break;
 			case 'MESSAGE':
 				alert(response.data);

@@ -245,7 +245,8 @@ angular.module('greyback.controllers', [])
 		if (form.$valid) {
 			$scope.linkUser.user_id = $scope.user.User.id;
 			UserService.linkUser($scope.linkUser).then(function (response) {
-				if(response.status == 'SUCCESS') {
+				console.log(['UserController.link',response]);
+				if(response.data.status == 'SUCCESS') {
 					$scope.user = UserService.checkUser();
 					$ionicHistory.clearCache()
 					$state.transitionTo('menu.tabs.profile', {}, {
