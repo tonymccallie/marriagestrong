@@ -150,7 +150,7 @@ angular.module('greyback.services', [])
 	
 	self.updateUser = function(user) {
 		var deferred = $q.defer();
-		self.user = response.data;
+		self.user = user;
 		$localStorage.setObject('User', self.user);
 		deferred.resolve(self.user);
 		return deferred.promise;
