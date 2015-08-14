@@ -42,6 +42,7 @@ angular.module('greyback.services', [])
 	}
 
 	self.loginUser = function (user) {
+		console.log('UserService.loginUser');
 		var promise = $http.post(DOMAIN + '/users/ajax_login', user)
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
@@ -67,7 +68,7 @@ angular.module('greyback.services', [])
 	}
 
 	self.saveFacebook = function (fbuser) {
-		console.log('saveFacebook')
+		console.log('UserService.saveFacebook')
 		var promise = $http.post(DOMAIN + '/users/ajax_facebook', fbuser)
 			.success(function (response, status, headers, config) {
 
@@ -102,6 +103,7 @@ angular.module('greyback.services', [])
 	}
 
 	self.createUser = function (user) {
+		console.log('UserService.createUser');
 		var promise = $http.post(DOMAIN + '/users/ajax_register', user)
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
@@ -127,10 +129,12 @@ angular.module('greyback.services', [])
 	}
 	
 	self.linkUser = function(user) {
+		console.log('UserService.linkUser');
 		var promise = $http.post(DOMAIN + '/users/ajax_link', user)
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
+				console.log(['SUCCESS',response]);
 				self.updateUser(response.data);
 				break;
 			case 'MESSAGE':
@@ -149,6 +153,7 @@ angular.module('greyback.services', [])
 	}
 	
 	self.updateUser = function(user) {
+		console.log('UserService.updateUser');
 		var deferred = $q.defer();
 		self.user = user;
 		$localStorage.setObject('User', self.user);
@@ -157,13 +162,14 @@ angular.module('greyback.services', [])
 	}
 
 	self.logout = function () {
+		console.log('UserService.logout');
 		self.user = null;
 		$localStorage.remove('User');
 		$state.go('login');
 	}
 	
 	self.picUpload = function(FILE_URI) {
-		console.log('UserService: picUpload');
+		console.log('UserService.picUpload');
 		var deferred = $q.defer();
 		var myImg = FILE_URI;
         var options = new FileUploadOptions();
@@ -184,7 +190,7 @@ angular.module('greyback.services', [])
 	}
 	
 	self.save = function(user) {
-		console.log('UserService: save');
+		console.log('UserService.save');
 		var deferred = $q.defer();
 		self.user = user;
 		$localStorage.setObject('User', self.user);
