@@ -6,7 +6,7 @@
         <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Pain Cycle</h2>
         <div class="paragraph-list">When I feel this way, I react by (choose up to three): </div>
         <div class="padding">
-            <form name="cyclesPainCopesForm" novalidate="" ng-submit="cycles(cyclesPainCopesForm)">
+            <form name="cyclesPainCopesForm" novalidate="" ng-submit="process('menu.tabs.cycles_pain_results',cyclesPainCopesForm)">
              <ul class="cyclesCopes list">
                 <li class="item item-checkbox">                     
                     <label class="checkbox">                     
@@ -224,7 +224,7 @@
                 <br>
             </div>
             <input type="submit" value="View Your Pain Cycle" class="button button-block button-positive" />
-            <button href="#" class="button button-block button-calm">Discover Your Peace Cycle</button>
+            <button ui-sref="menu.tabs.cycles_peace" class="button button-block button-calm">Discover Your Peace Cycle</button>
             </form>
         </div>
 	</ion-content>

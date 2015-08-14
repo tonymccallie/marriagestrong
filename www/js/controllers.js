@@ -167,19 +167,19 @@ angular.module('greyback.controllers', [])
 
 	$scope.update = function () {
 		console.log('HomeController.update');
-//		var headersPromise = NewsService.update('headers');
-//		var newsPromise = NewsService.update('articles');
-//
-//
-//		$q.all([headersPromise, newsPromise]).then(function (data) {
-//			console.log(data);
-//			$scope.headers = data[0];
-//			$scope.articles = data[1];
-//			$scope.$broadcast('scroll.refreshComplete');
-//			setTimeout(function () {
-//				$ionicSlideBoxDelegate.update();
-//			}, 0);
-//		});
+		//		var headersPromise = NewsService.update('headers');
+		//		var newsPromise = NewsService.update('articles');
+		//
+		//
+		//		$q.all([headersPromise, newsPromise]).then(function (data) {
+		//			console.log(data);
+		//			$scope.headers = data[0];
+		//			$scope.articles = data[1];
+		//			$scope.$broadcast('scroll.refreshComplete');
+		//			setTimeout(function () {
+		//				$ionicSlideBoxDelegate.update();
+		//			}, 0);
+		//		});
 	}
 
 	$scope.$on("$ionicView.loaded", function () {
@@ -188,7 +188,8 @@ angular.module('greyback.controllers', [])
 	});
 })
 
-.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, $jrCrop, $state, ImgCache, PtrService, ngFB, user, UserService) {
+.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, UserService) {
+	console.log('UserController');
 	$scope.link_code = "";
 	$scope.user = user;
 
@@ -200,41 +201,64 @@ angular.module('greyback.controllers', [])
 			console.log(['err', msg]);
 		});
 	}
-	
-	$scope.getPic = function(type) {
-		var options =   {
-            quality: 50,
-            destinationType: Camera.DestinationType.FILE_URI,
+
+	$scope.getPic = function (type) {
+		var options = {
+			quality: 50,
+			destinationType: Camera.DestinationType.FILE_URI,
 			correctOrientation: true,
 			allowEdit: true,
 			targetWidth: 600,
 			targetHeight: 600,
-            sourceType: type,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
-            encodingType: 0     // 0=JPG 1=PNG
-        }
-        navigator.camera.getPicture(picSuccess,picFail,options);
+			sourceType: type, // 0:Photo Library, 1=Camera, 2=Saved Photo Album
+			encodingType: 0 // 0=JPG 1=PNG
+		}
+		navigator.camera.getPicture(picSuccess, picFail, options);
 	}
-	
-	var picSuccess = function(FILE_URI) {
-		UserService.picUpload(FILE_URI).then(function(user) {
+
+	var picSuccess = function (FILE_URI) {
+		UserService.picUpload(FILE_URI).then(function (user) {
 			$scope.user = user;
 			$state.go('menu.tabs.profile');
 		});
-		
-//		$jrCrop.crop({
-//			url: FILE_URI,
-//			width: 800,
-//			height: 450
-//		}).then(function(canvas) {
-//			console.log(canvas);
-//			$scope.picData = canvas.toDataURL();
-//			console.log($scope.picData);
-//		}, function(data) {
-//			console.log(['error',data]);
-//		})
+
+		//		$jrCrop.crop({
+		//			url: FILE_URI,
+		//			width: 800,
+		//			height: 450
+		//		}).then(function(canvas) {
+		//			console.log(canvas);
+		//			$scope.picData = canvas.toDataURL();
+		//			console.log($scope.picData);
+		//		}, function(data) {
+		//			console.log(['error',data]);
+		//		})
+	}
+
+	var picFail = function () {
+
+	}
+
+	$scope.linkUser = {};
+	$scope.link = function (form) {
+		console.log('UserController: link');
+		if (form.$valid) {
+			$scope.linkUser.user_id = $scope.user.User.id;
+			UserService.linkUser($scope.linkUser).then(function (response) {
+				if(response.status == 'SUCCESS') {
+					$scope.user = UserService.checkUser();
+					$ionicHistory.clearCache()
+					$state.transitionTo('menu.tabs.profile', {}, {
+						reload: true,
+						inherit: false,
+						notify: true
+					});
+				}
+			});
+		}
 	}
 	
-	var picFail = function() {
-		
+	$scope.process = function(next, form) {
+		$state.go(next);
 	}
 })

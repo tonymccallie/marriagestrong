@@ -4,10 +4,13 @@
 </ion-nav-title>
 	<ion-content>
        <h2><img src="img/quiz-icon-small.png" class="cycles-icon" />&nbsp;Usness Quizzes</h2>
-        <img src="img/upload-photo.jpg" alt="Usness" width="100%">
+        <a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
+			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
+		</a>
+		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
         <div class="padding">
             <p>How’s your Us-ness really doing? How well are you managing your boundaries these days? Take these quizzes and find out where you stand.</p>
-            <button href="#" class="button button-block button-calm">US-NESS QUIZ</button>
+            <button ui-sref="menu.tabs.quizzes_usness" class="button button-block button-calm">US-NESS QUIZ</button>
             <button href="#" class="button button-block button-calm">BOUNDARIES QUIZ</button>
 		</div>
 	</ion-content>

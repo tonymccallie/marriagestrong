@@ -4,11 +4,14 @@
 </ion-nav-title>
 	<ion-content>
        <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Pain and Peace Cycles</h2>
-        <img src="img/upload-photo.jpg" alt="Usness" width="100%">
+        <a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
+			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
+		</a>
+		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
         <div class="padding">
             <p>While some days in your relationship are filled with peace and joy, there are inevitability days when it’s just the opposite between you two. It’s been proven that how you and your spouse handle conflict together is a key factor in the health and sustainability of your relationship. Discover not only what’s happening when you fight, but also a clear pathway out of conflict. </p>
-            <button href="#" class="button button-block button-calm">Discover Your Pain Cycle</button>
-            <button href="#" class="button button-block button-calm">Discover Your Peace Cycle</button>
+            <button ui-sref="menu.tabs.cycles_pain" class="button button-block button-calm">Discover Your Pain Cycle</button>
+            <button ui-sref="menu.tabs.cycles_peace" class="button button-block button-calm">Discover Your Peace Cycle</button>
 		</div>
 	</ion-content>
 </ion-view>

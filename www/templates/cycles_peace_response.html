@@ -6,7 +6,7 @@
         <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Peace Cycle</h2>
         <div class="paragraph-list">When I believe these truths, I can act (choose up to three):  </div>
         <div class="padding">
-            <form name="cyclesPeaceResponseForm" novalidate="" ng-submit="cycles(cyclesPeaceResponseForm)">
+            <form name="cyclesPeaceResponseForm" novalidate="" ng-submit="process('menu.tabs.cycles_results',cyclesPeaceResponseForm)">
              <ul class="cyclesCopes list">
                 <li class="item item-checkbox">                     
                     <label class="checkbox">                     
@@ -253,7 +253,7 @@
                 <br>
             </div>
             <input type="submit" value="View Your Peace Cycle" class="button button-block button-positive" />
-            <button href="#" class="button button-block button-calm two-line-button">YOUR 4 STEPS<br><span class="small-button-text">(Tool to Move from Pain to Peace)</span></button>
+            <button ui-sref="menu.tabs.4steps" class="button button-block button-calm two-line-button">YOUR 4 STEPS<br><span class="small-button-text">(Tool to Move from Pain to Peace)</span></button>
             </form>
         </div>
 	</ion-content>

@@ -23,13 +23,10 @@ angular.module('greyback.services', [])
 		console.log('UserService.init');
 		var deferred = $q.defer();
 		self.local().then(function (storedUser) {
-			if (typeof storedUser.id === 'undefined') {
+			if (typeof storedUser.User === 'undefined') {
 				console.log('UserService: need to login');
 				//HIDE FOR DEV
 				$state.go('login');
-				self.user = {
-					'id': 'test'
-				};
 				deferred.resolve(self.user);
 			} else {
 				console.log('UserService: use local');
@@ -49,9 +46,9 @@ angular.module('greyback.services', [])
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
-				self.user = response.data.User;
-				$localStorage.setObject('User', self.user);
-				$state.go('menu.tabs.home');
+				self.updateUser(response.data).then(function() {
+					$state.go('menu.tabs.home');
+				});
 				break;
 			case 'MESSAGE':
 				alert(response.data);
@@ -75,9 +72,9 @@ angular.module('greyback.services', [])
 			.success(function (response, status, headers, config) {
 
 			if (response.status === 'SUCCESS') {
-				self.user = response.data.User;
-				$localStorage.setObject('User', self.user);
-				$state.go('menu.tabs.home');
+				self.updateUser(response.data).then(function() {
+					$state.go('menu.tabs.home');
+				});
 			} else {
 				alert('there was a server error for Messages');
 				console.log(response);
@@ -109,9 +106,9 @@ angular.module('greyback.services', [])
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
-				self.user = response.data.User;
-				$localStorage.setObject('User', self.user);
-				$state.go('menu.tabs.home');
+				self.updateUser(response.data).then(function() {
+					$state.go('menu.tabs.home');
+				});
 				break;
 			case 'MESSAGE':
 				alert(response.data);
@@ -127,6 +124,36 @@ angular.module('greyback.services', [])
 			console.log(['error', status, headers, config]);
 		});
 		return promise;
+	}
+	
+	self.linkUser = function(user) {
+		var promise = $http.post(DOMAIN + '/users/ajax_link', user)
+			.success(function (response, status, headers, config) {
+			switch (response.status) {
+			case 'SUCCESS':
+				self.updateUser(response.data);
+				break;
+			case 'MESSAGE':
+				alert(response.data);
+				break;
+			default:
+				alert('there was a server error for Messages');
+				console.log(response);
+				break;
+			}
+		})
+			.error(function (response, status, headers, config) {
+			console.log(['error', status, headers, config]);
+		});
+		return promise;
+	}
+	
+	self.updateUser = function(user) {
+		var deferred = $q.defer();
+		self.user = response.data;
+		$localStorage.setObject('User', self.user);
+		deferred.resolve(self.user);
+		return deferred.promise;
 	}
 
 	self.logout = function () {

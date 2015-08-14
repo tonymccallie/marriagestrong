@@ -4,7 +4,7 @@
 </ion-nav-title>
 	<ion-content>
        <h2><img src="img/decision-icon-small.png" class="cycles-icon" />&nbsp;OUR DECISIONS</h2>
-        <form name="decisionsForm" novalidate="" ng-submit="decisions(decisionsForm)">
+        <form name="decisionsForm" novalidate="" ng-submit="process('menu.tabs.decisions_revisit',decisionsForm)">
                 <div class="list list-inset">
                   <label class="item item-input item-stacked-label">
                     WHAT’S THE DECISION TO MAKE?
@@ -14,7 +14,7 @@
         <div class="padding">
             <p>REMINDER:</p>
             <p>You’re on the same team! Do you need to remind each other right now?</p>
-            <button href="#" class="button button-block button-calm">Review your Pain/Peace Cycle</button>
+            <button ui-sref="menu.tabs.cycles" class="button button-block button-calm">Review your Pain/Peace Cycle</button>
 		</div>
          <div class="grey_bg">
             <div class="padding">

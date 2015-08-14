@@ -90,7 +90,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 	.state('menu.tabs.home', {
 		url: "/home",
 		views: {
-			'tab-home': {
+			'tab-static': {
 				templateUrl: "templates/home.html",
 				controller: 'HomeController',
 			}
@@ -111,6 +111,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-home': {
 				templateUrl: "templates/usness_activities.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -120,6 +121,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-home': {
 				templateUrl: "templates/usness_activities_further.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -129,6 +131,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-home': {
 				templateUrl: "templates/usness_personality.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -138,6 +141,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-home': {
 				templateUrl: "templates/usness_personality_results.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -147,6 +151,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-home': {
 				templateUrl: "templates/usness_gifts.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -156,6 +161,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-home': {
 				templateUrl: "templates/usness_gifts_results.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -166,6 +172,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -175,6 +182,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles_pain.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -184,6 +192,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles_pain_copes.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -193,6 +202,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles_pain_results.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -202,6 +212,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles_peace.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -211,6 +222,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles_peace_response.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -220,6 +232,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles_results.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -229,6 +242,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-4steps': {
 				templateUrl: "templates/4steps.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -238,6 +252,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-4steps': {
 				templateUrl: "templates/4steps_setup.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -247,6 +262,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-quizzes': {
 				templateUrl: "templates/quizzes.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -256,6 +272,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-quizzes': {
 				templateUrl: "templates/quizzes_usness.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -265,6 +282,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-quizzes': {
 				templateUrl: "templates/quizzes_usness_results.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -275,6 +293,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-decisions': {
 				templateUrl: "templates/decisions.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -284,6 +303,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-decisions': {
 				templateUrl: "templates/decisions_create.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -293,6 +313,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-decisions': {
 				templateUrl: "templates/decisions_revisit.html",
+				controller: "UserController"
 			}
 		}
 	})
@@ -353,6 +374,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 	
 	.state('menu.tabs.profile', {
 		url: "/profile",
+		cache: false,
 		views: {
 			'tab-static': {
 				templateUrl: "templates/profile.html",

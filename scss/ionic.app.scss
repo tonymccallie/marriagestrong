@@ -567,7 +567,7 @@ li.item  {
 
 .cycles {
     display: block;
-    position: absolute;
+    position: relative;
     padding-top: 120;
     width: 100%;
     
@@ -596,8 +596,9 @@ li.item  {
 
 .circle-cycle {
     display: block;
-    position: absolute;
+    position: relative;
     top: 30px;
+	margin-bottom: 30px;
 }
 
 

@@ -7,7 +7,7 @@
         <div class="padding">
         <p>Choose the statement that best represtents where you are today.</p>
         </div>
-       <form class="quizzesUnessForm" name="quizzesUnessForm" novalidate="" ng-submit="quizzes(quizzesUnessForm)">
+       <form class="quizzesUnessForm" name="quizzesUnessForm" novalidate="" ng-submit="process('menu.tabs.quizzes_usness_results',quizzesUnessForm)">
                 <hr>
                 <h3>COMMUNICATION</h3>
                 <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.communication">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
@@ -25,9 +25,9 @@
                 <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.timeTogether">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
                 <hr>
                 <h3>COMPANIONSHIP / FRIENDSHIP</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.companionship/Friendship">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.companionship/Friendship">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.companionship/Friendship">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
+                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.companionship_friendship">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
+                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.companionship_friendship">OK <span class="quiz-left-text">Rain Delay</span><br></label>
+                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.companionship_friendship">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
                 <hr>
                 <h3>FINANCES</h3>
                 <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.finances">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
