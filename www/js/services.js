@@ -170,11 +170,10 @@ angular.module('greyback.services', [])
         options.fileKey="post";
         options.chunkedMode = false;
         var params = {};
-		params.user_id = self.user.id;
+		params.user_id = self.user.User.id;
         options.params = params;
         var ft = new FileTransfer();
         ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function(success) {
-			self.user.picData = DOMAIN + success.response;
 			self.save(self.user).then(function(user) {
 				deferred.resolve(self.user);
 			})
