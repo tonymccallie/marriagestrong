@@ -154,6 +154,29 @@ angular.module('greyback.services', [])
 		return promise;
 	}
 	
+	self.picUpload = function(FILE_URI) {
+		console.log('UserService.picUpload');
+		var deferred = $q.defer();
+		var myImg = FILE_URI;
+        var options = new FileUploadOptions();
+        options.fileKey="post";
+        options.chunkedMode = false;
+        var params = {};
+		params.user_id = self.user.User.id;
+        options.params = params;
+        var ft = new FileTransfer();
+        ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function(success) {
+			console.log('UserService.picUpload success: '+ success);
+			self.user.User.picture = 1;
+			self.updateUser(self.user).then(function(user) {
+				deferred.resolve(self.user);
+			})
+		}, function(error) {
+			console.log(['error',error]);
+		}, options);
+		return deferred.promise;
+	}
+	
 	self.updateUser = function(user) {
 		console.log('UserService.updateUser');
 		var deferred = $q.defer();
@@ -168,36 +191,6 @@ angular.module('greyback.services', [])
 		self.user = null;
 		$localStorage.remove('User');
 		$state.go('login');
-	}
-	
-	self.picUpload = function(FILE_URI) {
-		console.log('UserService.picUpload');
-		var deferred = $q.defer();
-		var myImg = FILE_URI;
-        var options = new FileUploadOptions();
-        options.fileKey="post";
-        options.chunkedMode = false;
-        var params = {};
-		params.user_id = self.user.User.id;
-        options.params = params;
-        var ft = new FileTransfer();
-        ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function(success) {
-			self.save(self.user).then(function(user) {
-				deferred.resolve(self.user);
-			})
-		}, function(error) {
-			console.log(['error',error]);
-		}, options);
-		return deferred.promise;
-	}
-	
-	self.save = function(user) {
-		console.log('UserService.save');
-		var deferred = $q.defer();
-		self.user = user;
-		$localStorage.setObject('User', self.user);
-		deferred.resolve(self.user);
-		return deferred.promise;
 	}
 })
 
