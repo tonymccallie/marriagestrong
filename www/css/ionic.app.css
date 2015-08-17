@@ -7845,6 +7845,21 @@ body, h1, h2, h3, h4, h5, h6, input, button, select, textarea {
 p {
   text-align: justify; }
 
+h1 {
+  color: #8f2b21;
+  font-weight: bolder;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bolder;
+  text-align: left;
+  padding: 6px 0px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  line-height: 20px; }
+  h1 img {
+    vertical-align: sub; }
+
 h2 {
   width: 100%;
   background: #8f2b21;
@@ -7878,6 +7893,11 @@ h4 {
   text-transform: uppercase;
   margin-bottom: 0px;
   margin-top: 0px; }
+
+h5 {
+  font-size: 16px;
+  font-weight: bolder;
+  line-height: 18px; }
 
 hr {
   border: 0;
@@ -8277,3 +8297,25 @@ li.item {
   float: left;
   text-align: center;
   vertical-align: middle; }
+
+.signup {
+  padding: 15px 0px;
+  font-size: 16px;
+  text-transform: uppercase; }
+  .signup a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bolder; }
+
+.disclaimer {
+  color: #ffffff; }
+  .disclaimer a {
+    color: #ffffff;
+    font-weight: bolder; }
+
+.profile-name {
+  font-size: 22px;
+  border: 1px #d0d2d3 solid;
+  width: 100%;
+  padding: 15px 10px 13px 10px;
+  display: block; }

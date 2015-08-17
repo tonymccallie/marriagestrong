@@ -98,6 +98,24 @@ p {
     text-align: justify;
 }
 
+h1 {
+    color: $positive;
+    font-weight: bolder;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: left;
+    padding: 6px 0px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    line-height: 20px;
+    
+    img {
+        vertical-align: sub;
+    }
+}
+
 h2 {
     width: 100%;
     background: $positive;
@@ -136,6 +154,12 @@ h4 {
     text-transform: uppercase;
     margin-bottom: 0px;
     margin-top: 0px;
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: bolder;
+    line-height: 18px;
 }
 
 
@@ -660,6 +684,35 @@ li.item  {
     float: left;
     text-align: center;
     vertical-align: middle;
+}
+
+.signup {
+    padding: 15px 0px;
+    font-size: 16px;
+    text-transform: uppercase;
+    a {
+        text-decoration: none;
+        
+        font-size: 20px;
+        font-weight: bolder;
+    }
+}
+
+.disclaimer {
+    color: #ffffff;
+    
+    a {
+        color: #ffffff;
+        font-weight: bolder;
+    }
+}
+
+.profile-name {
+    font-size: 22px;
+    border: 1px $lightGrey solid;
+    width: 100%;
+    padding: 15px 10px 13px 10px;
+    display: block;
 }
     
     

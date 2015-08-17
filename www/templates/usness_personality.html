@@ -7,30 +7,30 @@
 		<div class="padding">
             <p>Many couples think of the differences between one another as a negative thing. We believe both similarities and differences can be positives for the couple and actually strengthen their Us-ness. 
             </p>
-            <p>Identify some of your personality traits by choosing the answer in each section that best describes you most of the time.
+            <p>Identify some of your personality traits by choosing the answer in each section that best describes you <i>most of the time.</i>
             </p>
         </div>
             <form class="usnessPersonalityForm" name="usnessPersonalityForm" novalidate="" ng-submit="process('menu.tabs.usness_personality_results',usnessPersonalityForm)">
                 <div class="padding">
                     <hr>
                     <h3>Relating to People</h3>
-                    <label><input type="radio" name="personality.relating" value="Prefers To Be Alone" ng-model="usness.personality.relating">A People-Person, More Extroverted   <br></label>
-                    <label><input type="radio" name="personality.relating" value="Prefers To Be With Others" ng-model="usness.personality.relating">Prefers One-on-One Time, More Introverted <br><br></label>
+                    <label><input type="radio" name="personality.relating" value="Extroverted" ng-model="usness.personality.relating">A People-Person, More Extroverted   <br></label>
+                    <label><input type="radio" name="personality.relating" value="Introverted" ng-model="usness.personality.relating">Prefers One-on-One Time, More Introverted <br><br></label>
                     <hr>
-                    <h3>ACCOMPLISHING TASKS</h3>
-                    <label><input type="radio" name="personality.tasks" value="Thinks In Specifics" ng-model="usness.personality.tasks">More Orderly, Intentional, Prepared, Controlled  <br></label>
-                    <label><input type="radio" name="personality.tasks" value="Thinks in Openly " ng-model="usness.personality.tasks">More Flexible, Spontaneous, Easygoing, Adaptable <br><br></label>
+                    <h3>HANDLING INFORMATION</h3>
+                    <label><input type="radio" name="personality.learning" value="Clear cut" ng-model="usness.personality.relating">Relying on Common Sense, Facts, History   <br></label>
+                    <label><input type="radio" name="personality.learning" value="Conceptual" ng-model="usness.personality.relating">Relying on Ideas, Theory, Possibilities <br><br></label>
                     <hr>
                     <h3>MAKING DECISIONS</h3>
-                    <label><input type="radio" name="personality.decisions" value="By Analyzing Information" ng-model="usness.personality.relating">Rational, Straightforward, Seek Justice, Certain  <br></label>
-                    <label><input type="radio" name="personality.decisions" value="By listening to their gut feelings" ng-model="usness.personality.relating">Compassionate, Gentle, Cooperative, Lenient <br><br></label>
+                    <label><input type="radio" name="personality.decisions" value="Leads with the Brain" ng-model="usness.personality.relating">Rational, Straightforward, Seek Justice, Definitive  <br></label>
+                    <label><input type="radio" name="personality.decisions" value="Leads with the Heart" ng-model="usness.personality.relating">Compassionate, Gentle, Cooperative, Lenient <br><br></label>
                     <hr>
-                    <h3>LEARNING INFORMATION</h3>
-                    <label><input type="radio" name="personality.learning" value="By Planning Ahead" ng-model="usness.personality.relating">Relying on Common Sense, Facts, History   <br></label>
-                    <label><input type="radio" name="personality.learning" value="By Ideas and Personalities" ng-model="usness.personality.relating">Relying on Ideas, Theory, Possibilities <br><br></label>
+                    <h3>ACCOMPLISHING TASKS</h3>
+                    <label><input type="radio" name="personality.tasks" value="Structured" ng-model="usness.personality.tasks">More Orderly, Intentional, Prepared, Controlled  <br></label>
+                    <label><input type="radio" name="personality.tasks" value="Open" ng-model="usness.personality.tasks">More Flexible, Spontaneous, Easygoing, Adaptable <br><br></label>
                     
                     <label><input type="submit" value="Save and Continue" class="button button-block button-positive" /></label>
-                    <button href="#" class="button button-block button-calm">Compare with Spouse</button>
+<!--                    <button href="#" class="button button-block button-calm">Compare with Spouse</button>-->
                 </div>
             </form>
 	</ion-content>

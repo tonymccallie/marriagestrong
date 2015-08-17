@@ -4,7 +4,7 @@
 </ion-nav-title>
 	<ion-content>
         <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Peace Cycle</h2>
-        <div class="paragraph-list">When I believe these truths, I can act (choose up to three):  </div>
+        <div class="paragraph-list">When I believe these truths, I can be (choose three):  </div>
         <div class="padding">
             <form name="cyclesPeaceResponseForm" novalidate="" ng-submit="process('menu.tabs.cycles_results',cyclesPeaceResponseForm)">
              <ul class="cyclesCopes list">
@@ -107,9 +107,9 @@
                 </li>
                 <li class="item item-checkbox">                     
                     <label class="checkbox">                     
-                        <input type="checkbox" name="Communicate Care" value="Communicate Care" ng-model="cycles.results.CommunicateCare">                         
+                        <input type="checkbox" name="Communicate Care" value="Caring" ng-model="cycles.results.Caring">                         
                         </label>                         
-                        Communicate Care
+                        Caring
                     
                 </li>
                 <li class="item item-checkbox">                     
@@ -128,9 +128,9 @@
                 </li>
                 <li class="item item-checkbox">                     
                     <label class="checkbox">                     
-                        <input type="checkbox" name="Reliably Connect" value="Reliably Connect" ng-model="cycles.results.ReliablyConnect">                         
+                        <input type="checkbox" name="Reliably-connecting " value="ReliablyConnecting" ng-model="cycles.results.ReliablyConnecting">                         
                         </label>                         
-                        Reliably Connect
+                        Reliably-connecting 
                     
                 </li>
                 <li class="item item-checkbox">                     
@@ -248,12 +248,12 @@
                  
             </ul>
             <div class="tip-text">
-                <p>REFLECT A SEC:</p>
+                <h1><img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>
                 <p>Let’s say you chose the word Empathic. Think about a time when you were Empathetic in a painful situation with your spouse. How did you feel about yourself? </p>
                 <br>
             </div>
             <input type="submit" value="View Your Peace Cycle" class="button button-block button-positive" />
-            <button ui-sref="menu.tabs.4steps" class="button button-block button-calm two-line-button">YOUR 4 STEPS<br><span class="small-button-text">(Tool to Move from Pain to Peace)</span></button>
+            <button ui-sref="menu.tabs.4steps" class="button button-block button-calm two-line-button">YOUR 4 STEPS<br><span class="small-button-text">(How to Move from Pain to Peace)</span></button>
             </form>
         </div>
 	</ion-content>
