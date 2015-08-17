@@ -429,6 +429,16 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		templateUrl: "templates/forgot.html",
 		controller: 'ForgotController'
 	})
+	
+	.state('terms', {
+		url: "/terms",
+		templateUrl: "templates/terms.html"
+	})
+	
+	.state('privacy', {
+		url: "/privacy",
+		templateUrl: "templates/privacy.html"
+	})
 
 	$urlRouterProvider.otherwise('/menu/tabs/home');
 })
