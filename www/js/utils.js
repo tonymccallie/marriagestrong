@@ -28,7 +28,13 @@ angular.module('greyback.utils', [])
 		},
 		remove: function (key) {
 			return $window.localStorage.removeItem(key);
-		}
+		},
+		toJSON: function (obj) {
+			return JSON.stringify(obj);
+		},
+		toObj: function (json) {
+			return JSON.parse(json);
+		},
 	}
 })
 

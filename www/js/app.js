@@ -20,10 +20,10 @@ var onclickFix = function (html) {
 	return html.replace(/href=\"(.+?)\"/gi, 'onclick="window.open(\'$1\',\'_system\',\'location=yes\');"');
 }
 
-angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.core', 'ionic.service.push', 'ionic.service.deploy', 'ionic.service.analytics', 'ngOpenFB', 'ngMessages', 'jrCrop', 'greyback.controllers', 'greyback.services', 'greyback.utils'])
+angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.core', 'ionic.service.push', 'ionic.service.deploy', 'ionic.service.analytics', 'ionic-datepicker','ngOpenFB', 'ngMessages', 'jrCrop', 'greyback.controllers', 'greyback.services', 'greyback.utils'])
 
 .run(function ($rootScope, $ionicPlatform, $ionicAnalytics, $cordovaSplashscreen, ImgCache, ngFB) {
-	console.log('run');
+	console.log('App.run');
 	ngFB.init({
 		appId: '850066335072761',
 		oauthRedirectURL: DOMAIN + '/users/oauthlogin',
@@ -71,7 +71,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		controller: 'AppController',
 		resolve: {
 			user: function (UserService) {
-				console.log('menu resolve user');
+				console.log('Config.state.menu.resolve.user');
 				return UserService.checkUser();
 			}
 		}

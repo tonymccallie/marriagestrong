@@ -192,6 +192,43 @@ angular.module('greyback.controllers', [])
 	console.log('UserController');
 	$scope.link_code = "";
 	$scope.user = user;
+	$scope.user.data = {};
+
+	$scope.anniversaryDatePicker = {
+		//titleLabel: 'Title', //Optional
+		//todayLabel: 'Today', //Optional
+		//closeLabel: 'Close', //Optional
+		//setLabel: 'Set', //Optional
+		//errorMsgLabel: 'Please select time.', //Optional
+		//setButtonType: 'button-assertive', //Optional
+		//inputDate: new Date(), //Optional
+		//mondayFirst: false, //Optional
+		//disabledDates: disabledDates, //Optional
+		//monthList: monthList, //Optional
+		//from: new Date(2015, 7, 2), //Optional
+		//to: new Date(2015, 7, 29), //Optional
+		callback: function (val) { //Mandatory
+			$scope.user.data.wedding_anniversary = val;
+		}
+	};
+	
+	$scope.firstdateDatePicker = {
+		//titleLabel: 'Title', //Optional
+		//todayLabel: 'Today', //Optional
+		//closeLabel: 'Close', //Optional
+		//setLabel: 'Set', //Optional
+		//errorMsgLabel: 'Please select time.', //Optional
+		//setButtonType: 'button-assertive', //Optional
+		//inputDate: new Date(), //Optional
+		//mondayFirst: false, //Optional
+		//disabledDates: disabledDates, //Optional
+		//monthList: monthList, //Optional
+		//from: new Date(2015, 7, 2), //Optional
+		//to: new Date(2015, 7, 29), //Optional
+		callback: function (val) { //Mandatory
+			
+		}
+	};
 
 	$scope.share = function (code) {
 		console.log(code);
@@ -249,8 +286,8 @@ angular.module('greyback.controllers', [])
 		if (form.$valid) {
 			$scope.linkUser.user_id = $scope.user.User.id;
 			UserService.linkUser($scope.linkUser).then(function (response) {
-				console.log(['UserController.link',response]);
-				if(response.data.status == 'SUCCESS') {
+				console.log(['UserController.link', response]);
+				if (response.data.status == 'SUCCESS') {
 					$scope.user = UserService.checkUser();
 					$ionicHistory.clearCache()
 					$state.transitionTo('menu.tabs.profile', {}, {
@@ -262,8 +299,9 @@ angular.module('greyback.controllers', [])
 			});
 		}
 	}
-	
-	$scope.process = function(next, form) {
+
+	$scope.process = function (next, form) {
+
 		$state.go(next);
 	}
 })

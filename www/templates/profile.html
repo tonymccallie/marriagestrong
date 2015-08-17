@@ -3,37 +3,32 @@
 		<img src="img/logo.png" class="title-image" />
 	</ion-nav-title>
 	<ion-content>
-		<h2><i class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></i>&nbsp;Your Couple’s Profile</h2>
+		<h2>
+			<i class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></i>&nbsp;Your Couple’s Profile</h2>
 		<a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
 			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
 		</a>
 		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
 		<div class="padding">
 			<a ui-sref="menu.tabs.photo" class="button button-block button-calm">Change Photo</a>
-			<form name="profileForm" novalidate="" ng-submit="profile(profileForm)">
+			<form name="profileForm" novalidate="" ng-submit="process('menu.tabs.home',profileForm)">
 				<div class="list list-inset">
 					<h5>Name</h5>{{user.User.first_name}} {{user.User.last_name}}</div>
 				<div class="list list-inset">
 					<h5>Spouse's Name</h5>
-					<button ng-if="!user.Spouse.id" ui-sref="menu.tabs.link" class="button button-block button-calm">Link to Spouse’s Account</button>
-					{{user.Spouse.first_name}} {{user.Spouse.last_name}}
-				</div>
+					<button ng-if="!user.Spouse.id" ui-sref="menu.tabs.link" class="button button-block button-calm">Link to Spouse’s Account</button>{{user.Spouse.first_name}} {{user.Spouse.last_name}}</div>
 				<!--Needs Validation-->
 				<div class="list list-inset">
-					<div class="item item-input">
-						<div class="item-icon-right">
-							<i class="icon ion-calendar"></i>
-							<input name="wedding_anniversary" ng-model="User.wedding_anniversary" type="text" placeholder="WEDDING ANNIVERSARY" required />
-						</div>
-					</div>
+					<ionic-datepicker input-obj="anniversaryDatePicker" class="item item-input">
+						<input name="wedding_anniversary" ng-model="user.data.wedding_anniversary" type="text" placeholder="WEDDING ANNIVERSARY" required />
+						<i class="icon ion-calendar icon-calm"></i>
+					</ionic-datepicker>
 				</div>
 				<div class="list list-inset">
-					<div class="item item-input">
-						<div class="item-icon-right">
-							<i class="icon ion-calendar"></i>
-							<input name="first_date_anniversary" ng-model="User.first_date_anniversary" type="text" placeholder="FIRST DATE ANNIVERSARY" required />
-						</div>
-					</div>
+					<ionic-datepicker input-obj="firstdateDatePicker" class="item item-input">
+						<input name="wedding_anniversary" ng-model="user.data.first_date_anniversary" type="text" placeholder="FIRST DATE ANNIVERSARY" />
+						<i class="icon ion-calendar icon-calm"></i>
+					</ionic-datepicker>
 				</div>
 				<!--End Needs Validation-->
 				<input type="submit" value="NEXT STEP" class="button button-block button-positive" />

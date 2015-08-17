@@ -24,13 +24,14 @@ angular.module('greyback.services', [])
 		var deferred = $q.defer();
 		self.local().then(function (storedUser) {
 			if (typeof storedUser.User === 'undefined') {
-				console.log('UserService: need to login');
+				console.log('UserService.init: need to login');
 				//HIDE FOR DEV
 				$state.go('login');
 				deferred.resolve(self.user);
 			} else {
-				console.log('UserService: use local');
+				console.log('UserService.init: use local');
 				self.user = storedUser;
+				console.log(self.user);
 				deferred.resolve(self.user);
 			}
 		});
@@ -91,12 +92,12 @@ angular.module('greyback.services', [])
 		console.log('UserService.checkUser');
 		var deferred = $q.defer();
 		if (!self.user) {
-			console.log('UserService: no user');
+			console.log('UserService.checkUser: no user');
 			self.init().then(function (initUser) {
 				deferred.resolve(self.user);
 			});
 		} else {
-			console.log('UserService: had user');
+			console.log('UserService.checkUser: had user');
 			deferred.resolve(self.user);
 		}
 		return deferred.promise;
