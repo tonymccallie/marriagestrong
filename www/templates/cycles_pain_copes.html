@@ -4,7 +4,7 @@
 </ion-nav-title>
 	<ion-content>
         <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Pain Cycle</h2>
-        <div class="paragraph-list">When I feel this way, I react by (choose up to three): </div>
+        <div class="paragraph-list">When I feel this way, I typically cope by becoming (choose three): </div>
         <div class="padding">
             <form name="cyclesPainCopesForm" novalidate="" ng-submit="process('menu.tabs.cycles_pain_results',cyclesPainCopesForm)">
              <ul class="cyclesCopes list">
@@ -12,7 +12,7 @@
                     <label class="checkbox">                     
                         <input type="checkbox" name="Blame Others" value="Blame Others" ng-model="cycles.copes.BlameOthers">                         
                         </label>  
-                        Blame Others
+                        Blaming
                 </li>
                 <li class="item item-checkbox">                     
                     <label class="checkbox">                     
@@ -32,7 +32,7 @@
                     <label class="checkbox">                     
                         <input type="checkbox" name="Addicted" value="Addicted" ng-model="cycles.copes.Addicted">                         
                         </label>                         
-                        Addicted
+                        High/Drunk
                     
                 </li>
                 <li class="item item-checkbox">                     
@@ -60,7 +60,7 @@
                     <label class="checkbox">                     
                         <input type="checkbox" name="Numbs Out" value="Numbs Out" ng-model="cycles.copes.NumbsOut">                         
                         </label>                         
-                        Numbs Out
+                        Numbed Out
                     
                 </li>
                 <li class="item item-checkbox">                     
@@ -74,14 +74,14 @@
                     <label class="checkbox">                     
                         <input type="checkbox" name="Isolate" value="Isolate" ng-model="cycles.copes.Isolate">                         
                         </label>                         
-                        Isolate
+                        Isolated
                     
                 </li>
                 <li class="item item-checkbox">                     
                     <label class="checkbox">                     
                         <input type="checkbox" name="Performing" value="Performing" ng-model="cycles.copes.Performing">                         
                         </label>                         
-                        Performing
+                        Performance-Driven
                     
                 </li>
                 <li class="item item-checkbox">                     
@@ -158,7 +158,7 @@
                     <label class="checkbox">                     
                         <input type="checkbox" name="Whine/Needy" value="Whine/Needy" ng-model="cycles.copes.WhineNeedy">                         
                         </label>                         
-                        Whine/Needy
+                        Whiney/Needy
                     
                 </li>
                 <li class="item item-checkbox">                     
@@ -177,27 +177,6 @@
                 </li>
                 <li class="item item-checkbox">                     
                     <label class="checkbox">                     
-                        <input type="checkbox" name="Withdraw To Punish" value="Withdraw To Punish" ng-model="cycles.copes.WithdrawToPunish">                         
-                        </label>                        
-                        Withdraw To Punish
-                    
-                </li>
-                <li class="item item-checkbox">                     
-                    <label class="checkbox">                     
-                        <input type="checkbox" name="Manipulates" value="Manipulates" ng-model="cycles.copes.Manipulates">                         
-                        </label>                         
-                        Manipulates
-                    
-                </li>
-                <li class="item item-checkbox">                     
-                    <label class="checkbox">                     
-                        <input type="checkbox" name="Withdraw To Defend" value="Withdraw To Defend" ng-model="cycles.copes.WithdrawToDefend">                         
-                        </label>                         
-                        Withdraw To Defend
-                    
-                </li>
-                <li class="item item-checkbox">                     
-                    <label class="checkbox">                     
                         <input type="checkbox" name="Unreliable"  value="Unreliable" ng-model="cycles.copes.Unreliable">                         
                         </label>                         
                         Unreliable
@@ -205,16 +184,37 @@
                 </li>
                 <li class="item item-checkbox">                     
                     <label class="checkbox">                     
+                        <input type="checkbox" name="Manipulates" value="Manipulates" ng-model="cycles.copes.Manipulates">                         
+                        </label>                         
+                        Manipulative
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Withdraw To Punish" value="Withdraw To Punish" ng-model="cycles.copes.WithdrawToPunish">                         
+                        </label>                        
+                        Withdrawing  To Punish
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
+                        <input type="checkbox" name="Withdraw To Defend" value="Withdraw To Defend" ng-model="cycles.copes.WithdrawToDefend">                         
+                        </label>                         
+                        Withdrawing  To Defend
+                    
+                </li>
+                <li class="item item-checkbox">                     
+                    <label class="checkbox">                     
                         <input type="checkbox" name="Withdraw To Pout" value="Withdraw To Pout" ng-model="cycles.copes.WithdrawToPout">                         
                         </label>                         
-                        Withdraw To Pout
+                        Withdrawing To Pout
                     
                 </li>
                 <li class="item item-checkbox">                     
                     <label class="checkbox">                     
                         <input type="checkbox" name="Withdraw To Avoid" value="Withdraw To Avoid" ng-model="cycles.copes.WithdrawToAvoid">                         
                         </label>                         
-                        Withdraw To Avoid
+                        Withdrawing To Avoid
                     
                 </li>
             </ul>
