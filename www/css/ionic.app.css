@@ -7819,6 +7819,9 @@ a.button {
 .tab-content .pane {
   background: #fff; }
 
+.whitebg {
+  background: #ffffff; }
+
 .menu-left {
   font-family: "HelveticaNeue"; }
   .menu-left .title {
