@@ -8335,3 +8335,7 @@ li.item {
   width: 100%;
   padding: 15px 10px 13px 10px;
   display: block; }
+
+.steps-list li {
+  font-size: 12px;
+  letter-spacing: 0px; }
