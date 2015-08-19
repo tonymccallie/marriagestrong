@@ -10,28 +10,28 @@
 			<p>As you view your scores, remember the results might put you into a place of pain. If so, use the 4 Steps to move from your pain cycle to your peace cycle.</p>
 		</div>
 		<ul class="quizzes-results-list list">
-			<li ng-if="usnessQuizTotal <= 10" class="item">
+			<li ng-if="usnessQuizTotal < 15" class="item">
 				<div class="quizzes-circle-container">
 					<span class="red-circle">RED</span>
 				</div>
 				<div class="quizzes-circle-text">YOUR US IS ASKING FOR ATTENTION
 					<br>You’re feeling less than connected in most of your Us-ness categories. Choose 1-3 categories that feel most important to you as a couple and make a decision on how to strengthen your Us in these categories. Go to our Make a Decision button for more help.</div>
 			</li>
-			<li ng-if="usnessQuizTotal > 10 && usnessQuizTotal <= 20" class="item">
+			<li ng-if="usnessQuizTotal >= 15 && usnessQuizTotal < 20" class="item">
 				<div class="quizzes-circle-container">
 					<span class="orange-circle circle-selceted">ORANGE</span>
 				</div>
 				<div class="quizzes-circle-text">YOUR US NEEDS A TUNE-UP
 					<br>Your Us is feeling run down and could use a boost. Choose 2 areas where your Us needs work, and decide as a couple how to move forward.</div>
 			</li>
-			<li ng-if="usnessQuizTotal > 20 && usnessQuizTotal < 30" class="item">
+			<li ng-if="usnessQuizTotal >= 20 && usnessQuizTotal < 25" class="item">
 				<div class="quizzes-circle-container">
 					<span class="yellow-circle">YELLOW</span>
 				</div>
 				<div class="quizzes-circle-text">YOUR US IS MAKING SOLID CONTACT
 					<br>Your Us is feeling pretty darn good. You’re feeling connected in most categories, with some exceptions. Take some time and celebrate with your spouse the categories where your US is strong. Pick one category where you have grown and talk about what has caused the growth.</div>
 			</li>
-			<li ng-if="usnessQuizTotal == 30" class="item">
+			<li ng-if="usnessQuizTotal >= 25" class="item">
 				<div class="quizzes-circle-container">
 					<span class="green-circle">GREEN</span>
 				</div>
