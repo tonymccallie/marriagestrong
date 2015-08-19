@@ -21,14 +21,24 @@
 				</div>
 				<!--Needs Validation-->
 				<div class="list list-inset">
-					<ionic-datepicker input-obj="anniversaryDatePicker" class="item item-input">
-						<input name="wedding_anniversary" ng-model="user.data.wedding_anniversary" type="text" placeholder="WEDDING ANNIVERSARY" required />
+					<ionic-datepicker input-obj="anniversaryDatePicker" class="item item-input item-icon-right datepicker">
+						<div ng-if="user.data.wedding_anniversary">
+							{{user.data.wedding_anniversary | date:'MMMM dd, yyyy'}}
+						</div>
+						<div ng-if="!user.data.wedding_anniversary">
+							WEDDING ANNIVERSARY
+						</div>
 						<i class="icon ion-calendar icon-calm"></i>
 					</ionic-datepicker>
 				</div>
 				<div class="list list-inset">
-					<ionic-datepicker input-obj="firstdateDatePicker" class="item item-input">
-						<input name="wedding_anniversary" ng-model="user.data.first_date_anniversary" type="text" placeholder="FIRST DATE ANNIVERSARY" />
+					<ionic-datepicker input-obj="firstdateDatePicker" class="item item-input item-icon-right datepicker">
+						<div ng-if="user.data.first_date_anniversary">
+							{{user.data.first_date_anniversary | date:'MMMM dd, yyyy'}}
+						</div>
+						<div ng-if="!user.data.first_date_anniversary">
+							FIRST DATE ANNIVERSARY
+						</div>
 						<i class="icon ion-calendar icon-calm"></i>
 					</ionic-datepicker>
 				</div>

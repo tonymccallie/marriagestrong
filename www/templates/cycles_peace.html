@@ -10,124 +10,16 @@
             • Spiritual resources, and <br>
             • The messages you believe about yourself.<br>
         </p>
-        <p>In creating your Peace Cycle choose truths that replace the feelings/negative messages in your pain cycle. The truth about me is I am (choose three):</p></div>
+        <p>In creating your Peace Cycle choose truths that replace the feelings/negative messages in your pain cycle. The truth about me is I am (choose up to three):</p></div>
         <div class="padding">
             <form name="cyclesPeaceForm" novalidate="" ng-submit="process('menu.tabs.cycles_peace_response',cyclesPeaceForm)">
              <ul class="cycles-peace list">
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="loved" value="loved" ng-model="cycles.peace.loved">
-                    </label>
-                    Loved
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="known" value="known" ng-model="cycles.peace.known">
-                    </label>
-                    Known
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="accepted" value="accepted" ng-model="cycles.peace.accepted">
-                    </label>
-                    Accepted
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="Able to Control Self" value="AbleToControlSelf" ng-model="cycles.peace.AbleToControlSelf">
-                    </label>
-                    Able to Control Self
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="empowered" value="empowered" ng-model="cycles.peace.empowered">
-                    </label>
-                    Empowered
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="appreciated" value="appreciated" ng-model="cycles.peace.appreciated">
-                    </label>
-                    Appreciated
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="encouraged" value="encouraged" ng-model="cycles.peace.encouraged">
-                    </label>
-                    Encouraged
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="priceless" value="priceless" ng-model="cycles.peace.priceless">
-                    </label>
-                    Priceless
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="Full of Worth" value="FullOfWorth" ng-model="cycles.peace.FullOfWorth">
-                    </label>
-                    Full of Worth
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="promising" value="FullOfPromise" ng-model="cycles.peace.FullOfPromise">
-                    </label>
-                    Full of Promise
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="wanted" value="wanted" ng-model="cycles.peace.wanted">
-                    </label>
-                    Wanted
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="valuable" value="valuable" ng-model="cycles.peace.valuable">
-                    </label>
-                    Valuable
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="adequate" value="adequate" ng-model="cycles.peace.adequate">
-                    </label>
-                    Adequate
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="connected" value="connected" ng-model="cycles.peace.connected">
-                    </label>
-                    Connected
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="valued" value="valued" ng-model="cycles.peace.valued">
-                    </label>
-                    Valued
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="treasured" value="treasured" ng-model="cycles.peace.treasured">
-                    </label>
-                    Treasured
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="celebrated" value="celebrated" ng-model="cycles.peace.celebrated" >
-                    </label>
-                    Celebrated
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="significant" value="significant" ng-model="cycles.peace.significant">
-                    </label>
-                    Significant
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="safe" value="safe" ng-model="cycles.peace.safe">
-                    </label>
-                    Safe
-                </li>
+               <li ng-repeat="truth in truthList" class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox" name="pain" ng-model="user.data.usness.truths[truth]" ng-change="checkTruths(user.data.usness.truths[truth])" ng-disabled="truthCount>=3 && !user.data.usness.truths[truth]">
+					</label>
+					{{truth}}
+				</li>
             </ul>
             <div class="tip-text">
                 <h1><img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>

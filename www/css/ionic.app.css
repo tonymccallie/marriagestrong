@@ -8028,6 +8028,12 @@ i {
 .icon-calm {
   color: #808184; }
 
+.datepicker {
+  font-size: 22px;
+  color: #808184;
+  border: solid 1px #d0d2d3;
+  padding: 15px 10px 13px 10px; }
+
 .item-checkbox {
   border-width: 0px;
   font-size: 13px; }

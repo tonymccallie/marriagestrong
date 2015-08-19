@@ -188,11 +188,46 @@ angular.module('greyback.controllers', [])
 	});
 })
 
-.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, UserService) {
+.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, UserService, ListService) {
 	console.log('UserController');
 	$scope.link_code = "";
 	$scope.user = user;
-	$scope.user.data = {};
+	//$scope.user.data = {};
+	
+	var countBool = function(obj) {
+		var count = 0;
+		for(var key in obj) {
+			if(obj[key]) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	$scope.$on('$ionicView.enter', function(e) {
+		switch($state.current.name) {
+			case 'menu.tabs.usness_gifts':
+				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.usness != 'undefined')&&((typeof $scope.user.data.usness.gifts != 'undefined')||(typeof $scope.user.data.usness.gifts_other != 'undefined'))) {
+					if(typeof $scope.user.data.usness.gifts != 'undefined') {
+						$scope.giftCount+=countBool($scope.user.data.usness.gifts);
+					}
+					if(typeof $scope.user.data.usness.gifts_other != 'undefined') {
+						$scope.giftCount+=countBool($scope.user.data.usness.gifts_other);
+					}
+				}
+				break;
+			case 'menu.tabs.cycles_pain':
+				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.usness != 'undefined')&&(typeof $scope.user.data.usness.pains != 'undefined')) {
+					$scope.painCount+=countBool($scope.user.data.usness.pains);
+				}
+				break;
+			case 'menu.tabs.cycles_pain_copes':
+				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.usness != 'undefined')&&(typeof $scope.user.data.usness.copes != 'undefined')) {
+					$scope.copeCount+=countBool($scope.user.data.usness.copes);
+				}
+				break;
+		}
+	});
 
 	$scope.anniversaryDatePicker = {
 		//titleLabel: 'Title', //Optional
@@ -211,7 +246,7 @@ angular.module('greyback.controllers', [])
 			$scope.user.data.wedding_anniversary = val;
 		}
 	};
-	
+
 	$scope.firstdateDatePicker = {
 		//titleLabel: 'Title', //Optional
 		//todayLabel: 'Today', //Optional
@@ -219,14 +254,14 @@ angular.module('greyback.controllers', [])
 		//setLabel: 'Set', //Optional
 		//errorMsgLabel: 'Please select time.', //Optional
 		//setButtonType: 'button-assertive', //Optional
-		//inputDate: new Date(), //Optional
+		inputDate: new Date(), //Optional
 		//mondayFirst: false, //Optional
 		//disabledDates: disabledDates, //Optional
 		//monthList: monthList, //Optional
 		//from: new Date(2015, 7, 2), //Optional
 		//to: new Date(2015, 7, 29), //Optional
 		callback: function (val) { //Mandatory
-			
+			$scope.user.data.first_date_anniversary = val;
 		}
 	};
 
@@ -299,9 +334,111 @@ angular.module('greyback.controllers', [])
 			});
 		}
 	}
-
+	
 	$scope.process = function (next, form) {
+		var boolPass = true;
+		console.log($scope.user.data);
+		if(form.$name == 'usnessGiftsForm' && $scope.giftCount < 1) {
+			boolPass = false;
+			alert('You much choose at least one gift.');
+		}
+		
+		if(form.$name == 'cyclesPainForm' && $scope.painCount < 1) {
+			boolPass = false;
+			alert('You much choose at least one feeling.');
+		}
+		
+		if(form.$name == 'cyclesPainCopesForm' && $scope.copeCount < 1) {
+			boolPass = false;
+			alert('You much choose at least one cope.');
+		}
+		
+		if(form.$name == 'cyclesPeaceForm' && $scope.truthCount < 1) {
+			boolPass = false;
+			alert('You much choose at least one truth.');
+		}
+		
+		if(form.$name == 'cyclesPeaceResponseForm' && $scope.actionCount < 1) {
+			boolPass = false;
+			alert('You much choose at least one action.');
+		}
+		
+		if(boolPass) {
+			UserService.updateUser($scope.user);
+			$state.go(next);	
+		}
+	}
+	
+	$scope.giftList = ListService.giftList;
+	
+	$scope.giftCount = 0;
 
-		$state.go(next);
+	$scope.checkGifts = function (item) {
+		if (item) {
+			$scope.giftCount++;
+		} else {
+			$scope.giftCount--;
+		}
+	}
+	
+	$scope.giftVars = {other1:false,other2:false,other3:false};
+	
+	$scope.checkGiftOther = function(item, varName) {
+		if(!$scope.giftVars[varName] && item.length > 0) {
+			$scope.giftVars[varName] = true;
+			$scope.giftCount++;
+		}
+		if($scope.giftVars[varName] && item.length == 0) {
+			$scope.giftVars[varName] = false;
+			$scope.giftCount--;
+		}
+	}
+	
+	$scope.painList = ListService.painList;
+	
+	$scope.painCount = 0;
+
+	$scope.checkPains = function (item) {
+		if (item) {
+			$scope.painCount++;
+		} else {
+			$scope.painCount--;
+		}
+	}
+	
+	$scope.copeList = ListService.copeList;
+	
+	$scope.copeCount = 0;
+
+	$scope.checkCopes = function (item) {
+		if (item) {
+			$scope.copeCount++;
+		} else {
+			$scope.copeCount--;
+		}
+	}
+	
+	$scope.truthList = ListService.truthList;
+	
+	$scope.truthCount = 0;
+
+	$scope.checkTruths = function (item) {
+		if (item) {
+			$scope.truthCount++;
+		} else {
+			$scope.truthCount--;
+		}
+	}
+	
+	$scope.actionList = ListService.actionList;
+	
+	$scope.actionCount = 0;
+
+	$scope.checkActions = function (item) {
+		if (item) {
+			$scope.actionCount++;
+		} else {
+			$scope.actionCount--;
+		}
 	}
 })

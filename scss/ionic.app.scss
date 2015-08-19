@@ -326,6 +326,13 @@ input[placeholder] {
     color: $calm;
 }
 
+.datepicker {
+	font-size: 22px;
+	color: $calm;
+	border: solid 1px $lightGrey;
+	padding: 15px 10px 13px 10px;
+}
+
 .item-checkbox {
     border-width: 0px;
     font-size: 13px;

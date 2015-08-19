@@ -6,22 +6,16 @@
         <h2><img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Spiritual Gifts</h2>   
         <h4>Spiritual Gifts Results</h4>
             <ul class="gifts-list list">
-                <li class="item">
-                  <span class="circle-number">1</span> ###GIFT RESULT ONE
+                <li ng-repeat="(gift,val) in user.data.usness.gifts" ng-if="val" class="item">
+                  <span class="circle-number">{{$index + 1}}</span> {{gift}}
                 </li>
-                <li class="item">
-                  <span class="circle-number">2</span> ###GIFT RESULT TWO
-                </li>
-                <li class="item">
-                  <span class="circle-number">3</span> ###GIFT RESULT THREE
+                <li ng-repeat="(gift,val) in user.data.usness.gifts_other" ng-if="val" class="item">
+                  <span class="circle-number">{{$index + 1}}</span> {{val}}
                 </li>
             </ul>
             <div class="padding">
                 <h1><img src="img/icon-further-small.png" class="cycles-icon" />&nbsp;TAKE IT FURTHER</h1>
-                <p>See how you and your spouse compare in each personality category. In what ways can our similarity or difference be an advantage to our us?  
-                </p>
-                <p>Example: Two introverts in an Us can enjoy ample alone time together and not become overextended socially. With one introvert and one extrovert in the Us, the introvert keeps the couple deeply connected to others and encourages down time, while the extrovert keeps the “party animal” in your Us alive.>
-                </p>
+				<p>Affirm the gifts you see in each other. You may see a gift in your spouse that he or she hasn’t identified before. Notice how you and your spouse compare in your spiritual gifts. In what ways can these gifts work together? </p>
                 <br>
                 <button ui-sref="menu.tabs.usness" class="button button-block button-positive">Continue</button>
             </div>

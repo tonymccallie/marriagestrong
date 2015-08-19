@@ -1,65 +1,52 @@
 <ion-view view-title="Usness">
-<ion-nav-title>
-    <img src="img/logo.png" class="title-image" />
-</ion-nav-title>
+	<ion-nav-title>
+		<img src="img/logo.png" class="title-image" />
+	</ion-nav-title>
 	<ion-content>
-        <h2><img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Us-ness - Take it Further</h2>   
-		 <div class="grey_bg">
-            <div class="padding">
-                <h5>Couple Activities Results </h5>
-                <p>The following are your results you came up with for connecting the us-ness in your relationship. Take a minute to review and turn those activites into an action plan to move forward.</p>
-                <div class="list list-inset">
-                    <label class="item item-input">
-                    ###ONE
-                    </label>
-                </div>
-                <div class="list list-inset">
-                    <label class="item item-input">
-                     ###TWO
-                    </label>
-                </div>
-                <div class="list list-inset">
-                    <label class="item item-input">
-                    ###THREE
-                    </label>
-                </div>   
-                <br>
-             </div>
-        </div>
-                        <div class="padding">
-            <h1><img src="img/icon-further-small.png" class="cycles-icon" />&nbsp;TAKE IT FURTHER</h1>
-            <p>
-                1. Talk with your spouse about 3 of the activities you chose for your Us; share what they mean to you and how you believe they make your Us more connected.
-                <br><br>
-                2. Based on the activities you chose what are 3 collective characteristics of your Us identity:
-            </p>
-        </div>
-            <form class="usnessFurtherForm" name="usnessFurtherForm" novalidate="" ng-submit="process('menu.tabs.usness',usnessFurtherForm)">
-                <div class="grey_bg">
-                    <div class="padding">
-                        <div class="list list-inset">
-                          <label class="item item-input">
-                            1 &nbsp;
-						  <input name="usnessFurtherOne" type="text" required />				
-                          </label>
-                        </div>
-                         <div class="list list-inset">
-                          <label class="item item-input">
-                            2 &nbsp;
-						  <input name="usnessFurtherTwo" type="text" required />				
-                          </label>
-                        </div>
-                         <div class="list list-inset">
-                          <label class="item item-input">
-                            3 &nbsp;
-						  <input name="usnessFurtherThree" type="text" required />				
-                          </label>
-                        </div>
-                    <p>Life gets busy and it can be hard to maintain the activities that connect you to your spouse.  Use this list in the days and years to come to remind you of how to recharge your Us to keep it strong.  Be sure to add to this list as you grow and experience life together as a couple.</p>
-                    <br>
-                    <input type="submit" value="Save and Continue" class="button button-block button-positive" />
-                    </div>
-                </div>
-            </form>
+		<h2>
+			<img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Us-ness - Take it Further</h2>
+		<div class="grey_bg">
+			<div class="padding">
+				<h5>Your Us-ness Activities (see below to Take It Further)</h5>
+				<div ng-repeat="(activity, value) in user.data.usness.activities" ng-if="value" class="list list-inset">
+					<label class="item item-input">{{activity}}</label>
+				</div>
+				<div ng-repeat="(activity, value) in user.data.usness.activities_other" ng-if="value.length > 0" class="list list-inset">
+					<label class="item item-input">{{value}}</label>
+				</div>
+				<br>
+			</div>
+		</div>
+		<div class="padding">
+			<h1>
+				<img src="img/icon-further-small.png" class="cycles-icon" />&nbsp;TAKE IT FURTHER</h1>
+			<p>1. Talk with your spouse about 3 of the activities you chose for your Us; share what they mean to you and how you believe they make your Us more connected.
+				<br>
+				<br>2. Based on the activities you chose what are 3 collective characteristics of your Us identity:</p>
+		</div>
+		<form class="usnessFurtherForm" name="usnessFurtherForm" novalidate="" ng-submit="process('menu.tabs.usness',usnessFurtherForm)">
+			<div class="grey_bg">
+				<div class="padding">
+					<div class="list list-inset">
+						<label class="item item-input">1 &nbsp;
+							<input name="usnessFurtherOne" type="text" ng-model="user.data.usness.activities_further.option1" />
+						</label>
+					</div>
+					<div class="list list-inset">
+						<label class="item item-input">2 &nbsp;
+							<input name="usnessFurtherTwo" type="text" ng-model="user.data.usness.activities_further.option2" />
+						</label>
+					</div>
+					<div class="list list-inset">
+						<label class="item item-input">3 &nbsp;
+							<input name="usnessFurtherThree" type="text" ng-model="user.data.usness.activities_further.option3" />
+						</label>
+					</div>
+					<p>Life gets busy and it can be hard to maintain the activities that connect you to your spouse. Use this list in the days and years to come to remind you of how to recharge your Us to keep it strong. Be sure to add to this list as you grow and experience life together as a couple.</p>
+					<br>
+					<input type="submit" value="Save and Continue" class="button button-block button-positive" />
+				</div>
+			</div>
+		</form>
 	</ion-content>
 </ion-view>

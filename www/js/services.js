@@ -231,4 +231,121 @@ angular.module('greyback.services', [])
 		});
 
 	}
+})
+.service('ListService',function() {
+	var self = this;
+	self.giftList = [
+		{
+			model:'teaching',
+			name:'TEACHING',
+			desc:'Communicates Information Well'
+		},
+		{
+			model:'wisdom',
+			name:'WISDOM',
+			desc:'Deep Insight Into Application Of Knowledge'
+		},
+		{
+			model:'knowledge',
+			name:'KNOWLEDGE',
+			desc:'Loves Information'
+		},
+		{
+			model:'exhortation',
+			name:'EXHORTATION',
+			desc:'Comforting And Encouraging'
+		},
+		{
+			model:'discernment',
+			name:'DISCERNMENT',
+			desc:'Easily Sees Truth'
+		},
+		{
+			model:'giving',
+			name:'GIVING',
+			desc:'Joyfully Contributes Time And Money'
+		},
+		{
+			model:'mercy',
+			name:'MERCY',
+			desc:'Great Compassion'
+		},
+		{
+			model:'evangelism',
+			name:'EVANGELISM',
+			desc:'Telling Others About Christ'
+		},
+		{
+			model:'hospitality',
+			name:'HOSPITALITY',
+			desc:'Provides A Warm Welcome'
+		},
+		{
+			model:'faith',
+			name:'FAITH',
+			desc:'Extraordinary Confidence In God'
+		},
+		{
+			model:'leadership',
+			name:'LEADERSHIP',
+			desc:'Sets And Achieves Goals For Groups With Ease'
+		},
+		{
+			model:'administration',
+			name:'ADMINISTRATION',
+			desc:'Creates And Executes Effective Plans'
+		},
+		{
+			model:'healing',
+			name:'HEALING',
+			desc:'Restores Health'
+		},
+		{
+			model:'tongues',
+			name:'TONGUES',
+			desc:'Speaking In Another Language'
+		},
+		{
+			model:'intercession',
+			name:'INTERCESSION',
+			desc:'Loves To Pray'
+		},
+		{
+			model:'service',
+			name:'SERVICE',
+			desc:'Identifies Need And Completes Tasks'
+		},
+	];
+	
+	self.painList = [
+		'UNLOVED','UNWORTHY','INSIGNIFICANT','ALONE','WORTHLESS',
+		'DEVALUED','DEFECTIVE','INADEQUATE','REJECTED','UNACCEPTABLE',
+		'HOPELESS','UNWANTED','ABANDONED','OUT OF CONTROL','DISCOURAGED',
+		'UNSAFE','INSECURE','FEARFUL','VULNERABLE','CONTROLLED',
+		'POWERLESS','UNKOWN','BETRAYED','INVALIDATED','UNABLE TO MEASURE UP',
+	];
+	
+	self.copeList = [
+		'BLAMING','DEPRESSED','CONTROLLING','HIGH/DRUNK','ANGRY','NEGATIVE',
+		'PERFECTIONISTIC','NUMBED OUT','SARCASTIC','ISOLATED','PERFORMANCE-DRIVEN','IRRESPONSIBLE',
+		'ARROGANT','INCONSOLABLE','INTELLECTUALIZING','IMPULSIVE','THREATENING','CATASTROPHIZING',
+		'DEMANDING','OUT OF CONTROL','RETALIATORY','WHINY/NEEDY','CRITICAL','SELFISH',
+		'UNRELIABLE','MANIPULATIVE','WITHDRAWING TO PUNISH','WITHDRAWING TO POUT','WITHDRAWING TO AVOID',
+	];
+	
+	self.truthList = [
+		'LOVED','KNOWN','ACCEPTED','ABLE TO CONTROL SELF','EMPOWERED',
+		'APPRECIATED','ENCOURAGED','PRICELESS','FULL OF WORTH','FULL OF PROMISE',
+		'WANTED','VALUABLE','ADEQUATE','CONNECTED','VALUED',
+		'TREASURED','CELEBRATED','SIGNIFICANT','SAFE'
+	];
+	
+	self.actionList = [
+		'ACCEPTING','ABLE TO PERSIST','NON-DEFENSIVE','KIND','SELF-CONTROLLED','SETTLED',
+		'BURTURING','RESPONSIBLE','VULNERABLE','GENTLE','HOPEFUL','SEEKING GOOD',
+		'SUPPORTIVE','TRUSTWORTHY','CARING','LISTENING','RESPECTFUL','RELIABLY-CONNECTING',
+		'ENCOURAGING','LOVING','ENGAGING','MERCIFUL','OPEN','HONEST',
+		'GIVING','EMPATHETIC','PEACEFUL','RELIABLE','INTIMATE','HUMBLE',
+		'SOBER','INCLUSIVE','RELAXED','POSITIVE'
+	];
 });

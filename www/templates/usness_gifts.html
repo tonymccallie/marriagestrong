@@ -1,156 +1,46 @@
- <ion-view view-title="Usness">
-<ion-nav-title>
-    <img src="img/logo.png" class="title-image" />
-</ion-nav-title>
+<ion-view view-title="Usness">
+	<ion-nav-title>
+		<img src="img/logo.png" class="title-image" />
+	</ion-nav-title>
 	<ion-content>
-        <h2><img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Spiritual Gifts</h2>   
+		<h2>
+			<img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Spiritual Gifts</h2>
 		<div class="padding">
-            <p>For those interested in their spiritual Us-ness, choose your top three spiritual 
-gifts from the list below. You can take a spiritual gifts test online if needed; there are a lot available from difference theological perspectives.</p>
-        </div>
-            <form class="usnessGiftsForm" name="usnessGiftsForm" novalidate="" ng-submit="process('menu.tabs.usness_gifts_results',usnessGiftsForm)">
-                <div class="padding">
-                    <ul class="list">
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="TEACHING" ng-model="usness.gifts.teaching">
-                            </label>
-                            <strong>TEACHING</strong><br>
-                            Communicates Information Well
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="WISDOM" ng-model="usness.gifts.wisdom">
-                            </label>
-                            <strong>WISDOM</strong><br>
-                            Deep Insight Into Application Of Knowledge
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="KNOWLEDGE" ng-model="usness.gifts.knowledge">
-                            </label>
-                            <strong>KNOWLEDGE</strong><br>
-                            Loves Information
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="EXHORTATION" ng-model="usness.gifts.exhortation">
-                            </label>
-                            <strong>EXHORTATION</strong><br>
-                            Comforting And Encouraging
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="DISCERNMENT" ng-model="usness.gifts.discernment">
-                            </label>
-                            <strong>DISCERNMENT</strong><br>
-                            Easily Sees Truth
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="GIVING" ng-model="usness.gifts.giving">
-                            </label>
-                            <strong>GIVING</strong><br>
-                            Joyfully Contributes Time And Money
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="MERCY" ng-model="usness.gifts.mercy">
-                            </label>
-                            <strong>MERCY</strong><br>
-                            Great Compassion
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="EVANGELISM" ng-model="usness.gifts.evangelism">
-                            </label>
-                            <strong>EVANGELISM</strong><br>
-                            Telling Others About Christ
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="HOSPITALITY" ng-model="usness.gifts.hospitality">
-                            </label>
-                            <strong>HOSPITALITY</strong><br>
-                            Provides A Warm Welcome
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="FAITH" ng-model="usness.gifts.faith">
-                            </label>
-                            <strong>FAITH</strong><br>
-                            Extraordinary Confidence In God
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="LEADERSHIP" ng-model="usness.gifts.leadership">
-                            </label>
-                            <strong>LEADERSHIP</strong><br>
-                            Sets And Achieves Goals For Groups With Ease 
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="ADMINISTRATION" ng-model="usness.gifts.administration">
-                            </label>
-                            <strong>ADMINISTRATION</strong><br>
-                            Creates And Executes Effective Plans
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="HEALING" ng-model="usness.gifts.healing">
-                            </label>
-                            <strong>HEALING</strong><br>
-                            Restores Health
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="TONGUES" ng-model="usness.gifts.tongues">
-                            </label>
-                            <strong>TONGUES</strong><br>
-                            Speaking In Another Language
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="INTERCESSION" ng-model="usness.gifts.intercession">
-                            </label>
-                            <strong>INTERCESSION</strong><br>
-                            Loves To Pray
-                        </li>
-                        <li class="item item-checkbox">
-                            <label class="checkbox">
-                            <input type="checkbox" name="gift" value="SERVICE" ng-model="usness.gifts.service">
-                            </label>
-                            <strong>SERVICE</strong><br>
-                            Identifies Need And Completes Tasks
-                        </li>
-                    </ul>
-                </div>
-                <div class="grey_bg">
-                    <div class="padding">
-                     <p>All the above gifts are found in I Corinthians 12, Romans 12 and Ephesians 4. Other spiritual gifts tests include gifts not listed above. Feel free to add to the list:</p>
-                        <div class="list list-inset">
-                          <label class="item item-input">
-                            1 &nbsp;
-						  <input name="gift" type="text" value="variable1" ng-model="usness.gifts.variable1" />				
-                          </label>
-                        </div>
-                         <div class="list list-inset">
-                          <label class="item item-input">
-                            2 &nbsp;
-						  <input name="gift" type="text" value="variable2" ng-model="usness.gifts.variable2" />				
-                          </label>
-                        </div>
-                         <div class="list list-inset">
-                          <label class="item item-input">
-                            3 &nbsp;
-						  <input name="gift" type="text" value="variable3" ng-model="usness.gifts.variable3" />				
-                          </label>
-                        </div>
-                    <input type="submit" value="Save and Continue" class="button button-block button-positive" />
-                    <button href="#" class="button button-block button-calm">Compare with Spouse</button>
-
-                    </div>
-                </div>
-            </form>
+			<p>For those interested in their spiritual Us-ness, choose your top three spiritual gifts from the list below. You can take a spiritual gifts test online if needed; there are a lot available from difference theological perspectives.</p>
+		</div>
+		<form class="usnessGiftsForm" name="usnessGiftsForm" novalidate="" ng-submit="process('menu.tabs.usness_gifts_results',usnessGiftsForm)">
+			<div class="padding">
+				<ul class="list">
+					<li ng-repeat="gift in giftList" class="item item-checkbox">
+						<label class="checkbox">
+							<input type="checkbox" name="gift" value="TEACHING" ng-model="user.data.usness.gifts[gift.name]" ng-change="checkGifts(user.data.usness.gifts[gift.name])" ng-disabled="giftCount>=3 && !user.data.usness.gifts[gift.name]">
+						</label>
+						<strong>{{gift.name}}</strong>
+						<br>{{gift.desc}}</li>
+				</ul>
+			</div>
+			<div class="grey_bg">
+				<div class="padding">
+					<p>All the above gifts are found in I Corinthians 12, Romans 12 and Ephesians 4. Other spiritual gifts tests include gifts not listed above. Feel free to add to the list:</p>
+					<div class="list list-inset">
+						<label class="item item-input">1 &nbsp;
+							<input name="gift" type="text" ng-model="user.data.usness.gifts_other.other1" ng-change="checkGiftOther(user.data.usness.gifts_other.other1,'other1')" ng-disabled="giftCount>=3 && !user.data.usness.gifts_other.other1" />
+						</label>
+					</div>
+					<div class="list list-inset">
+						<label class="item item-input">2 &nbsp;
+							<input name="gift" type="text" ng-model="user.data.usness.gifts_other.other2" ng-change="checkGiftOther(user.data.usness.gifts_other.other2,'other2')" ng-disabled="giftCount>=3 && !user.data.usness.gifts_other.other2" />
+						</label>
+					</div>
+					<div class="list list-inset">
+						<label class="item item-input">3 &nbsp;
+							<input name="gift" type="text" ng-model="user.data.usness.gifts_other.other3" ng-change="checkGiftOther(user.data.usness.gifts_other.other3,'other3')" ng-disabled="giftCount>=3 && !user.data.usness.gifts_other.other3" />
+						</label>
+					</div>
+					<input type="submit" value="Save and Continue" class="button button-block button-positive" />
+					<button href="#" class="button button-block button-calm">Compare with Spouse</button>
+				</div>
+			</div>
+		</form>
 	</ion-content>
 </ion-view>

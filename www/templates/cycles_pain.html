@@ -4,170 +4,27 @@
 </ion-nav-title>
 	<ion-content>
         <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Pain Cycle</h2>
-        <div class="paragraph-list"><p>When I am in conflict with my spouse, I commonly feel (choose three):</p></div>
+        <div class="paragraph-list"><p>When I am in conflict with my spouse, I commonly feel (choose up to three):</p></div>
         <div class="padding">
             <form name="cyclesPainForm" novalidate="" ng-submit="process('menu.tabs.cycles_pain_copes',cyclesPainForm)">
              <ul class="cycles-pain list">
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="unloved" value="unloved" ng-model="cycles.pain.unloved">
-                    </label>
-                    Unloved 
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="unworthy" value="unworthy" ng-model="cycles.pain.unworthy">
-                    </label>
-                    Unworthy
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="insignificant" value="insignificant" ng-model="cycles.pain.insignificant">
-                    </label>
-                    Insignificant
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="alone" value="alone" ng-model="cycles.pain.alone">
-                    </label>
-                    Alone
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="worthless" value="worthless" ng-model="cycles.pain.worthless">
-                    </label>
-                   Worthless
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="devalued" value="devalued" ng-model="cycles.pain.devalued">
-                    </label>
-                    Devalued
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="defective" value="defective" ng-model="cycles.pain.defective">
-                    </label>
-                    Defective
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="inadequate" value="inadequate" ng-model="cycles.pain.inadequate">
-                    </label>
-                   Inadequate
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="rejected" value="rejected" ng-model="cycles.pain.rejected">
-                    </label>
-                    Rejected
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="unacceptable" value="unacceptable" ng-model="cycles.pain.unacceptable">
-                    </label>
-                    Unacceptable
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="hopeless" value="hopeless" ng-model="cycles.pain.hopeless">
-                    </label>
-                    Hopeless
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="unwanted" value="unwanted" ng-model="cycles.pain.unwanted">
-                    </label>
-                    Unwanted
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="abandoned" value="abandoned" ng-model="cycles.pain.abandoned">
-                    </label>
-                    Abandoned
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="out of control" value="out of control" ng-model="cycles.pain.outOfControl">
-                    </label>
-                    Out of Control
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="discouraged" value="discouraged" ng-model="cycles.pain.discouraged">
-                    </label>
-                    Discouraged
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="unsafe" value="unsafe" ng-model="cycles.pain.unsafe">
-                    </label>
-                    Unsafe
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="insecure" value="insecure" ng-model="cycles.pain.insecure">
-                    </label>
-                    Insecure
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="fearful" value="fearful" ng-model="cycles.pain.fearful" >
-                    </label>
-                    Fearful
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="vulnerable" value="vulnerable" ng-model="cycles.pain.vulnerable">
-                    </label>
-                    Vulnerable
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="controlled" value="controlled" ng-model="cycles.pain.controlled">
-                    </label>
-                    Controlled
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="powerless" value="powerless" ng-model="cycles.pain.powerless">
-                    </label>
-                    Powerless
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="unknown" value="unknown" ng-model="cycles.pain.unknown">
-                    </label>
-                    Unknown
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="betrayed" value="betrayed" ng-model="cycles.pain.betrayed">
-                    </label>
-                    Betrayed
-                </li>
-                <li class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="invalidated" value="invalidated" ng-model="cycles.pain.invalidated">
-                    </label>
-                    Invalidated
-                </li>
-                <li id="measure" class="item item-checkbox">
-                    <label class="checkbox">
-                    <input type="checkbox" name="unable to measure up" value="unable to measure up" ng-model="cycles.pain.measureUp">
-                    </label>
-                    Unable to Measure Up
-                </li>
+               <ul class="list">
+				<li ng-repeat="pain in painList" class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox" name="pain" value="TEACHING" ng-model="user.data.usness.pains[pain]" ng-change="checkPains(user.data.usness.pains[pain])" ng-disabled="painCount>=3 && !user.data.usness.pains[pain]">
+					</label>
+					{{pain}}
+				</li>
             </ul>
             <div class="tip-text">
                 <h1><img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>
                 <p>When do you first remember feeling this way?  These negative messages usually exist long 
                     before marriage and typically come from 3 places:</p>
-                <p>
-                    -life situations such as financial stress or bullying, <br>
-                    -people outside your family such as peers or authority figures, or <br> 
-                    -your family relationships. <br>
-                </p>
+                <ul>
+                    &bull; life situations such as financial stress or bullying, <br>
+                    &bull; people outside your family such as peers or authority figures, or <br> 
+                    &bull; your family relationships. <br>
+				</ul>
             </div>
             <input type="submit" value="Save and Continue" class="button button-block button-positive" />
             </form>

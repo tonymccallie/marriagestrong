@@ -5,32 +5,26 @@
 	<ion-content>
         <h2><img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Personality</h2>   
         <h4>Personality Results</h4>
-		<div class="padding">
-            <p>Many couples think of the differences between one another as a negative thing. We believe both similarities and differences can be positives for the couple and actually strengthen their Us-ness. 
-            </p>
-            <p>Identify some of your personality traits by choosing the answer in each section that best describes you most of the time.
-            </p>
-        </div>
             <div class="padding personalityResults">
                 <hr>
             
                 <h3>Relating to People</h3>
-                <p>###personality.relating</p>
+                <p>{{user.data.usness.personality.relating}}</p>
                 <hr>
                 <h3>HANDLES INFORMATION</h3>
-                <p>###personality.tasks</p>
+                <p>{{user.data.usness.personality.handling}}</p>
                 <hr>
                 <h3>HANDLING INFORMATION</h3>
-                <p>###personality.decisions</p>
+                <p>{{user.data.usness.personality.decisions}}</p>
                 <hr>
                 <h3>ACCOMPLISHING TASKS</h3>
-                <p>###personality.learning</p>
+                <p>{{user.data.usness.personality.tasks}}</p>
                 <hr>
                 <br>
                 <h1><img src="img/icon-further-small.png" class="cycles-icon" />&nbsp;TAKE IT FURTHER</h1>
-                <p>See how you and your spouse compare in each personality category. In what ways can our similarity or difference be an advantage to our us?  
+                <p>See how you and your spouse compare in each personality category. In what ways can your similarity or difference be an advantage to your us?  
                 </p>
-                <p>Example: Two introverts in an Us can enjoy ample alone time together and not become overextended socially. With one introvert and one extrovert in the Us, the introvert keeps the couple deeply connected to others and encourages down time, while the extrovert keeps the “party animal” in your Us alive.>
+                <p>Example: Two introverts in an Us can enjoy ample alone time together and not become overextended socially. With one introvert and one extrovert in the Us, the introvert keeps the couple deeply connected to others and encourages down time, while the extrovert keeps the “party animal” in your Us alive.
                 </p>
                 <br>
                 <button ui-sref="menu.tabs.usness" class="button button-block button-positive">Continue</button>
