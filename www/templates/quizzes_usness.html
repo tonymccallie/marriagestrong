@@ -1,67 +1,27 @@
-<ion-view view-title="Cycles">
-<ion-nav-title>
-    <img src="img/logo.png" class="title-image" />
-</ion-nav-title>
+<ion-view view-title="USness Quiz">
+	<ion-nav-title>
+		<img src="img/logo.png" class="title-image" />
+	</ion-nav-title>
 	<ion-content>
-        <h2><img src="img/quiz-icon-small.png" class="cycles-icon" />&nbsp;Us-ness Quizzes</h2>    
-        <div class="padding">
-        <p>Choose the statement that best represtents where you are today.</p>
-        </div>
-       <form class="quizzesUnessForm" name="quizzesUnessForm" novalidate="" ng-submit="process('menu.tabs.quizzes_usness_results',quizzesUnessForm)">
-                <hr>
-                <h3>COMMUNICATION</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.communication">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.communication">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.communication">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-                <h3>DECISION MAKING</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.decisionMaking">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.decisionMaking">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.decisionMaking">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-                <h3>TIME TOGETHER</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.timeTogether">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.timeTogether">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.timeTogether">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-                <h3>COMPANIONSHIP / FRIENDSHIP</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.companionship_friendship">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.companionship_friendship">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.companionship_friendship">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-                <h3>FINANCES</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.finances">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.finances">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.finances">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-                <h3>HOUSEWORK</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.housework">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.housework">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.housework">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-                <h3>IN-LAWS</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.inLaws">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.inLaws">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.inLaws">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-                <h3>ROMANCE / INTIMACY</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.romanceIntimacy">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.romanceIntimacy">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.romanceIntimacy">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-                <h3>DREAMING / PLANNING</h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.dreamingPlanning">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.dreamingPlanning">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.dreamingPlanning">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-                <h3>CHILDREN<br><span class="small-button-text">(If Applicable)</span></h3>
-                <label><input type="radio" name="quizzes.usness.relating" value="1" ng-model="usness.quizzes.usness.children">NEEDS IMPROVEMENT <span class="quiz-left-text">Swing and a Miss</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="2" ng-model="usness.quizzes.usness.children">OK <span class="quiz-left-text">Rain Delay</span><br></label>
-                <label><input type="radio" name="quizzes.usness.relating" value="3" ng-model="usness.quizzes.usness.children">STRONG <span class="quiz-left-text">Home-Runs</span><br></label>
-                <hr>
-           <div class="padding">
-                <label><input type="submit" value="Save and Continue" class="button button-block button-positive" /></label>
-           </div>
-        </form>
+		<h2>
+			<img src="img/quiz-icon-small.png" class="cycles-icon" />&nbsp;Us-ness Quiz</h2>
+		<div class="padding">
+			<p>Choose the statement that best represtents where you are today.</p>
+		</div>
+		<form class="quizzesUnessForm" name="quizzesUnessForm" novalidate="" ng-submit="process('menu.tabs.quizzes_usness_results',quizzesUnessForm)">
+			<div ng-repeat="question in usnessQuestions">
+				<hr>
+				<h3>{{question.name}}</h3>
+				<label><input type="radio" name="user.data.quizzes.usness['{{question.name}}']" value="1" ng-model="user.data.quizzes.usness[question.name]">{{question.option1}}<br></label>
+				<label><input type="radio" name="user.data.quizzes.usness['{{question.name}}']" value="2" ng-model="user.data.quizzes.usness[question.name]">{{question.option2}}<br></label>
+				<label><input type="radio" name="user.data.quizzes.usness['{{question.name}}']" value="3" ng-model="user.data.quizzes.usness[question.name]">{{question.option3}}<br></label>
+			</div>
+			<hr>
+			<div class="padding">
+				<label>
+					<input type="submit" value="Save and Continue" class="button button-block button-positive" />
+				</label>
+			</div>
+		</form>
 	</ion-content>
 </ion-view>

@@ -286,6 +286,26 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
+	
+	.state('menu.tabs.quizzes_boundaries', {
+		url: "/quizzes-boundaries",
+		views: {
+			'tab-quizzes': {
+				templateUrl: "templates/quizzes_boundaries.html",
+				controller: "UserController"
+			}
+		}
+	})
+    
+	.state('menu.tabs.quizzes_boundaries_results', {
+		url: "/quizzes-boundaries-results",
+		views: {
+			'tab-quizzes': {
+				templateUrl: "templates/quizzes_boundaries_results.html",
+				controller: "UserController"
+			}
+		}
+	})
 
     
 	.state('menu.tabs.decisions', {

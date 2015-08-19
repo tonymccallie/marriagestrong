@@ -204,6 +204,14 @@ angular.module('greyback.controllers', [])
 		return count;
 	}
 	
+	var sumObj = function(obj) {
+		var count = 0;
+		for(var key in obj) {
+			count+=parseInt(obj[key]);
+		}
+		return count;
+	}
+	
 	$scope.$on('$ionicView.enter', function(e) {
 		switch($state.current.name) {
 			case 'menu.tabs.usness_gifts':
@@ -224,6 +232,20 @@ angular.module('greyback.controllers', [])
 			case 'menu.tabs.cycles_pain_copes':
 				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.usness != 'undefined')&&(typeof $scope.user.data.usness.copes != 'undefined')) {
 					$scope.copeCount+=countBool($scope.user.data.usness.copes);
+				}
+				break;
+			case 'menu.tabs.quizzes_usness_results':
+				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.quizzes != 'undefined')&&(typeof $scope.user.data.quizzes.usness != 'undefined')) {
+					$scope.usnessQuizTotal = sumObj($scope.user.data.quizzes.usness);
+				} else {
+					$scope.usnessQuizTotal = 0;
+				}
+				break;
+			case 'menu.tabs.quizzes_boundaries_results':
+				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.quizzes != 'undefined')&&(typeof $scope.user.data.quizzes.boundaries != 'undefined')) {
+					$scope.boundariesQuizTotal = sumObj($scope.user.data.quizzes.boundaries);
+				} else {
+					$scope.boundariesQuizTotal = 0;
 				}
 				break;
 		}
@@ -441,4 +463,12 @@ angular.module('greyback.controllers', [])
 			$scope.actionCount--;
 		}
 	}
+	
+	$scope.usnessQuestions = ListService.usnessQuiz;
+	
+	$scope.usnessQuizTotal = 0;
+	
+	$scope.boundariesQuestions = ListService.boundariesQuiz;
+	
+	$scope.boundariesQuizTotal = 0;
 })

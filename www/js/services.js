@@ -348,4 +348,130 @@ angular.module('greyback.services', [])
 		'GIVING','EMPATHETIC','PEACEFUL','RELIABLE','INTIMATE','HUMBLE',
 		'SOBER','INCLUSIVE','RELAXED','POSITIVE'
 	];
+	
+	self.usnessQuiz = [
+		{
+			name:'COMMUNICATION',
+			option1: 'stormy seas',
+			option2: 'bright, but choppy',
+			option3: "smooth sailin'"
+		},
+		{
+			name:'DECISION MAKING',
+			option1: 'swing and a miss',
+			option2: 'rain delay',
+			option3: 'home-runs'
+		},
+		{
+			name:'TIME TOGETHER',
+			option1: 'warning light is on',
+			option2: 'half a tank',
+			option3: 'fully loaded'
+		},
+		{
+			name:'COMPANIONSHIP / FRIENDSHIP',
+			option1: 'ships passing',
+			option2: 'caravanning',
+			option3: 'co-pilots'
+		},
+		{
+			name:'FINANACES',
+			option1: "can't find the trailhead",
+			option2: 'steady ascent',
+			option3: 'at the peak'
+		},
+		{
+			name:'HOUSEWORK',
+			option1: 'off key',
+			option2: 'band practice',
+			option3: 'welcome to Hollywood'
+		},
+		{
+			name:'IN-LAWS',
+			option1: 'parted like the Red Sea',
+			option2: 'freeway merge',
+			option3: 'united we stand'
+		},
+		{
+			name:'ROMANCE / INTIMACY',
+			option1: 'two left feet',
+			option2: "we're at the dance, we hear the music",
+			option3: 'dancing the night away'
+		},
+		{
+			name:'DREAMING / PLANNING',
+			option1: 'in the dark',
+			option2: 'partly cloudy',
+			option3: "future's so bright..."
+		},
+		{
+			name:'CHILDREN (if applicable)',
+			option1: 'bronze medal',
+			option2: 'silver medal',
+			option3: 'taking home the gold'
+		},	
+	];
+	
+	self.boundariesQuiz = [
+		{
+			name:'SPENDING MONEY',
+			option1: "Little-to-no spontaneous spending",
+			option2: "Who needs a budget?",
+			option3: "Planned out, with room to flex"
+		},
+		{
+			name:'GIVING MONEY',
+			option1: "10% all the time",
+			option2: "Give in the emotion of the ask",
+			option3: "Open and responsible giving"
+		},
+		{
+			name:'SOCIALIZING',
+			option1: "Scheduled, limiting",
+			option2: "Spur-of-the-moment, unrestricted",
+			option3: "Sometimes yes, sometimes no"
+		},
+		{
+			name:'HELPING OTHERS',
+			option1: "No unplanned assistance",
+			option2: "Give beyond our own resources",
+			option3: "Accessible and balanced"
+		},
+		{
+			name:'MINISTRY / CHURCH OPPORTUNITIES',
+			option1: "Rarely say yes",
+			option2: "Rarely say no",
+			option3: "Based on prayerful consideration"
+		},
+		{
+			name:'WORK',
+			option1: "Priority number one",
+			option2: "Last on the list of concerns",
+			option3: "Responsible and flexible"
+		},
+		{
+			name:'EXTENDED FAMILY',
+			option1: "Only scheduled gatherings",
+			option2: "Come running whenever they call",
+			option3: "Based on their needs and our needs "
+		},
+		{
+			name:'HOBBIES / PERSONAL INTERESTS',
+			option1: "Not seen as practical or valuable",
+			option2: "Easily absorbed",
+			option3: "Connected, but not attached at the hip"
+		},
+		{
+			name:'INTERNET / TV / ENTERTAINMENT',
+			option1: "Waste of time",
+			option2: "Never unplug",
+			option3: "Balancing the 'on' and 'off' switch"
+		},
+		{
+			name:"CHILDRENS' ACTIVITIES (IF APPLICABLE)",
+			option1: "Homebodies",
+			option2: "Running everywhere to everything",
+			option3: "Intentional engagement"
+		},
+	]
 });
