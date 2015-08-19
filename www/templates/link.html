@@ -18,7 +18,7 @@
 			<form name="linkForm" novalidate="" ng-submit="link(linkForm)">
 				<div class="list list-inset">
 					<div class="item item-input">
-						<input name="link_code" ng-model="linkUser.code" type="number" placeholder="SPOUSE'S LINK CODE" required />
+						<input name="link_code" ng-model="linkUser.code" type="text" pattern="[0-9]*" placeholder="SPOUSE'S LINK CODE" required />
 					</div>
 					<div class="form-errors" ng-show="linkForm.link_code.$error && linkForm.$submitted" ng-messages="linkForm.link_code.$error" ng-messages-include="templates/errors.html"></div>
 				</div>
