@@ -7902,7 +7902,7 @@ h4 {
   margin-top: 0px; }
 
 h5 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bolder;
   line-height: 18px; }
 
@@ -8250,12 +8250,14 @@ li.item {
 .cycles-results {
   display: block;
   position: absolute;
-  margin: 24% 10% 5%; }
+  margin: 23% 10% 5%;
+  line-height: 15px; }
   .cycles-results h5 {
     text-transform: uppercase;
-    line-height: 12px;
+    line-height: 10px;
     margin-bottom: 0px;
-    color: #8f2b21; }
+    color: #8f2b21;
+    padding-bottom: 5px; }
   .cycles-results img {
     padding: 28%; }
 
@@ -8275,7 +8277,8 @@ li.item {
   width: 50%;
   float: left;
   text-align: center;
-  vertical-align: middle; }
+  vertical-align: middle;
+  min-height: 80px; }
 
 .top-right {
   width: 25%;
@@ -8288,7 +8291,8 @@ li.item {
   width: 50%;
   float: left;
   text-align: center;
-  vertical-align: middle; }
+  vertical-align: middle;
+  min-height: 80px; }
 
 .middle-middle {
   width: 0%;
@@ -8300,7 +8304,8 @@ li.item {
   width: 50%;
   float: left;
   text-align: center;
-  vertical-align: middle; }
+  vertical-align: middle;
+  min-height: 80px; }
 
 .bottom-left {
   width: 25%;
@@ -8312,7 +8317,8 @@ li.item {
   width: 50%;
   float: left;
   text-align: center;
-  vertical-align: middle; }
+  vertical-align: middle;
+  min-height: 80px; }
 
 .bottom-right {
   width: 25%;
