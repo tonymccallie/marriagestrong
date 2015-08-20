@@ -37,9 +37,7 @@
                 Where you are doing well
             </div>
             <div class="quiz-results-category-answers">
-                ###VALUES1<br>
-                ###VALUES1<br>
-                ###VALUES1<br>
+                <div ng-repeat="(area,val) in user.data.quizzes.boundaries" ng-if="val==3">{{area}}</div>
             </div>
         </div>
         <div class="quiz-results">   
@@ -47,9 +45,7 @@
                 Where you are doing Ok
             </div>
             <div class="quiz-results-category-answers">
-                ###VALUES2<br>
-                ###VALUES2<br>
-                ###VALUES2<br>
+                <div ng-repeat="(area,val) in user.data.quizzes.boundaries" ng-if="val==2">{{area}}</div>
             </div>
         </div>
         <div class="quiz-results">   
@@ -57,9 +53,7 @@
                 Where you need attention
             </div>
             <div class="quiz-results-category-answers">
-                ###VALUES3<br>
-                ###VALUES3<br>
-                ###VALUES3<br>
+                <div ng-repeat="(area,val) in user.data.quizzes.boundaries" ng-if="val==1">{{area}}</div>
             </div>
         </div>
 		<div class="padding">
