@@ -266,6 +266,9 @@ angular.module('greyback.controllers', [])
 		//from: new Date(2015, 7, 2), //Optional
 		//to: new Date(2015, 7, 29), //Optional
 		callback: function (val) { //Mandatory
+			if(typeof $scope.user.data == 'undefined') {
+				$scope.user.data = {};
+			}
 			$scope.user.data.wedding_anniversary = val;
 		}
 	};
@@ -284,6 +287,9 @@ angular.module('greyback.controllers', [])
 		//from: new Date(2015, 7, 2), //Optional
 		//to: new Date(2015, 7, 29), //Optional
 		callback: function (val) { //Mandatory
+			if(typeof $scope.user.data == 'undefined') {
+				$scope.user.data = {};
+			}
 			$scope.user.data.first_date_anniversary = val;
 		}
 	};

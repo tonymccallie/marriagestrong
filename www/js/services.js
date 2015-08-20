@@ -26,7 +26,7 @@ angular.module('greyback.services', [])
 			if (typeof storedUser.User === 'undefined') {
 				console.log('UserService.init: need to login');
 				//HIDE FOR DEV
-//				$state.go('login');
+				$state.go('login');
 				deferred.resolve(self.user);
 			} else {
 				console.log('UserService.init: use local');
