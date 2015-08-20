@@ -8060,7 +8060,7 @@ input[type="radio"] {
 
 .circle-number-container {
   float: left;
-  width: 20%; }
+  width: 70px; }
 
 .circle-number {
   font-size: 36px;
