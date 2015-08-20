@@ -256,6 +256,16 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
+	    
+    .state('menu.tabs.4steps_results', {
+		url: "/4steps-results",
+		views: {
+			'tab-4steps': {
+				templateUrl: "templates/4steps_results.html",
+				controller: "UserController"
+			}
+		}
+	})
 	
 	.state('menu.tabs.quizzes', {
 		url: "/quizzes",
