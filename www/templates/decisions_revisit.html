@@ -1,83 +1,20 @@
 <ion-view view-title="Decisions">
-<ion-nav-title>
-    <img src="img/logo.png" class="title-image" />
-</ion-nav-title>
+	<ion-nav-title>
+		<img src="img/logo.png" class="title-image" />
+	</ion-nav-title>
 	<ion-content>
-       <h2><img src="img/decision-icon-small.png" class="cycles-icon" />&nbsp;REVISIT PAST DECISIONS</h2>
-        <div class="decisions">
-            <div class="padding">
-                <p>There are times when decisions you make need to change or adjust. Just when you and your spouse have settled on a budget, the car needs repairs. Just when you figure out how to parent your 2-year-old, she turns 3.</p> 
-                <p>Take a look at your past decisions and make an Us choice on how you feel about them today.</p>
-            </div>
-            <div class="grey_bg">
-                <div class="padding">
-                    <h6>My Problem</h6>
-                    <p>###PROBLEM</p>
-                    <h6>Us Solution</h6>
-                    <p>###USSOLUTION</p>
-                    <h6>My Solutions</h6>
-                    <p>###MYSOLUTIONS</p>
-                    <p>###MYSOLUTIONS</p>
-                    <p>###MYSOLUTIONS</p>
-                    <p>###MYSOLUTIONS</p>
-                    <p>###MYSOLUTIONS</p>
-                    <p>###MYSOLUTIONS</p>
-					<p ng-repeat="(key,decision) in user.data.decisions"><a ui-sref="menu.tabs.decisions_edit({decision:$index})">{{decision.question}}</a></p>
-                </div>
-            </div>
-            <ul class="list">
-                <li class="item item-checkbox">
-                    <label class="green-check checkbox">
-                    <input type="checkbox">
-                    </label>
-                    <strong>GREAT DECISION:</strong><br>
-                    Keep moving forward.
-                </li>
-                <li class="item item-checkbox">
-                    <label class="yellow-check checkbox">
-                    <input type="checkbox">
-                    </label>
-                    <strong>GOOD, BUT NEEDS MODIFICATION:</strong><br>
-                    Options: have an Us conversation about what adjustments to make.  If needed, head back to make the New Decision tool and work through your process again.
-                </li>
-                <li class="item item-checkbox">
-                    <label class="red-check checkbox">
-                    <input type="checkbox">
-                    </label>
-                    <strong>NEED TO RETHINK OUR DECISION:</strong><br>
-                    A new Us decision awaits you!
-                </li>
-            </ul>
-            <div class="padding">
-                    <button href="#" class="button button-block button-positive">Remove Decision</button>
-            <button href="#" class="button button-block button-calm">Back to the Drawing Baord</button>
-            </div>
-            <div class="grey_bg">
-                <div class="padding">
-                    <p>###Decision Sample Two</p>
-                </div>
-            </div>
-            <div class="grey_bg">
-                <div class="padding">
-                    <p>###Decision Sample Three</p>
-                </div>
-            </div>
-            <div class="grey_bg">
-                <div class="padding">
-                    <p>###Decision Sample Four</p>
-                </div>
-            </div>
-            <div class="grey_bg">
-                <div class="padding">
-                    <p>###Decision Sample Five</p>
-                </div>
-            </div>
-
-<!--
-        <div class="padding">
-            <button href="#" class="button button-block button-positive">Continue</button>
-            </div>
-        </div>
--->
+		<h2>
+			<img src="img/decision-icon-small.png" class="cycles-icon" />&nbsp;REVISIT PAST DECISIONS</h2>
+		<div class="decisions">
+			<div class="padding">
+				<p>There are times when decisions you make need to change or adjust. Just when you and your spouse have settled on a budget, the car needs repairs. Just when you figure out how to parent your 2-year-old, she turns 3.</p>
+				<p>Take a look at your past decisions and make an Us choice on how you feel about them today.</p>
+			</div>
+			<div ng-repeat="(key,decision) in user.data.decisions" class="grey_bg">
+				<div class="padding">
+					<p><a ui-sref="menu.tabs.decisions_view({decision:$index})">{{decision.question}}</a></p>
+				</div>
+			</div>
+		</div>
 	</ion-content>
 </ion-view>

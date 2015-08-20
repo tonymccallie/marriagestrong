@@ -26,12 +26,11 @@ angular.module('greyback.services', [])
 			if (typeof storedUser.User === 'undefined') {
 				console.log('UserService.init: need to login');
 				//HIDE FOR DEV
-//				$state.go('login');
+				$state.go('login');
 				deferred.resolve(self.user);
 			} else {
 				console.log('UserService.init: use local');
 				self.user = storedUser;
-				console.log(self.user);
 				deferred.resolve(self.user);
 			}
 		});
@@ -180,12 +179,18 @@ angular.module('greyback.services', [])
 	
 	self.decision = function(decision_index) {
 		console.log('UserService.decision');
-		console.log([decision_index,self.user]);
 		var deferred = $q.defer();
-		var decision = self.user.data.decisions[decision_index];
-		decision.index = decision_index;
-		console.log(decision);
-		deferred.resolve(decision);
+		setTimeout(function() {
+			if(self.user == null) {
+				console.log('null');
+				$state.go('menu.tabs.decisions');
+				deferred.reject();
+			} else {
+				var decision = self.user.data.decisions[decision_index];
+				decision.index = decision_index;
+				deferred.resolve(decision);	
+			}
+		},0);
 		return deferred.promise;
 	}
 	

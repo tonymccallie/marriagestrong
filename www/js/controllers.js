@@ -482,9 +482,7 @@ angular.module('greyback.controllers', [])
 
 .controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, decision, UserService) {
 	console.log('DecisionController');
-	console.log($scope.user);
 	$scope.decision = decision;
-	console.log(decision);
 	
 	$scope.save = function(form) {
 		if(typeof $scope.user.data == 'undefined') {
@@ -498,10 +496,15 @@ angular.module('greyback.controllers', [])
 		if(typeof $scope.decision.index == 'undefined') {
 			$scope.user.data.decisions.push($scope.decision);	
 		} else {
-			$scope.user.data.decisionsp[$scope.decision.index] = ($scope.decision);	
+			$scope.user.data.decisions[$scope.decision.index] = ($scope.decision);	
 		}
 		UserService.updateUser($scope.user);
 		$state.go('menu.tabs.decisions_revisit');	
-		console.log([form, $scope.decision]);
+	}
+	
+	$scope.remove = function(decision_index) {
+		$scope.user.data.decisions.splice(decision_index,1);
+		UserService.updateUser($scope.user);
+		$state.go('menu.tabs.decisions_revisit');
 	}
 })

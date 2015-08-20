@@ -325,6 +325,11 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 				templateUrl: "templates/decisions.html",
 				controller: "UserController"
 			}
+		},
+		resolve: {
+			test: function() {
+				console.log('menu.tabs.decisions');
+			}
 		}
 	})
     
@@ -344,6 +349,23 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		}
 	})
 	
+	.state('menu.tabs.decisions_view', {
+		url: "/decisions-view/:decision",
+		views: {
+			'tab-decisions': {
+				templateUrl: "templates/decisions_view.html",
+				controller: "DecisionController"
+			}
+		},
+		resolve: {
+			decision: function(UserService, $stateParams) {
+				console.log('menu.tabs.decisions_view.resolve');
+				return UserService.decision($stateParams.decision);
+			}
+		}
+		
+	})
+	
 	.state('menu.tabs.decisions_edit', {
 		url: "/decisions-edit/:decision",
 		views: {
@@ -354,7 +376,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		},
 		resolve: {
 			decision: function(UserService, $stateParams) {
-				console.log(['menu.tabs.decisions_edit.resolve',$stateParams]);
+				console.log('menu.tabs.decisions_edit.resolve');
 				return UserService.decision($stateParams.decision);
 			}
 		}
