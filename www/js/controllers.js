@@ -213,6 +213,7 @@ angular.module('greyback.controllers', [])
 	}
 	
 	$scope.$on('$ionicView.enter', function(e) {
+		console.log('State: '+$state.current.name);
 		switch($state.current.name) {
 			case 'menu.tabs.usness_gifts':
 				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.usness != 'undefined')&&((typeof $scope.user.data.usness.gifts != 'undefined')||(typeof $scope.user.data.usness.gifts_other != 'undefined'))) {
@@ -471,4 +472,30 @@ angular.module('greyback.controllers', [])
 	$scope.boundariesQuestions = ListService.boundariesQuiz;
 	
 	$scope.boundariesQuizTotal = 0;
+})
+
+.controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, decision, UserService) {
+	console.log('DecisionController');
+	console.log($scope.user);
+	$scope.decision = decision;
+	console.log(decision);
+	
+	$scope.save = function(form) {
+		if(typeof $scope.user.data == 'undefined') {
+			$scope.user.data = {};
+		}
+		
+		if(typeof $scope.user.data.decisions == 'undefined') {
+			$scope.user.data.decisions = [];
+		}
+		
+		if(typeof $scope.decision.index == 'undefined') {
+			$scope.user.data.decisions.push($scope.decision);	
+		} else {
+			$scope.user.data.decisionsp[$scope.decision.index] = ($scope.decision);	
+		}
+		UserService.updateUser($scope.user);
+		$state.go('menu.tabs.decisions_revisit');	
+		console.log([form, $scope.decision]);
+	}
 })

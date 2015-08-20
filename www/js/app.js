@@ -333,9 +333,32 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-decisions': {
 				templateUrl: "templates/decisions_create.html",
-				controller: "UserController"
+				controller: "DecisionController"
+			}
+		},
+		resolve: {
+			decision: function() {
+				console.log('menu.tabs.decisions_create.resolve');
+				return {};
 			}
 		}
+	})
+	
+	.state('menu.tabs.decisions_edit', {
+		url: "/decisions-edit/:decision",
+		views: {
+			'tab-decisions': {
+				templateUrl: "templates/decisions_create.html",
+				controller: "DecisionController"
+			}
+		},
+		resolve: {
+			decision: function(UserService, $stateParams) {
+				console.log(['menu.tabs.decisions_edit.resolve',$stateParams]);
+				return UserService.decision($stateParams.decision);
+			}
+		}
+		
 	})
     
 	.state('menu.tabs.decisions_revisit', {

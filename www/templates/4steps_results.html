@@ -1,47 +1,32 @@
-<ion-view view-title="Cycles">
-<ion-nav-title>
-    <img src="img/logo.png" class="title-image" />
-</ion-nav-title>
+<ion-view view-title="4 Steps">
+	<ion-nav-title>
+		<img src="img/logo.png" class="title-image" />
+	</ion-nav-title>
 	<ion-content>
-       <h2><img src="img/steps-icon-small.png" class="cycles-icon" />&nbsp;Your Four Steps</h2>
-        <a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
+		<h2>
+			<img src="img/steps-icon-small.png" class="cycles-icon" />&nbsp;Your Four Steps</h2>
+		<a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
 			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
 		</a>
 		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
-            <div class="foursteps-results">
-                <div class="foursteps-results-heading">
-                    STEP 1 — I FEEL:
-                </div>
-                <div class="foursteps-results-answer">
-                    ###ANSWER_ONE
-                </div>
-            </div>
-            <div class="foursteps-results">
-                <div class="foursteps-results-heading">
-                    STEP 2 — NORMALLY I WOULD:
-                </div>
-                <div class="foursteps-results-answer">
-                    ###ANSWER_ONE
-                </div>
-            </div>
-            <div class="foursteps-results">
-                <div class="foursteps-results-heading">
-                    STEP 3 — THE TRUTH IS:
-                </div>
-                <div class="foursteps-results-answer">
-                    ###ANSWER_ONE
-                </div>
-            </div>
-            <div class="foursteps-results">
-                <div class="foursteps-results-heading">
-                    STEP 4 — WHAT I WILL DO DIFFERENTLY IS:
-                </div>
-                <div class="foursteps-results-answer">
-                    ###ANSWER_ONE
-                </div>
-            </div>    
-        <div class="padding">
-            <button ui-sref="menu.tabs.foursteps_setup_results" class="button button-block button-calm">4 Steps Landing Page</button>
+		<div class="foursteps-results">
+			<div class="foursteps-results-heading">STEP 1 — I FEEL:</div>
+			<div class="foursteps-results-answer">{{user.data.steps.step1}}</div>
+		</div>
+		<div class="foursteps-results">
+			<div class="foursteps-results-heading">STEP 2 — NORMALLY I WOULD:</div>
+			<div class="foursteps-results-answer">{{user.data.steps.step2}}</div>
+		</div>
+		<div class="foursteps-results">
+			<div class="foursteps-results-heading">STEP 3 — THE TRUTH IS:</div>
+			<div class="foursteps-results-answer">{{user.data.steps.step3}}</div>
+		</div>
+		<div class="foursteps-results">
+			<div class="foursteps-results-heading">STEP 4 — WHAT I WILL DO DIFFERENTLY IS:</div>
+			<div class="foursteps-results-answer">{{user.data.steps.step4}}</div>
+		</div>
+		<div class="padding">
+			<button ui-sref="menu.tabs.4steps" class="button button-block button-calm">4 Steps Landing Page</button>
 		</div>
 	</ion-content>
 </ion-view>

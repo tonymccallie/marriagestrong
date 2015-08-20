@@ -178,6 +178,17 @@ angular.module('greyback.services', [])
 		return deferred.promise;
 	}
 	
+	self.decision = function(decision_index) {
+		console.log('UserService.decision');
+		console.log([decision_index,self.user]);
+		var deferred = $q.defer();
+		var decision = self.user.data.decisions[decision_index];
+		decision.index = decision_index;
+		console.log(decision);
+		deferred.resolve(decision);
+		return deferred.promise;
+	}
+	
 	self.updateUser = function(user) {
 		console.log('UserService.updateUser');
 		var deferred = $q.defer();
