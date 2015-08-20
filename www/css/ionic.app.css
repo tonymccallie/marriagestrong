@@ -7906,6 +7906,12 @@ h5 {
   font-weight: bolder;
   line-height: 18px; }
 
+h6 {
+  font-size: 14px;
+  font-weight: bolder;
+  line-height: 18px;
+  color: #8f2b21; }
+
 hr {
   border: 0;
   height: 1px;
