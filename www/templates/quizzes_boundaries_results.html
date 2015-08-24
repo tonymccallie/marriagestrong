@@ -34,7 +34,7 @@
 		</ul>
         <div class="quiz-results">   
             <div class="quiz-results-category">
-                Where you are doing well
+                Where you're balanced
             </div>
             <div class="quiz-results-category-answers">
                 <div ng-repeat="(area,val) in user.data.quizzes.boundaries" ng-if="val==3">{{area}}</div>
@@ -42,18 +42,18 @@
         </div>
         <div class="quiz-results">   
             <div class="quiz-results-category quiz-results-category-second">
-                Where you are doing Ok
+                Where you're more rigid
             </div>
             <div class="quiz-results-category-answers">
-                <div ng-repeat="(area,val) in user.data.quizzes.boundaries" ng-if="val==2">{{area}}</div>
+                <div ng-repeat="(area,val) in user.data.quizzes.boundaries" ng-if="val==1">{{area}}</div>
             </div>
         </div>
         <div class="quiz-results">   
             <div class="quiz-results-category quiz-results-category-second">
-                Where you need attention
+                Where you're more diffuse
             </div>
             <div class="quiz-results-category-answers">
-                <div ng-repeat="(area,val) in user.data.quizzes.boundaries" ng-if="val==1">{{area}}</div>
+                <div ng-repeat="(area,val) in user.data.quizzes.boundaries" ng-if="val==2">{{area}}</div>
             </div>
         </div>
 		<div class="padding">

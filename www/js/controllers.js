@@ -499,7 +499,7 @@ angular.module('greyback.controllers', [])
 			$scope.user.data.decisions[$scope.decision.index] = ($scope.decision);	
 		}
 		UserService.updateUser($scope.user);
-		$state.go('menu.tabs.decisions_revisit');	
+		$state.go('menu.tabs.decisions');	
 	}
 	
 	$scope.remove = function(decision_index) {

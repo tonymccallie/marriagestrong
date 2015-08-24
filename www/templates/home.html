@@ -10,13 +10,11 @@
 		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
             <div class="padding">
 			<h1>Welcome</h1>
-			<p>It's time your marriage had it's own app. This is a fun way to learn what makes your marriage tick. We'll also help you find ways to make your marriage stronger.</p>
-			<p>Start by discovering what's unique about your relationship in the Us-ness section.  Then find out what happens during your conflicts and how to get out of them in the Cycles section.</p>
-			<p>The benefit and blessing of a strong marriage is waiting.</p>
+			<p>It's time your marriage had it's own app. Find out what makes your marriage tick and ways to make it even stronger.</p>
+			<p>You can start by discovering what's unique about your marriage in <a ui-sref="menu.tabs.usness">US-NESS</a>.  Then blow the whistle on how you conflict and learn proven ways to do it better in <a ui-sref="menu.tabs.cycles">CYCLES</a>.</p>
+			<p>The benefit and blessing of a strong marriage is waiting. Go get it!</p>
 			<a ui-sref="menu.tabs.profile" class="button button-block button-positive">Set Up Your Profile</a>
 			<a ui-sref="menu.tabs.usness" class="button button-block button-calm">Discover Your US-Ness</a>
-			<a ui-sref="menu.tabs.cycles" class="button button-block button-calm">Define your pain and peace cycle</a>
-			<a ui-sref="menu.tabs.4steps" class="button button-block button-calm">Plan your 4 steps</a>
 		</div>
 	</ion-content>
 </ion-view>

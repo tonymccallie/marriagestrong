@@ -1,23 +1,24 @@
 <ion-view view-title="Usness">
-<ion-nav-title>
-    <img src="img/logo.png" class="title-image" />
-</ion-nav-title>
+	<ion-nav-title>
+		<img src="img/logo.png" class="title-image" />
+	</ion-nav-title>
 	<ion-content>
-        <h2><img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Spiritual Gifts</h2>   
-        <h4>Spiritual Gifts Results</h4>
-            <ul class="gifts-list list">
-                <li ng-repeat="(gift,val) in user.data.usness.gifts" ng-if="val" class="item">
-                  <span class="circle-number">{{$index + 1}}</span> {{gift}}
-                </li>
-                <li ng-repeat="(gift,val) in user.data.usness.gifts_other" ng-if="val" class="item">
-                  <span class="circle-number">{{$index + 1}}</span> {{val}}
-                </li>
-            </ul>
-            <div class="padding">
-                <h1><img src="img/icon-further-small.png" class="cycles-icon" />&nbsp;TAKE IT FURTHER</h1>
-				<p>Affirm the gifts you see in each other. You may see a gift in your spouse that he or she hasn’t identified before. Notice how you and your spouse compare in your spiritual gifts. In what ways can these gifts work together? </p>
-                <br>
-                <button ui-sref="menu.tabs.usness" class="button button-block button-positive">Continue</button>
-            </div>
+		<h2>
+			<img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Spiritual Gifts</h2>
+		<h4>Spiritual Gifts Results</h4>
+		<ul class="gifts-list list">
+			<li ng-repeat="(gift,val) in user.data.usness.gifts" ng-if="val" class="item">
+				<span class="circle-number">{{$index + 1}}</span>{{gift}}</li>
+			<li ng-repeat="(gift,val) in user.data.usness.gifts_other" ng-if="val" class="item">
+				<span class="circle-number">{{$index + 1}}</span>{{val}}</li>
+		</ul>
+		<div class="padding">
+			<button href="#" class="button button-block button-calm">Compare with Spouse</button>
+			<h1>
+				<img src="img/icon-further-small.png" class="cycles-icon" />&nbsp;TAKE IT FURTHER</h1>
+			<p>Affirm the gifts you see in each other. You may see a gift in your spouse that he or she hasn’t identified before. Notice how you and your spouse compare in your spiritual gifts. In what ways can these gifts work together?</p>
+			<br>
+			<button ui-sref="menu.tabs.usness" class="button button-block button-positive">Continue</button>
+		</div>
 	</ion-content>
 </ion-view>
