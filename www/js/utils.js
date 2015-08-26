@@ -33,7 +33,7 @@ angular.module('greyback.utils', [])
 			return JSON.stringify(obj);
 		},
 		toObj: function (json) {
-			return JSON.parse(json);
+			return JSON.parse(json || '{}');
 		},
 	}
 })

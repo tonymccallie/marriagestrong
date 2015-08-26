@@ -8011,7 +8011,7 @@ i {
 .user_form .logo {
   width: 100%; }
 .user_form .padding {
-  padding: 60px 40px 40px; }
+  padding: 60px 40px 10px; }
 .user_form .list, .user_form .list-inset {
   border-radius: 0px; }
 .user_form .item {

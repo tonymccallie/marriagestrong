@@ -19,9 +19,9 @@
 					<img src="img/top-right-arrow.svg" class="top-right-arrow" width="100%" />
 				</div>
 				<div class="middle-left">
-					<h5>Spouse's Copes</h5>###Answer One
-					<br>###Answer Two
-					<br>###Answer Three</div>
+					<h5>Spouse's Copes</h5>
+					<span ng-repeat="(cope, val) in user.spouse_data.usness.copes" ng-if="val">{{cope}}<br /></span>
+				</div>
 				<div class="middle-middle"></div>
 				<div class="middle-right">
 					<h5>You Cope</h5>
@@ -32,9 +32,9 @@
 				</div>
 				<div class="bottom-middle">
 					<br>
-					<h5>Spouse's Feels</h5>###Answer One
-					<br>###Answer Two
-					<br>###Answer Three</div>
+					<h5>Spouse's Feels</h5>
+					<span ng-repeat="(pain, val) in user.spouse_data.usness.pains" ng-if="val">{{pain}}<br /></span>
+				</div>
 				<div class="bottom-right">
 					<img src="img/bottom-right-arrow.svg" class="bottom-right-arrow" width="100%" />
 				</div>
@@ -44,7 +44,8 @@
 			</div>
 		</div>
 		<div class="padding">
-			<button ui-sref="menu.tabs.cycles_peace" class="button button-block button-calm">Sync with your spouse</button>
+			<form name="painResults"></form>
+			<button ng-click="process('menu.tabs.cycles_pain_results',painResults)" class="button button-block button-calm">Sync with your spouse</button>
 			<button ui-sref="menu.tabs.cycles_pain" class="button button-block button-positive">Edit Your Pain Cycle</button>
 			<button ui-sref="menu.tabs.cycles_peace" class="button button-block button-calm">Discover Your Peace Cycle</button>
         </div>

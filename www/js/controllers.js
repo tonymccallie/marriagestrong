@@ -188,67 +188,77 @@ angular.module('greyback.controllers', [])
 	});
 })
 
-.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, UserService, ListService) {
+.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $ionicLoading, $jrCrop, $state, ImgCache, PtrService, ngFB, user, UserService, ListService) {
 	console.log('UserController');
 	$scope.link_code = "";
 	$scope.user = user;
 	//$scope.user.data = {};
-	
-	var countBool = function(obj) {
+
+	var countBool = function (obj) {
 		var count = 0;
-		for(var key in obj) {
-			if(obj[key]) {
+		for (var key in obj) {
+			if (obj[key]) {
 				count++;
 			}
 		}
 		return count;
 	}
-	
-	var sumObj = function(obj) {
+
+	var sumObj = function (obj) {
 		var count = 0;
-		for(var key in obj) {
-			count+=parseInt(obj[key]);
+		for (var key in obj) {
+			count += parseInt(obj[key]);
 		}
 		return count;
 	}
-	
-	$scope.$on('$ionicView.enter', function(e) {
-		console.log('State: '+$state.current.name);
-		switch($state.current.name) {
-			case 'menu.tabs.usness_gifts':
-				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.usness != 'undefined')&&((typeof $scope.user.data.usness.gifts != 'undefined')||(typeof $scope.user.data.usness.gifts_other != 'undefined'))) {
-					if(typeof $scope.user.data.usness.gifts != 'undefined') {
-						$scope.giftCount+=countBool($scope.user.data.usness.gifts);
-					}
-					if(typeof $scope.user.data.usness.gifts_other != 'undefined') {
-						$scope.giftCount+=countBool($scope.user.data.usness.gifts_other);
-					}
+
+	$scope.$on('$ionicView.enter', function (e) {
+		console.log('State: ' + $state.current.name);
+		switch ($state.current.name) {
+		case 'menu.tabs.usness_gifts':
+			if ((typeof $scope.user.data != 'undefined') && (typeof $scope.user.data.usness != 'undefined') && ((typeof $scope.user.data.usness.gifts != 'undefined') || (typeof $scope.user.data.usness.gifts_other != 'undefined'))) {
+				if (typeof $scope.user.data.usness.gifts != 'undefined') {
+					$scope.giftCount += countBool($scope.user.data.usness.gifts);
 				}
-				break;
-			case 'menu.tabs.cycles_pain':
-				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.usness != 'undefined')&&(typeof $scope.user.data.usness.pains != 'undefined')) {
-					$scope.painCount+=countBool($scope.user.data.usness.pains);
+				if (typeof $scope.user.data.usness.gifts_other != 'undefined') {
+					$scope.giftCount += countBool($scope.user.data.usness.gifts_other);
 				}
-				break;
-			case 'menu.tabs.cycles_pain_copes':
-				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.usness != 'undefined')&&(typeof $scope.user.data.usness.copes != 'undefined')) {
-					$scope.copeCount+=countBool($scope.user.data.usness.copes);
-				}
-				break;
-			case 'menu.tabs.quizzes_usness_results':
-				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.quizzes != 'undefined')&&(typeof $scope.user.data.quizzes.usness != 'undefined')) {
-					$scope.usnessQuizTotal = sumObj($scope.user.data.quizzes.usness);
-				} else {
-					$scope.usnessQuizTotal = 0;
-				}
-				break;
-			case 'menu.tabs.quizzes_boundaries_results':
-				if((typeof $scope.user.data != 'undefined')&&(typeof $scope.user.data.quizzes != 'undefined')&&(typeof $scope.user.data.quizzes.boundaries != 'undefined')) {
-					$scope.boundariesQuizTotal = sumObj($scope.user.data.quizzes.boundaries);
-				} else {
-					$scope.boundariesQuizTotal = 0;
-				}
-				break;
+			}
+			break;
+		case 'menu.tabs.cycles_pain':
+			if ((typeof $scope.user.data != 'undefined') && (typeof $scope.user.data.usness != 'undefined') && (typeof $scope.user.data.usness.pains != 'undefined')) {
+				$scope.painCount += countBool($scope.user.data.usness.pains);
+			}
+			break;
+		case 'menu.tabs.cycles_pain_copes':
+			if ((typeof $scope.user.data != 'undefined') && (typeof $scope.user.data.usness != 'undefined') && (typeof $scope.user.data.usness.copes != 'undefined')) {
+				$scope.copeCount += countBool($scope.user.data.usness.copes);
+			}
+			break;
+		case 'menu.tabs.cycles_peace':
+			if ((typeof $scope.user.data != 'undefined') && (typeof $scope.user.data.usness != 'undefined') && (typeof $scope.user.data.usness.truths != 'undefined')) {
+				$scope.truthCount += countBool($scope.user.data.usness.truths);
+			}
+			break;
+		case 'menu.tabs.cycles_peace_response':
+			if ((typeof $scope.user.data != 'undefined') && (typeof $scope.user.data.usness != 'undefined') && (typeof $scope.user.data.usness.actions != 'undefined')) {
+				$scope.actionCount += countBool($scope.user.data.usness.actions);
+			}
+			break;
+		case 'menu.tabs.quizzes_usness_results':
+			if ((typeof $scope.user.data != 'undefined') && (typeof $scope.user.data.quizzes != 'undefined') && (typeof $scope.user.data.quizzes.usness != 'undefined')) {
+				$scope.usnessQuizTotal = sumObj($scope.user.data.quizzes.usness);
+			} else {
+				$scope.usnessQuizTotal = 0;
+			}
+			break;
+		case 'menu.tabs.quizzes_boundaries_results':
+			if ((typeof $scope.user.data != 'undefined') && (typeof $scope.user.data.quizzes != 'undefined') && (typeof $scope.user.data.quizzes.boundaries != 'undefined')) {
+				$scope.boundariesQuizTotal = sumObj($scope.user.data.quizzes.boundaries);
+			} else {
+				$scope.boundariesQuizTotal = 0;
+			}
+			break;
 		}
 	});
 
@@ -266,7 +276,7 @@ angular.module('greyback.controllers', [])
 		//from: new Date(2015, 7, 2), //Optional
 		//to: new Date(2015, 7, 29), //Optional
 		callback: function (val) { //Mandatory
-			if(typeof $scope.user.data == 'undefined') {
+			if (typeof $scope.user.data == 'undefined') {
 				$scope.user.data = {};
 			}
 			$scope.user.data.wedding_anniversary = val;
@@ -287,7 +297,7 @@ angular.module('greyback.controllers', [])
 		//from: new Date(2015, 7, 2), //Optional
 		//to: new Date(2015, 7, 29), //Optional
 		callback: function (val) { //Mandatory
-			if(typeof $scope.user.data == 'undefined') {
+			if (typeof $scope.user.data == 'undefined') {
 				$scope.user.data = {};
 			}
 			$scope.user.data.first_date_anniversary = val;
@@ -363,43 +373,48 @@ angular.module('greyback.controllers', [])
 			});
 		}
 	}
-	
+
 	$scope.process = function (next, form) {
 		var boolPass = true;
 		console.log($scope.user.data);
-		if(form.$name == 'usnessGiftsForm' && $scope.giftCount < 1) {
+		if (form.$name == 'usnessGiftsForm' && $scope.giftCount < 1) {
 			boolPass = false;
 			alert('You much choose at least one gift.');
 		}
-		
-		if(form.$name == 'cyclesPainForm' && $scope.painCount < 1) {
+
+		if (form.$name == 'cyclesPainForm' && $scope.painCount < 1) {
 			boolPass = false;
 			alert('You much choose at least one feeling.');
 		}
-		
-		if(form.$name == 'cyclesPainCopesForm' && $scope.copeCount < 1) {
+
+		if (form.$name == 'cyclesPainCopesForm' && $scope.copeCount < 1) {
 			boolPass = false;
 			alert('You much choose at least one cope.');
 		}
-		
-		if(form.$name == 'cyclesPeaceForm' && $scope.truthCount < 1) {
+
+		if (form.$name == 'cyclesPeaceForm' && $scope.truthCount < 1) {
 			boolPass = false;
 			alert('You much choose at least one truth.');
 		}
-		
-		if(form.$name == 'cyclesPeaceResponseForm' && $scope.actionCount < 1) {
+
+		if (form.$name == 'cyclesPeaceResponseForm' && $scope.actionCount < 1) {
 			boolPass = false;
 			alert('You much choose at least one action.');
 		}
-		
-		if(boolPass) {
-			UserService.updateUser($scope.user);
-			$state.go(next);	
+
+		if (boolPass) {
+			$ionicLoading.show({
+				template: 'Syncing Results<br /><ion-spinner></ion-spinner>'
+			});
+			UserService.syncUser($scope.user).then(function(data) {
+				$ionicLoading.hide();
+			});
+			$state.go(next);
 		}
 	}
-	
+
 	$scope.giftList = ListService.giftList;
-	
+
 	$scope.giftCount = 0;
 
 	$scope.checkGifts = function (item) {
@@ -409,22 +424,26 @@ angular.module('greyback.controllers', [])
 			$scope.giftCount--;
 		}
 	}
-	
-	$scope.giftVars = {other1:false,other2:false,other3:false};
-	
-	$scope.checkGiftOther = function(item, varName) {
-		if(!$scope.giftVars[varName] && item.length > 0) {
+
+	$scope.giftVars = {
+		other1: false,
+		other2: false,
+		other3: false
+	};
+
+	$scope.checkGiftOther = function (item, varName) {
+		if (!$scope.giftVars[varName] && item.length > 0) {
 			$scope.giftVars[varName] = true;
 			$scope.giftCount++;
 		}
-		if($scope.giftVars[varName] && item.length == 0) {
+		if ($scope.giftVars[varName] && item.length == 0) {
 			$scope.giftVars[varName] = false;
 			$scope.giftCount--;
 		}
 	}
-	
+
 	$scope.painList = ListService.painList;
-	
+
 	$scope.painCount = 0;
 
 	$scope.checkPains = function (item) {
@@ -434,9 +453,9 @@ angular.module('greyback.controllers', [])
 			$scope.painCount--;
 		}
 	}
-	
+
 	$scope.copeList = ListService.copeList;
-	
+
 	$scope.copeCount = 0;
 
 	$scope.checkCopes = function (item) {
@@ -446,9 +465,9 @@ angular.module('greyback.controllers', [])
 			$scope.copeCount--;
 		}
 	}
-	
+
 	$scope.truthList = ListService.truthList;
-	
+
 	$scope.truthCount = 0;
 
 	$scope.checkTruths = function (item) {
@@ -458,9 +477,9 @@ angular.module('greyback.controllers', [])
 			$scope.truthCount--;
 		}
 	}
-	
+
 	$scope.actionList = ListService.actionList;
-	
+
 	$scope.actionCount = 0;
 
 	$scope.checkActions = function (item) {
@@ -470,40 +489,40 @@ angular.module('greyback.controllers', [])
 			$scope.actionCount--;
 		}
 	}
-	
+
 	$scope.usnessQuestions = ListService.usnessQuiz;
-	
+
 	$scope.usnessQuizTotal = 0;
-	
+
 	$scope.boundariesQuestions = ListService.boundariesQuiz;
-	
+
 	$scope.boundariesQuizTotal = 0;
 })
 
 .controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, decision, UserService) {
 	console.log('DecisionController');
 	$scope.decision = decision;
-	
-	$scope.save = function(form) {
-		if(typeof $scope.user.data == 'undefined') {
+
+	$scope.save = function (form) {
+		if (typeof $scope.user.data == 'undefined') {
 			$scope.user.data = {};
 		}
-		
-		if(typeof $scope.user.data.decisions == 'undefined') {
+
+		if (typeof $scope.user.data.decisions == 'undefined') {
 			$scope.user.data.decisions = [];
 		}
-		
-		if(typeof $scope.decision.index == 'undefined') {
-			$scope.user.data.decisions.push($scope.decision);	
+
+		if (typeof $scope.decision.index == 'undefined') {
+			$scope.user.data.decisions.push($scope.decision);
 		} else {
-			$scope.user.data.decisions[$scope.decision.index] = ($scope.decision);	
+			$scope.user.data.decisions[$scope.decision.index] = ($scope.decision);
 		}
 		UserService.updateUser($scope.user);
-		$state.go('menu.tabs.decisions');	
+		$state.go('menu.tabs.decisions');
 	}
-	
-	$scope.remove = function(decision_index) {
-		$scope.user.data.decisions.splice(decision_index,1);
+
+	$scope.remove = function (decision_index) {
+		$scope.user.data.decisions.splice(decision_index, 1);
 		UserService.updateUser($scope.user);
 		$state.go('menu.tabs.decisions_revisit');
 	}

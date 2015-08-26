@@ -3,7 +3,7 @@ angular.module('greyback.services', [])
 .service('UserService', function ($q, $http, $location, $localStorage, $state) {
 	var self = this;
 	self.user = null;
-	
+
 	var steps = [
 		{
 			title: "US-ness",
@@ -47,7 +47,11 @@ angular.module('greyback.services', [])
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
-				self.updateUser(response.data).then(function() {
+				response.data.data = $localStorage.toObj(response.data.User.json);
+				if (response.data.Spouse.id) {
+					response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
+				}
+				self.updateUser(response.data).then(function () {
 					$state.go('menu.tabs.home');
 				});
 				break;
@@ -73,7 +77,11 @@ angular.module('greyback.services', [])
 			.success(function (response, status, headers, config) {
 
 			if (response.status === 'SUCCESS') {
-				self.updateUser(response.data).then(function() {
+				response.data.data = $localStorage.toObj(response.data.User.json);
+				if (response.data.Spouse.id) {
+					response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
+				}
+				self.updateUser(response.data).then(function () {
 					$state.go('menu.tabs.home');
 				});
 			} else {
@@ -108,7 +116,7 @@ angular.module('greyback.services', [])
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
-				self.updateUser(response.data).then(function() {
+				self.updateUser(response.data).then(function () {
 					$state.go('menu.tabs.home');
 				});
 				break;
@@ -127,16 +135,16 @@ angular.module('greyback.services', [])
 		});
 		return promise;
 	}
-	
-	self.linkUser = function(user) {
+
+	self.linkUser = function (user) {
 		console.log('UserService.linkUser');
 		var promise = $http.post(DOMAIN + '/users/ajax_link', user)
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
-				console.log(['SUCCESS',response]);
-				self.updateUser(response.data).then(function() {
-					//$state.go('menu.tabs.profile');
+				console.log(['SUCCESS', response]);
+				self.updateUser(response.data).then(function () {
+					$state.go('menu.tabs.profile');
 				});
 				break;
 			case 'MESSAGE':
@@ -153,54 +161,83 @@ angular.module('greyback.services', [])
 		});
 		return promise;
 	}
-	
-	self.picUpload = function(FILE_URI) {
+
+	self.picUpload = function (FILE_URI) {
 		console.log('UserService.picUpload');
 		var deferred = $q.defer();
 		var myImg = FILE_URI;
-        var options = new FileUploadOptions();
-        options.fileKey="post";
-        options.chunkedMode = false;
-        var params = {};
+		var options = new FileUploadOptions();
+		options.fileKey = "post";
+		options.chunkedMode = false;
+		var params = {};
 		params.user_id = self.user.User.id;
-        options.params = params;
-        var ft = new FileTransfer();
-        ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function(success) {
-			console.log('UserService.picUpload success: '+ success);
+		options.params = params;
+		var ft = new FileTransfer();
+		ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function (success) {
+			console.log('UserService.picUpload success: ' + success);
 			self.user.User.picture = 1;
-			self.updateUser(self.user).then(function(user) {
+			self.updateUser(self.user).then(function (user) {
 				deferred.resolve(self.user);
 			})
-		}, function(error) {
-			console.log(['error',error]);
+		}, function (error) {
+			console.log(['error', error]);
 		}, options);
 		return deferred.promise;
 	}
-	
-	self.decision = function(decision_index) {
+
+	self.decision = function (decision_index) {
 		console.log('UserService.decision');
 		var deferred = $q.defer();
-		setTimeout(function() {
-			if(self.user == null) {
+		setTimeout(function () {
+			if (self.user == null) {
 				console.log('null');
 				$state.go('menu.tabs.decisions');
 				deferred.reject();
 			} else {
 				var decision = self.user.data.decisions[decision_index];
 				decision.index = decision_index;
-				deferred.resolve(decision);	
+				deferred.resolve(decision);
 			}
-		},0);
+		}, 0);
 		return deferred.promise;
 	}
-	
-	self.updateUser = function(user) {
+
+	self.updateUser = function (user) {
 		console.log('UserService.updateUser');
 		var deferred = $q.defer();
 		self.user = user;
 		$localStorage.setObject('User', self.user);
 		deferred.resolve(self.user);
 		return deferred.promise;
+	}
+
+	self.syncUser = function (user) {
+		console.log('UserService.updateUser');
+
+		var promise = $http.post(DOMAIN + '/users/ajax_update', user)
+			.success(function (response, status, headers, config) {
+			console.log(response.data);
+			switch (response.status) {
+				case 'SUCCESS':
+					if (response.data.Spouse.id) {
+						response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
+					}
+					self.updateUser(response.data);
+					break;
+				case 'MESSAGE':
+					alert(response.data);
+					break;
+				default:
+					alert('there was a server error for Messages');
+					console.log(response);
+					break;
+			}
+		})
+			.error(function (response, status, headers, config) {
+			console.log(['error', status, headers, config]);
+		});
+
+		return promise;
 	}
 
 	self.logout = function () {
@@ -248,243 +285,243 @@ angular.module('greyback.services', [])
 
 	}
 })
-.service('ListService',function() {
+	.service('ListService', function () {
 	var self = this;
 	self.giftList = [
 		{
-			model:'teaching',
-			name:'TEACHING',
-			desc:'Communicates Information Well'
+			model: 'teaching',
+			name: 'TEACHING',
+			desc: 'Communicates Information Well'
 		},
 		{
-			model:'wisdom',
-			name:'WISDOM',
-			desc:'Deep Insight Into Application Of Knowledge'
+			model: 'wisdom',
+			name: 'WISDOM',
+			desc: 'Deep Insight Into Application Of Knowledge'
 		},
 		{
-			model:'knowledge',
-			name:'KNOWLEDGE',
-			desc:'Loves Information'
+			model: 'knowledge',
+			name: 'KNOWLEDGE',
+			desc: 'Loves Information'
 		},
 		{
-			model:'exhortation',
-			name:'EXHORTATION',
-			desc:'Comforting And Encouraging'
+			model: 'exhortation',
+			name: 'EXHORTATION',
+			desc: 'Comforting And Encouraging'
 		},
 		{
-			model:'discernment',
-			name:'DISCERNMENT',
-			desc:'Easily Sees Truth'
+			model: 'discernment',
+			name: 'DISCERNMENT',
+			desc: 'Easily Sees Truth'
 		},
 		{
-			model:'giving',
-			name:'GIVING',
-			desc:'Joyfully Contributes Time And Money'
+			model: 'giving',
+			name: 'GIVING',
+			desc: 'Joyfully Contributes Time And Money'
 		},
 		{
-			model:'mercy',
-			name:'MERCY',
-			desc:'Great Compassion'
+			model: 'mercy',
+			name: 'MERCY',
+			desc: 'Great Compassion'
 		},
 		{
-			model:'evangelism',
-			name:'EVANGELISM',
-			desc:'Telling Others About Christ'
+			model: 'evangelism',
+			name: 'EVANGELISM',
+			desc: 'Telling Others About Christ'
 		},
 		{
-			model:'hospitality',
-			name:'HOSPITALITY',
-			desc:'Provides A Warm Welcome'
+			model: 'hospitality',
+			name: 'HOSPITALITY',
+			desc: 'Provides A Warm Welcome'
 		},
 		{
-			model:'faith',
-			name:'FAITH',
-			desc:'Extraordinary Confidence In God'
+			model: 'faith',
+			name: 'FAITH',
+			desc: 'Extraordinary Confidence In God'
 		},
 		{
-			model:'leadership',
-			name:'LEADERSHIP',
-			desc:'Sets And Achieves Goals For Groups With Ease'
+			model: 'leadership',
+			name: 'LEADERSHIP',
+			desc: 'Sets And Achieves Goals For Groups With Ease'
 		},
 		{
-			model:'administration',
-			name:'ADMINISTRATION',
-			desc:'Creates And Executes Effective Plans'
+			model: 'administration',
+			name: 'ADMINISTRATION',
+			desc: 'Creates And Executes Effective Plans'
 		},
 		{
-			model:'healing',
-			name:'HEALING',
-			desc:'Restores Health'
+			model: 'healing',
+			name: 'HEALING',
+			desc: 'Restores Health'
 		},
 		{
-			model:'tongues',
-			name:'TONGUES',
-			desc:'Speaking In Another Language'
+			model: 'tongues',
+			name: 'TONGUES',
+			desc: 'Speaking In Another Language'
 		},
 		{
-			model:'intercession',
-			name:'INTERCESSION',
-			desc:'Loves To Pray'
+			model: 'intercession',
+			name: 'INTERCESSION',
+			desc: 'Loves To Pray'
 		},
 		{
-			model:'service',
-			name:'SERVICE',
-			desc:'Identifies Need And Completes Tasks'
+			model: 'service',
+			name: 'SERVICE',
+			desc: 'Identifies Need And Completes Tasks'
 		},
 	];
-	
+
 	self.painList = [
-		'UNLOVED','UNWORTHY','INSIGNIFICANT','ALONE','WORTHLESS',
-		'DEVALUED','DEFECTIVE','INADEQUATE','REJECTED','UNACCEPTABLE',
-		'HOPELESS','UNWANTED','ABANDONED','OUT OF CONTROL','DISCOURAGED',
-		'UNSAFE','INSECURE','FEARFUL','VULNERABLE','CONTROLLED',
-		'POWERLESS','UNKOWN','BETRAYED','INVALIDATED','UNABLE TO MEASURE UP',
+		'UNLOVED', 'UNWORTHY', 'INSIGNIFICANT', 'ALONE', 'WORTHLESS',
+		'DEVALUED', 'DEFECTIVE', 'INADEQUATE', 'REJECTED', 'UNACCEPTABLE',
+		'HOPELESS', 'UNWANTED', 'ABANDONED', 'OUT OF CONTROL', 'DISCOURAGED',
+		'UNSAFE', 'INSECURE', 'FEARFUL', 'VULNERABLE', 'CONTROLLED',
+		'POWERLESS', 'UNKOWN', 'BETRAYED', 'INVALIDATED', 'UNABLE TO MEASURE UP',
 	];
-	
+
 	self.copeList = [
-		'BLAMING','DEPRESSED','CONTROLLING','HIGH/DRUNK','ANGRY','NEGATIVE',
-		'PERFECTIONISTIC','NUMBED OUT','SARCASTIC','ISOLATED','PERFORMANCE-DRIVEN','IRRESPONSIBLE',
-		'ARROGANT','INCONSOLABLE','INTELLECTUALIZING','IMPULSIVE','THREATENING','CATASTROPHIZING',
-		'DEMANDING','OUT OF CONTROL','RETALIATORY','WHINY/NEEDY','CRITICAL','SELFISH',
-		'UNRELIABLE','MANIPULATIVE','WITHDRAWING TO PUNISH','WITHDRAWING TO POUT','WITHDRAWING TO AVOID',
+		'BLAMING', 'DEPRESSED', 'CONTROLLING', 'HIGH/DRUNK', 'ANGRY', 'NEGATIVE',
+		'PERFECTIONISTIC', 'NUMBED OUT', 'SARCASTIC', 'ISOLATED', 'PERFORMANCE-DRIVEN', 'IRRESPONSIBLE',
+		'ARROGANT', 'INCONSOLABLE', 'INTELLECTUALIZING', 'IMPULSIVE', 'THREATENING', 'CATASTROPHIZING',
+		'DEMANDING', 'OUT OF CONTROL', 'RETALIATORY', 'WHINY/NEEDY', 'CRITICAL', 'SELFISH',
+		'UNRELIABLE', 'MANIPULATIVE', 'WITHDRAWING TO PUNISH', 'WITHDRAWING TO POUT', 'WITHDRAWING TO AVOID',
 	];
-	
+
 	self.truthList = [
-		'LOVED','KNOWN','ACCEPTED','ABLE TO CONTROL SELF','EMPOWERED',
-		'APPRECIATED','ENCOURAGED','PRICELESS','FULL OF WORTH','FULL OF PROMISE',
-		'WANTED','VALUABLE','ADEQUATE','CONNECTED','VALUED',
-		'TREASURED','CELEBRATED','SIGNIFICANT','SAFE','CAPABLE','NOT A FAILURE'
+		'LOVED', 'KNOWN', 'ACCEPTED', 'ABLE TO CONTROL SELF', 'EMPOWERED',
+		'APPRECIATED', 'ENCOURAGED', 'PRICELESS', 'FULL OF WORTH', 'FULL OF PROMISE',
+		'WANTED', 'VALUABLE', 'ADEQUATE', 'CONNECTED', 'VALUED',
+		'TREASURED', 'CELEBRATED', 'SIGNIFICANT', 'SAFE', 'CAPABLE', 'NOT A FAILURE'
 	];
-	
+
 	self.actionList = [
-		'ACCEPTING','ABLE TO PERSIST','NON-DEFENSIVE','KIND','SELF-CONTROLLED','SETTLED',
-		'BURTURING','RESPONSIBLE','VULNERABLE','GENTLE','HOPEFUL','SEEKING GOOD',
-		'SUPPORTIVE','TRUSTWORTHY','CARING','LISTENING','RESPECTFUL','RELIABLY-CONNECTING',
-		'ENCOURAGING','LOVING','ENGAGING','MERCIFUL','OPEN','HONEST',
-		'GIVING','EMPATHETIC','PEACEFUL','RELIABLE','INTIMATE','HUMBLE',
-		'SOBER','INCLUSIVE','RELAXED','POSITIVE'
+		'ACCEPTING', 'ABLE TO PERSIST', 'NON-DEFENSIVE', 'KIND', 'SELF-CONTROLLED', 'SETTLED',
+		'BURTURING', 'RESPONSIBLE', 'VULNERABLE', 'GENTLE', 'HOPEFUL', 'SEEKING GOOD',
+		'SUPPORTIVE', 'TRUSTWORTHY', 'CARING', 'LISTENING', 'RESPECTFUL', 'RELIABLY-CONNECTING',
+		'ENCOURAGING', 'LOVING', 'ENGAGING', 'MERCIFUL', 'OPEN', 'HONEST',
+		'GIVING', 'EMPATHETIC', 'PEACEFUL', 'RELIABLE', 'INTIMATE', 'HUMBLE',
+		'SOBER', 'INCLUSIVE', 'RELAXED', 'POSITIVE'
 	];
-	
+
 	self.usnessQuiz = [
 		{
-			name:'COMMUNICATION',
+			name: 'COMMUNICATION',
 			option1: 'stormy seas',
 			option2: 'bright, but choppy',
 			option3: "smooth sailin'"
 		},
 		{
-			name:'DECISION MAKING',
-			option1: 'swing and a miss',
-			option2: 'rain delay',
+			name: 'DECISION MAKING',
+			option1: 'striking out',
+			option2: 'base hit',
 			option3: 'home-runs'
 		},
 		{
-			name:'TIME TOGETHER',
+			name: 'TIME TOGETHER',
 			option1: 'warning light is on',
 			option2: 'half a tank',
 			option3: 'fully loaded'
 		},
 		{
-			name:'COMPANIONSHIP / FRIENDSHIP',
+			name: 'COMPANIONSHIP / FRIENDSHIP',
 			option1: 'ships passing',
 			option2: 'caravanning',
 			option3: 'co-pilots'
 		},
 		{
-			name:'FINANACES',
+			name: 'FINANACES',
 			option1: "can't find the trailhead",
 			option2: 'steady ascent',
 			option3: 'at the peak'
 		},
 		{
-			name:'HOUSEWORK',
+			name: 'HOUSEWORK',
 			option1: 'off key',
 			option2: 'band practice',
 			option3: 'welcome to Hollywood'
 		},
 		{
-			name:'IN-LAWS',
+			name: 'IN-LAWS',
 			option1: 'parted like the Red Sea',
 			option2: 'freeway merge',
 			option3: 'united we stand'
 		},
 		{
-			name:'ROMANCE / INTIMACY',
+			name: 'ROMANCE / INTIMACY',
 			option1: 'two left feet',
 			option2: "we're at the dance, we hear the music",
 			option3: 'dancing the night away'
 		},
 		{
-			name:'DREAMING / PLANNING',
+			name: 'DREAMING / PLANNING',
 			option1: 'in the dark',
 			option2: 'partly cloudy',
 			option3: "future's so bright..."
 		},
 		{
-			name:'CHILDREN (if applicable)',
+			name: 'CHILDREN (if applicable)',
 			option1: 'bronze medal',
 			option2: 'silver medal',
 			option3: 'taking home the gold'
-		},	
+		},
 	];
-	
+
 	self.boundariesQuiz = [
 		{
-			name:'SPENDING MONEY',
+			name: 'SPENDING MONEY',
 			option1: "Little-to-no spontaneous spending",
 			option2: "Who needs a budget?",
 			option3: "Planned out, with room to flex"
 		},
 		{
-			name:'GIVING MONEY',
+			name: 'GIVING MONEY',
 			option1: "10% all the time",
 			option2: "Give in the emotion of the ask",
 			option3: "Open and responsible giving"
 		},
 		{
-			name:'SOCIALIZING',
+			name: 'SOCIALIZING',
 			option1: "Scheduled, limiting",
 			option2: "Spur-of-the-moment, unrestricted",
 			option3: "Sometimes yes, sometimes no"
 		},
 		{
-			name:'HELPING OTHERS',
+			name: 'HELPING OTHERS',
 			option1: "No unplanned assistance",
 			option2: "Give beyond our own resources",
 			option3: "Accessible and balanced"
 		},
 		{
-			name:'MINISTRY / CHURCH OPPORTUNITIES',
+			name: 'MINISTRY / CHURCH OPPORTUNITIES',
 			option1: "Rarely say yes",
 			option2: "Rarely say no",
 			option3: "Based on prayerful consideration"
 		},
 		{
-			name:'WORK',
+			name: 'WORK',
 			option1: "Priority number one",
 			option2: "Last on the list of concerns",
 			option3: "Responsible and flexible"
 		},
 		{
-			name:'EXTENDED FAMILY',
+			name: 'EXTENDED FAMILY',
 			option1: "Only scheduled gatherings",
 			option2: "Come running whenever they call",
 			option3: "Based on their needs and our needs "
 		},
 		{
-			name:'HOBBIES / PERSONAL INTERESTS',
+			name: 'HOBBIES / PERSONAL INTERESTS',
 			option1: "Not seen as practical or valuable",
 			option2: "Easily absorbed",
 			option3: "Connected, but not attached at the hip"
 		},
 		{
-			name:'INTERNET / TV / ENTERTAINMENT',
+			name: 'INTERNET / TV / ENTERTAINMENT',
 			option1: "Waste of time",
 			option2: "Never unplug",
 			option3: "Balancing the 'on' and 'off' switch"
 		},
 		{
-			name:"CHILDRENS' ACTIVITIES (IF APPLICABLE)",
+			name: "CHILDRENS' ACTIVITIES (IF APPLICABLE)",
 			option1: "Homebodies",
 			option2: "Running everywhere to everything",
 			option3: "Intentional engagement"
