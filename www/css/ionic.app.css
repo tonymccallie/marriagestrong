@@ -8092,20 +8092,22 @@ input[type="radio"] {
   padding: 10px 15px;
   border-bottom: 1px #d0d2d3 solid; }
 
-.cycles-pain li, .cycles-peace li {
-  width: 54%;
-  float: left;
-  display: inline;
-  text-transform: uppercase;
-  font-size: 12px;
-  letter-spacing: 0px;
-  margin-left: -4%; }
-.cycles-pain .checkbox, .cycles-peace .checkbox {
-  padding: 6px 0px; }
-.cycles-pain .item-checkbox, .cycles-peace .item-checkbox {
-  padding-left: 44px; }
-.cycles-pain #measure, .cycles-peace #measure {
-  width: 100%; }
+.cycles-pain, .cycles-peace {
+  width: 100%;
+  float: left; }
+  .cycles-pain li, .cycles-peace li {
+    width: 50%;
+    float: left;
+    display: inline;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0px; }
+  .cycles-pain .checkbox, .cycles-peace .checkbox {
+    padding: 6px 0px; }
+  .cycles-pain .item-checkbox, .cycles-peace .item-checkbox {
+    padding-left: 44px; }
+  .cycles-pain #measure, .cycles-peace #measure {
+    width: 100%; }
 
 .cyclesCopes li {
   text-transform: uppercase;

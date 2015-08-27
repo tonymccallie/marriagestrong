@@ -5,9 +5,9 @@
 	<ion-content>
         <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Peace Cycle</h2>
         <div class="paragraph-list">When I believe these truths, I can be (choose three):  </div>
-        <div class="padding">
-            <form name="cyclesPeaceResponseForm" novalidate="" ng-submit="process('menu.tabs.cycles_results',cyclesPeaceResponseForm)">
-             <ul class="cyclesCopes list">
+        
+        <div class="padding clearfix">
+			<ul class="cyclesCopes list">
                <li ng-repeat="action in actionList" class="item item-checkbox">
 					<label class="checkbox">
 						<input type="checkbox" name="pain" value="TEACHING" ng-model="user.data.usness.actions[action]" ng-change="checkActions(user.data.usness.actions[action])" ng-disabled="actionCount>=3 && !user.data.usness.actions[action]">
@@ -15,13 +15,36 @@
 					{{action}}
 				</li>
             </ul>
-            <div class="tip-text">
+		</div>
+		<div class="grey_bg">
+			<div class="padding">
+				<p>Didn't see your top 3 actions? Add your own:</p>
+				<div class="list list-inset">
+					<label class="item item-input">1 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.actions_other.other1" ng-change="checkActionsOther(user.data.usness.actions_other.other1,'other1')" ng-disabled="actionCount>=3 && !user.data.usness.actions_other.other1" />
+					</label>
+				</div>
+				<div class="list list-inset">
+					<label class="item item-input">2 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.actions_other.other2" ng-change="checkActionsOther(user.data.usness.actions_other.other2,'other2')" ng-disabled="actionCount>=3 && !user.data.usness.actions_other.other2" />
+					</label>
+				</div>
+				<div class="list list-inset">
+					<label class="item item-input">3 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.actions_other.other3" ng-change="checkActionsOther(user.data.usness.actions_other.other3,'other3')" ng-disabled="actionCount>=3 && !user.data.usness.actions_other.other3" />
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="padding">
+			<div class="tip-text">
                 <h1><img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>
                 <p>Let’s say you chose the word Empathic. Think about a time when you were Empathetic in a painful situation with your spouse. How did you feel about yourself? </p>
                 <br>
             </div>
-            <input type="submit" value="View Your Peace Cycle" class="button button-block button-positive" />
-            </form>
-        </div>
+			<form name="cyclesPeaceResponseForm" novalidate="" ng-submit="process('menu.tabs.cycles_results',cyclesPeaceResponseForm)">
+				<input type="submit" value="Save and Continue" class="button button-block button-positive" />
+			</form>
+		</div>
 	</ion-content>
 </ion-view>

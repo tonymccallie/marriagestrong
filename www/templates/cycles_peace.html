@@ -1,33 +1,57 @@
 <ion-view view-title="Cycles">
-<ion-nav-title>
-    <img src="img/logo.png" class="title-image" />
-</ion-nav-title>
+	<ion-nav-title>
+		<img src="img/logo.png" class="title-image" />
+	</ion-nav-title>
 	<ion-content>
-        <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Peace Cycle</h2>
-        <div class="paragraph-list"><p>To break the pain cycle you’ll need to connect to what’s true about you. The sources for these truths come from 3 places:</p>
-        <p>
-            • Other people (meaningful/close relationships in your life)<br>
-            • Spiritual resources, and <br>
-            • The messages you believe about yourself.<br>
-        </p>
-        <p>In creating your Peace Cycle choose truths that replace the feelings/negative messages in your pain cycle. The list below is not exhaustive; pick the words that resonate closest to your personal truths.</p>
-        <p>The truth about me is I am (choose up to three):</p></div>
-        <div class="padding">
-            <form name="cyclesPeaceForm" novalidate="" ng-submit="process('menu.tabs.cycles_peace_response',cyclesPeaceForm)">
-             <ul class="cycles-peace list">
-               <li ng-repeat="truth in truthList" class="item item-checkbox">
+		<h2>
+			<img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Peace Cycle</h2>
+		<div class="paragraph-list">
+			<p>To break the pain cycle you’ll need to connect to what’s true about you. The sources for these truths come from 3 places:</p>
+			<p>• Other people (meaningful/close relationships in your life)
+				<br>• Spiritual resources, and
+				<br>• The messages you believe about yourself.
+				<br>
+			</p>
+			<p>In creating your Peace Cycle choose truths that replace the feelings/negative messages in your pain cycle. The list below is not exhaustive; pick the words that resonate closest to your personal truths.</p>
+			<p>The truth about me is I am (choose up to three):</p>
+		</div>
+		<div class="padding clearfix">
+			<ul class="cycles-peace list">
+				<li ng-repeat="truth in truthList" class="item item-checkbox">
 					<label class="checkbox">
 						<input type="checkbox" name="pain" ng-model="user.data.usness.truths[truth]" ng-change="checkTruths(user.data.usness.truths[truth])" ng-disabled="truthCount>=3 && !user.data.usness.truths[truth]">
+					</label>{{truth}}</li>
+			</ul>
+		</div>
+		<div class="grey_bg">
+			<div class="padding">
+				<p>Didn't see your top 3 truths? Add your own:</p>
+				<div class="list list-inset">
+					<label class="item item-input">1 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.truths_other.other1" ng-change="checkTruthsOther(user.data.usness.truths_other.other1,'other1')" ng-disabled="painCount>=3 && !user.data.usness.truths_other.other1" />
 					</label>
-					{{truth}}
-				</li>
-            </ul>
-            <div class="tip-text">
-                <h1><img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>
-                <p>How do you know the words you have selected are true? Can you confirm the truths through your relationship with God or with others? Most importantly, can you claim them for yourself?</p>
-            </div>
-            <input type="submit" value="Save and Continue" class="button button-block button-positive" />
-            </form>
-        </div>
+				</div>
+				<div class="list list-inset">
+					<label class="item item-input">2 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.truths_other.other2" ng-change="checkTruthsOther(user.data.usness.truths_other.other2,'other2')" ng-disabled="painCount>=3 && !user.data.usness.truths_other.other2" />
+					</label>
+				</div>
+				<div class="list list-inset">
+					<label class="item item-input">3 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.truths_other.other3" ng-change="checkTruthsOther(user.data.usness.truths_other.other3,'other3')" ng-disabled="painCount>=3 && !user.data.usness.truths_other.other3" />
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="padding">
+			<div class="tip-text">
+				<h1>
+					<img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>
+				<p>How do you know the words you have selected are true? Can you confirm the truths through your relationship with God or with others? Most importantly, can you claim them for yourself?</p>
+			</div>
+			<form name="cyclesPeaceForm" novalidate="" ng-submit="process('menu.tabs.cycles_peace_response',cyclesPeaceForm)">
+				<input type="submit" value="Save and Continue" class="button button-block button-positive" />
+			</form>
+		</div>
 	</ion-content>
 </ion-view>

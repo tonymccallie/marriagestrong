@@ -14,6 +14,7 @@
 				<div class="top-middle">
 					<h5>You Feel</h5>
 					<span ng-repeat="(pain, val) in user.data.usness.pains" ng-if="val">{{pain}}<br /></span>
+					<span ng-repeat="(pain, val) in user.data.usness.pains_other" ng-if="val">{{val}}<br /></span>
 				</div>
 				<div class="top-right">
 					<img src="img/top-right-arrow.svg" class="top-right-arrow" width="100%" />
@@ -21,11 +22,13 @@
 				<div class="middle-left">
 					<h5>Spouse's Copes</h5>
 					<span ng-repeat="(cope, val) in user.spouse_data.usness.copes" ng-if="val">{{cope}}<br /></span>
+					<span ng-repeat="(cope, val) in user.spouse_data.usness.copes_other" ng-if="val">{{val}}<br /></span>
 				</div>
 				<div class="middle-middle"></div>
 				<div class="middle-right">
 					<h5>You Cope</h5>
 					<span ng-repeat="(cope, val) in user.data.usness.copes" ng-if="val">{{cope}}<br /></span>
+					<span ng-repeat="(cope, val) in user.data.usness.copes_other" ng-if="val">{{val}}<br /></span>
 				</div>
 				<div class="bottom-left">
 					<img src="img/bottom-left-arrow.svg" class="bottom-left-arrow" width="100%" />
@@ -34,6 +37,7 @@
 					<br>
 					<h5>Spouse's Feels</h5>
 					<span ng-repeat="(pain, val) in user.spouse_data.usness.pains" ng-if="val">{{pain}}<br /></span>
+					<span ng-repeat="(pain, val) in user.spouse_data.usness.pains_other" ng-if="val">{{val}}<br /></span>
 				</div>
 				<div class="bottom-right">
 					<img src="img/bottom-right-arrow.svg" class="bottom-right-arrow" width="100%" />

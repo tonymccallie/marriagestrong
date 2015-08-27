@@ -6,20 +6,43 @@
 		<h2>
 			<img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Pain Cycle</h2>
 		<div class="paragraph-list">When I feel this way, I typically cope by becoming (choose up to three):</div>
-		<div class="padding">
-			<form name="cyclesPainCopesForm" novalidate="" ng-submit="process('menu.tabs.cycles_pain_results',cyclesPainCopesForm)">
-				<ul class="cyclesCopes list">
-					<li ng-repeat="cope in copeList" class="item item-checkbox">
-						<label class="checkbox">
-							<input type="checkbox" name="pain" value="TEACHING" ng-model="user.data.usness.copes[cope]" ng-change="checkCopes(user.data.usness.copes[cope])" ng-disabled="copeCount>=3 && !user.data.usness.copes[cope]">
-						</label>{{cope}}</li>
-				</ul>
-				<div class="tip-text">
-					<h1><img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>
-					<p>Where did you learn how to cope like this? Did someone model this behavior for you or did you have to employ this coping to survive? For instance, if you grew up in a house of anger, you might have withdrawn to cope. Again, typically this coping existed before you married.</p>
-					<br>
+		<div class="padding clearfix">
+			<ul class="cyclesCopes list">
+				<li ng-repeat="cope in copeList" class="item item-checkbox">
+					<label class="checkbox">
+						<input type="checkbox" name="pain" value="TEACHING" ng-model="user.data.usness.copes[cope]" ng-change="checkCopes(user.data.usness.copes[cope])" ng-disabled="copeCount>=3 && !user.data.usness.copes[cope]">
+					</label>{{cope}}</li>
+			</ul>
+		</div>
+		<div class="grey_bg">
+			<div class="padding">
+				<p>Didn't see your top 3 coping mechanisms? Add your own:</p>
+				<div class="list list-inset">
+					<label class="item item-input">1 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.copes_other.other1" ng-change="checkActionsOther(user.data.usness.copes_other.other1,'other1')" ng-disabled="copeCount>=3 && !user.data.usness.copes_other.other1" />
+					</label>
 				</div>
-				<input type="submit" value="View Your Pain Cycle" class="button button-block button-positive" />
+				<div class="list list-inset">
+					<label class="item item-input">2 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.copes_other.other2" ng-change="checkActionsOther(user.data.usness.copes_other.other2,'other2')" ng-disabled="copeCount>=3 && !user.data.usness.copes_other.other2" />
+					</label>
+				</div>
+				<div class="list list-inset">
+					<label class="item item-input">3 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.copes_other.other3" ng-change="checkActionsOther(user.data.usness.copes_other.other3,'other3')" ng-disabled="copeCount>=3 && !user.data.usness.copes_other.other3" />
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="padding">
+			<div class="tip-text">
+				<h1>
+					<img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>
+				<p>Where did you learn how to cope like this? Did someone model this behavior for you or did you have to employ this coping to survive? For instance, if you grew up in a house of anger, you might have withdrawn to cope. Again, typically this coping existed before you married.</p>
+				<br>
+			</div>
+			<form name="cyclesPainCopesForm" novalidate="" ng-submit="process('menu.tabs.cycles_pain_results',cyclesPainCopesForm)">
+				<input type="submit" value="Save and Continue" class="button button-block button-positive" />
 			</form>
 		</div>
 	</ion-content>

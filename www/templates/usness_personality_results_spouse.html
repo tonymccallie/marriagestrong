@@ -4,24 +4,26 @@
 </ion-nav-title>
 	<ion-content>
         <h2><img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Personality</h2>   
-        <h4>Personality Results</h4>
+        <h4>Spouse's Personality Results</h4>
             <div class="padding personalityResults">
                 <hr>
             
                 <h3>Relating to People</h3>
-                <p>{{user.data.usness.personality.relating}}</p>
+                <p>{{user.spouse_data.usness.personality.relating}}</p>
                 <hr>
                 <h3>HANDLES INFORMATION</h3>
-                <p>{{user.data.usness.personality.handling}}</p>
+                <p>{{user.spouse_data.usness.personality.handling}}</p>
                 <hr>
                 <h3>HANDLING INFORMATION</h3>
-                <p>{{user.data.usness.personality.decisions}}</p>
+                <p>{{user.spouse_data.usness.personality.decisions}}</p>
                 <hr>
                 <h3>ACCOMPLISHING TASKS</h3>
-                <p>{{user.data.usness.personality.tasks}}</p>
+                <p>{{user.spouse_data.usness.personality.tasks}}</p>
                 <hr>
                 <br>
-                <button ui-sref="menu.tabs.usness_personality_results_spouse" class="button button-block button-calm">See Spouses Answers</button>
+                <form name="spousePersonality"></form>
+				<button ng-click="process('menu.tabs.usness_personality_results_spouse',spousePersonality)" class="button button-block button-calm">Sync with your spouse</button>
+                <button ui-sref="menu.tabs.usness_personality_results" class="button button-block button-calm">Back to your Answers</button>
                 <h1><img src="img/icon-further-small.png" class="cycles-icon" />&nbsp;TAKE IT FURTHER</h1>
                 <p>See how you and your spouse compare in each personality category. In what ways can your similarity or difference be an advantage to your us?  
                 </p>

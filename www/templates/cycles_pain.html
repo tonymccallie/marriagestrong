@@ -1,37 +1,57 @@
 <ion-view view-title="Cycles">
-<ion-nav-title>
-    <img src="img/logo.png" class="title-image" />
-</ion-nav-title>
+	<ion-nav-title>
+		<img src="img/logo.png" class="title-image" />
+	</ion-nav-title>
 	<ion-content>
-        <h2><img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Pain Cycle</h2>
-        <div class="paragraph-list">
-        	<p>When I am in conflict with my spouse, I commonly feel (choose up to three):</p>
+		<h2>
+			<img src="img/cycle-icon-small.png" class="cycles-icon" />&nbsp;Discover Your Pain Cycle</h2>
+		<div class="paragraph-list">
+			<p>When I am in conflict with my spouse, I commonly feel (choose up to three):</p>
 			<h5>HELPFUL HINT</h5>
-			<p>A feeling tells you something about your identity or your safety. For instance when in conflict you might feel inadequate or unloved, unsafe or alone. Words like angry or frustrated are more about what you do than what you feel. </p>
-        </div>
-        <div class="padding">
-            <form name="cyclesPainForm" novalidate="" ng-submit="process('menu.tabs.cycles_pain_copes',cyclesPainForm)">
-             <ul class="cycles-pain list">
-               <ul class="list">
+			<p>A feeling tells you something about your identity or your safety. For instance when in conflict you might feel inadequate or unloved, unsafe or alone. Words like angry or frustrated are more about what you do than what you feel.</p>
+		</div>
+		<div class="padding clearfix">
+			<ul class="cycles-pain list">
 				<li ng-repeat="pain in painList" class="item item-checkbox">
 					<label class="checkbox">
-						<input type="checkbox" name="pain" value="TEACHING" ng-model="user.data.usness.pains[pain]" ng-change="checkPains(user.data.usness.pains[pain])" ng-disabled="painCount>=3 && !user.data.usness.pains[pain]">
+						<input type="checkbox" name="pain" ng-model="user.data.usness.pains[pain]" ng-change="checkPains(user.data.usness.pains[pain])" ng-disabled="painCount>=3 && !user.data.usness.pains[pain]">
+					</label>{{pain}}</li>
+			</ul>
+		</div>
+		<div class="grey_bg">
+			<div class="padding">
+				<p>Didn't see your top 3 feelings? Add your own:</p>
+				<div class="list list-inset">
+					<label class="item item-input">1 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.pains_other.other1" ng-change="checkPainsOther(user.data.usness.pains_other.other1,'other1')" ng-disabled="painCount>=3 && !user.data.usness.pains_other.other1" />
 					</label>
-					{{pain}}
-				</li>
-            </ul>
-            <div class="tip-text">
-                <h1><img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>
-                <p>When do you first remember feeling this way?  These negative messages usually exist long 
-                    before marriage and typically come from 3 places:</p>
-                <ul>
-                    &bull; life situations such as financial stress or bullying, <br>
-                    &bull; people outside your family such as peers or authority figures, or <br> 
-                    &bull; your family relationships. <br>
+				</div>
+				<div class="list list-inset">
+					<label class="item item-input">2 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.pains_other.other2" ng-change="checkPainsOther(user.data.usness.pains_other.other2,'other2')" ng-disabled="painCount>=3 && !user.data.usness.pains_other.other2" />
+					</label>
+				</div>
+				<div class="list list-inset">
+					<label class="item item-input">3 &nbsp;
+						<input name="gift" type="text" ng-model="user.data.usness.pains_other.other3" ng-change="checkPainsOther(user.data.usness.pains_other.other3,'other3')" ng-disabled="painCount>=3 && !user.data.usness.pains_other.other3" />
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="padding">
+			<div class="tip-text">
+				<h1>
+					<img src="img/icon-reflect-small.png" class="cycles-icon" />&nbsp;REFLECT A SEC:</h1>
+				<p>When do you first remember feeling this way? These negative messages usually exist long before marriage and typically come from 3 places:</p>
+				<ul>&bull; life situations such as financial stress or bullying,
+					<br>&bull; people outside your family such as peers or authority figures, or
+					<br>&bull; your family relationships.
+					<br>
 				</ul>
-            </div>
-            <input type="submit" value="Save and Continue" class="button button-block button-positive" />
-            </form>
-        </div>
+			</div>
+			<form name="cyclesPainForm" novalidate="" ng-submit="process('menu.tabs.cycles_pain_copes',cyclesPainForm)">
+				<input type="submit" value="Save and Continue" class="button button-block button-positive" />
+			</form>
+		</div>
 	</ion-content>
 </ion-view>

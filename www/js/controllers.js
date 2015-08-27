@@ -453,6 +453,23 @@ angular.module('greyback.controllers', [])
 			$scope.painCount--;
 		}
 	}
+	
+	$scope.painVars = {
+		other1: false,
+		other2: false,
+		other3: false
+	};
+	
+	$scope.checkPainsOther = function (item, varName) {
+		if (!$scope.painVars[varName] && item.length > 0) {
+			$scope.painVars[varName] = true;
+			$scope.painCount++;
+		}
+		if ($scope.painVars[varName] && item.length == 0) {
+			$scope.painVars[varName] = false;
+			$scope.painCount--;
+		}
+	}
 
 	$scope.copeList = ListService.copeList;
 
@@ -462,6 +479,23 @@ angular.module('greyback.controllers', [])
 		if (item) {
 			$scope.copeCount++;
 		} else {
+			$scope.copeCount--;
+		}
+	}
+	
+	$scope.copeVars = {
+		other1: false,
+		other2: false,
+		other3: false
+	};
+	
+	$scope.checkCopesOther = function (item, varName) {
+		if (!$scope.copeVars[varName] && item.length > 0) {
+			$scope.copeVars[varName] = true;
+			$scope.copeCount++;
+		}
+		if ($scope.copeVars[varName] && item.length == 0) {
+			$scope.copeVars[varName] = false;
 			$scope.copeCount--;
 		}
 	}
@@ -477,6 +511,23 @@ angular.module('greyback.controllers', [])
 			$scope.truthCount--;
 		}
 	}
+	
+	$scope.truthVars = {
+		other1: false,
+		other2: false,
+		other3: false
+	};
+	
+	$scope.checkTruthsOther = function (item, varName) {
+		if (!$scope.truthVars[varName] && item.length > 0) {
+			$scope.truthVars[varName] = true;
+			$scope.truthCount++;
+		}
+		if ($scope.truthVars[varName] && item.length == 0) {
+			$scope.truthVars[varName] = false;
+			$scope.truthCount--;
+		}
+	}
 
 	$scope.actionList = ListService.actionList;
 
@@ -486,6 +537,23 @@ angular.module('greyback.controllers', [])
 		if (item) {
 			$scope.actionCount++;
 		} else {
+			$scope.actionCount--;
+		}
+	}
+	
+	$scope.actionVars = {
+		other1: false,
+		other2: false,
+		other3: false
+	};
+	
+	$scope.checkActionsOther = function (item, varName) {
+		if (!$scope.actionVars[varName] && item.length > 0) {
+			$scope.actionVars[varName] = true;
+			$scope.actionCount++;
+		}
+		if ($scope.actionVars[varName] && item.length == 0) {
+			$scope.actionVars[varName] = false;
 			$scope.actionCount--;
 		}
 	}

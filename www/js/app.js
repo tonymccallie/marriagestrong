@@ -145,6 +145,16 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
+	
+	.state('menu.tabs.usness_personality_results_spouse', {
+		url: "/usness-personality-results-spouse",
+		views: {
+			'tab-home': {
+				templateUrl: "templates/usness_personality_results_spouse.html",
+				controller: "UserController"
+			}
+		}
+	})
     
     .state('menu.tabs.usness_gifts', {
 		url: "/usness-gifts",
@@ -161,6 +171,16 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		views: {
 			'tab-home': {
 				templateUrl: "templates/usness_gifts_results.html",
+				controller: "UserController"
+			}
+		}
+	})
+	
+	.state('menu.tabs.usness_gifts_results_spouse', {
+		url: "/usness-gifts-results-spouse",
+		views: {
+			'tab-home': {
+				templateUrl: "templates/usness_gifts_results_spouse.html",
 				controller: "UserController"
 			}
 		}
