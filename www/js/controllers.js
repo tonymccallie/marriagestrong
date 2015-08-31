@@ -1,18 +1,20 @@
 angular.module('greyback.controllers', [])
 
-.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $state, $ionicSideMenuDelegate, UserService, user) {
+.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $ionicUser, $ionicPush, $state, $ionicSideMenuDelegate, UserService, user) {
 	console.log('AppController');
 	//app wide variables
 	$scope.DOMAIN = DOMAIN;
 	$scope.imageDir = DOMAIN + '/img/thumb/';
 	$scope.logs = [];
 	$scope.user = user;
+
 	$scope.log = function (obj) {
 		$scope.logs.push(moment().format('h:mm:ss') + ': ' + obj);
 	}
 
 	$ionicPlatform.ready(function () {
-		$scope.log('Ionic Deploy: Checking for updates');
+		//DEPLOY
+		//$scope.log('Ionic Deploy: Checking for updates');
 		//		$ionicDeploy.check().then(function (hasUpdate) {
 		//			$scope.log('Ionic Deploy: Update available: ' + hasUpdate);
 		//			$scope.hasUpdate = hasUpdate;
@@ -34,6 +36,36 @@ angular.module('greyback.controllers', [])
 		//		}, function (err) {
 		//			$scope.log('Ionic Deploy: Unable to check for updates', err);
 		//		});
+
+
+		//PUSH
+		var ionicUser = $ionicUser.get();
+		if (!ionicUser.user_id) {
+			ionicUser.user_id = $ionicUser.generateGUID();
+		}
+
+		angular.extend(ionicUser, {
+			email: $scope.user.User.email
+		});
+
+		$scope.user.User.push_id = ionicUser.user_id;
+		UserService.syncUser($scope.user).then(function (data) {
+			$ionicUser.identify(ionicUser).then(function () {
+				$ionicPush.register({
+					canShowAlert: true, //Can pushes show an alert on your screen?
+					canSetBadge: true, //Can pushes update app icon badges?
+					canPlaySound: true, //Can notifications play a sound?
+					canRunActionsOnWake: true, //Can run actions outside the app,
+					onNotification: function (notification) {
+						// Handle new push notifications here
+						// console.log(notification);
+						return true;
+					}
+				});
+			});
+		});
+
+		console.log(ionicUser);
 
 	});
 
@@ -253,10 +285,24 @@ angular.module('greyback.controllers', [])
 			}
 			break;
 		case 'menu.tabs.quizzes_boundaries_results':
+			$scope.boundariesQuizTotal = {
+				1: 0,
+				2: 0,
+				3: 0
+			};
 			if ((typeof $scope.user.data != 'undefined') && (typeof $scope.user.data.quizzes != 'undefined') && (typeof $scope.user.data.quizzes.boundaries != 'undefined')) {
-				$scope.boundariesQuizTotal = sumObj($scope.user.data.quizzes.boundaries);
-			} else {
-				$scope.boundariesQuizTotal = 0;
+				for (var key in $scope.user.data.quizzes.boundaries) {
+					$scope.boundariesQuizTotal[$scope.user.data.quizzes.boundaries[key]]++;
+				}
+				$scope.boundariesValue = 0;
+				var highestCount = 0;
+				for (var valKey in $scope.boundariesQuizTotal) {
+					if (parseInt($scope.boundariesQuizTotal[valKey]) >= highestCount) {
+						highestCount = parseInt($scope.boundariesQuizTotal[valKey]);
+						$scope.boundariesValue = valKey;
+					}
+				}
+
 			}
 			break;
 		}
@@ -406,7 +452,7 @@ angular.module('greyback.controllers', [])
 			$ionicLoading.show({
 				template: 'Syncing Results<br /><ion-spinner></ion-spinner>'
 			});
-			UserService.syncUser($scope.user).then(function(data) {
+			UserService.syncUser($scope.user).then(function (data) {
 				$ionicLoading.hide();
 			});
 			$state.go(next);
@@ -453,13 +499,13 @@ angular.module('greyback.controllers', [])
 			$scope.painCount--;
 		}
 	}
-	
+
 	$scope.painVars = {
 		other1: false,
 		other2: false,
 		other3: false
 	};
-	
+
 	$scope.checkPainsOther = function (item, varName) {
 		if (!$scope.painVars[varName] && item.length > 0) {
 			$scope.painVars[varName] = true;
@@ -482,13 +528,13 @@ angular.module('greyback.controllers', [])
 			$scope.copeCount--;
 		}
 	}
-	
+
 	$scope.copeVars = {
 		other1: false,
 		other2: false,
 		other3: false
 	};
-	
+
 	$scope.checkCopesOther = function (item, varName) {
 		if (!$scope.copeVars[varName] && item.length > 0) {
 			$scope.copeVars[varName] = true;
@@ -511,13 +557,13 @@ angular.module('greyback.controllers', [])
 			$scope.truthCount--;
 		}
 	}
-	
+
 	$scope.truthVars = {
 		other1: false,
 		other2: false,
 		other3: false
 	};
-	
+
 	$scope.checkTruthsOther = function (item, varName) {
 		if (!$scope.truthVars[varName] && item.length > 0) {
 			$scope.truthVars[varName] = true;
@@ -540,13 +586,13 @@ angular.module('greyback.controllers', [])
 			$scope.actionCount--;
 		}
 	}
-	
+
 	$scope.actionVars = {
 		other1: false,
 		other2: false,
 		other3: false
 	};
-	
+
 	$scope.checkActionsOther = function (item, varName) {
 		if (!$scope.actionVars[varName] && item.length > 0) {
 			$scope.actionVars[varName] = true;
@@ -564,7 +610,12 @@ angular.module('greyback.controllers', [])
 
 	$scope.boundariesQuestions = ListService.boundariesQuiz;
 
-	$scope.boundariesQuizTotal = 0;
+	$scope.boundariesQuizTotal = {
+		1: 0,
+		2: 0,
+		3: 0
+	};
+	$scope.boundariesValue = 0;
 })
 
 .controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, decision, UserService) {

@@ -10,21 +10,21 @@
 			<p>As you view your scores, remember the results might put you into a place of pain. If so, use the 4 Steps to move from your pain cycle to your peace cycle.</p>
 		</div>
 		<ul class="quizzes-results-list list">
-			<li ng-if="boundariesQuizTotal < 17" class="item">
+			<li ng-if="boundariesValue == 2" class="item">
 				<div class="quizzes-circle-container">
 					<span class="red-circle">RED</span>
 				</div>
 				<div class="quizzes-circle-text">THE WALL OF CHINA HAS NOTHING ON YOU
 					<br>Your boundaries are firm, like cement. You reserve your energy for things that matter the most to you. You prefer to have a plan and struggle when the plan shifts. Friends think of you as reliable, but a little rigid. Pick 1-3 categories where your US would be helped in you becoming more flexible in your boundaries. What are 3 ways you can move in that direction?</div>
 			</li>
-			<li ng-if="boundariesQuizTotal >= 17 && boundariesQuizTotal < 23" class="item">
+			<li ng-if="boundariesValue == 1" class="item">
 				<div class="quizzes-circle-container">
 					<span class="orange-circle circle-selceted">ORANGE</span>
 				</div>
 				<div class="quizzes-circle-text">YOU'RE AN OCEAN WAVE: INCREDIBLE AND UNPREDICTABLE
 					<br>Your boundaries go wherever the wind takes you or the moon pulls you. You spend your energy freely, blessing others as you go, but sometimes forgetting yourself or those closest to you. Friends think of you as fun, but a little unreliable. Pick 1-3 categories where your US would be helped in you becoming more grounded in your boundaries. What are 3 ways you can move in that direction?</div>
 			</li>
-			<li ng-if="boundariesQuizTotal >= 23" class="item">
+			<li ng-if="boundariesValue == 3" class="item">
 				<div class="quizzes-circle-container">
 					<span class="green-circle">GREEN</span>
 				</div>
