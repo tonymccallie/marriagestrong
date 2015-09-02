@@ -51,6 +51,7 @@ angular.module('greyback.controllers', [])
 
 		UserService.syncUser($scope.user).then(function (data) {
 			$ionicUser.identify(ionicUser).then(function () {
+				console.log($ionicPush);
 				$ionicPush.register({
 					canShowAlert: true, //Can pushes show an alert on your screen?
 					canSetBadge: true, //Can pushes update app icon badges?

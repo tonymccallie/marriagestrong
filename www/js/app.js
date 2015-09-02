@@ -54,7 +54,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		// The public API key all services will use for this app
 		api_key: '3dba898087ab6ad516d3bd91dc801fba79ddaf871b12ca36',
 		// Set the app to use development pushes
-		dev_push: true
+		dev_push: false
 	});
 
 	ImgCacheProvider.manualInit = true;
