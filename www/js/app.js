@@ -62,10 +62,6 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 	$ionicConfigProvider.backButton.previousTitleText(false).text('<i class="threeleaf">5</i>').icon('');
 	$ionicConfigProvider.tabs.position('bottom');
 
-	if (ionic.Platform.isAndroid()) {
-		$ionicConfigProvider.scrolling.jsScrolling(false);
-	}
-
 	$stateProvider
 
 	.state('menu', {
