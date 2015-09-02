@@ -20,7 +20,7 @@ var onclickFix = function (html) {
 	return html.replace(/href=\"(.+?)\"/gi, 'onclick="window.open(\'$1\',\'_system\',\'location=yes\');"');
 }
 
-angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.core', 'ionic.service.push', 'ionic.service.deploy', 'ionic.service.analytics', 'ionic-datepicker','ngOpenFB', 'ngMessages', 'jrCrop', 'greyback.controllers', 'greyback.services', 'greyback.utils'])
+angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.core', 'ionic.service.push', 'ionic.service.deploy', 'ionic.service.analytics', 'ionic-datepicker', 'ngOpenFB', 'ngMessages', 'jrCrop', 'greyback.controllers', 'greyback.services', 'greyback.utils'])
 
 .run(function ($rootScope, $ionicPlatform, $ionicAnalytics, $cordovaSplashscreen, ImgCache, ngFB) {
 	console.log('App.run');
@@ -54,13 +54,17 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		// The public API key all services will use for this app
 		api_key: '3dba898087ab6ad516d3bd91dc801fba79ddaf871b12ca36',
 		// Set the app to use development pushes
-		dev_push: false
+		dev_push: true
 	});
 
 	ImgCacheProvider.manualInit = true;
 
 	$ionicConfigProvider.backButton.previousTitleText(false).text('<i class="threeleaf">5</i>').icon('');
 	$ionicConfigProvider.tabs.position('bottom');
+
+	if (ionic.Platform.isAndroid()) {
+		$ionicConfigProvider.scrolling.jsScrolling(false);
+	}
 
 	$stateProvider
 
@@ -96,8 +100,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.usness', {
+
+	.state('menu.tabs.usness', {
 		url: "/usness",
 		views: {
 			'tab-home': {
@@ -105,8 +109,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.usness_activities', {
+
+	.state('menu.tabs.usness_activities', {
 		url: "/usness-activities",
 		views: {
 			'tab-home': {
@@ -115,8 +119,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.usness_activities_further', {
+
+	.state('menu.tabs.usness_activities_further', {
 		url: "/usness-activities-further",
 		views: {
 			'tab-home': {
@@ -125,8 +129,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.usness_personality', {
+
+	.state('menu.tabs.usness_personality', {
 		url: "/usness-personality",
 		views: {
 			'tab-home': {
@@ -135,8 +139,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.usness_personality_results', {
+
+	.state('menu.tabs.usness_personality_results', {
 		url: "/usness-personality-results",
 		views: {
 			'tab-home': {
@@ -145,7 +149,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.usness_personality_results_spouse', {
 		url: "/usness-personality-results-spouse",
 		views: {
@@ -155,8 +159,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.usness_gifts', {
+
+	.state('menu.tabs.usness_gifts', {
 		url: "/usness-gifts",
 		views: {
 			'tab-home': {
@@ -165,8 +169,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.usness_gifts_results', {
+
+	.state('menu.tabs.usness_gifts_results', {
 		url: "/usness-gifts-results",
 		views: {
 			'tab-home': {
@@ -175,7 +179,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.usness_gifts_results_spouse', {
 		url: "/usness-gifts-results-spouse",
 		views: {
@@ -185,9 +189,9 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    
-    .state('menu.tabs.cycles', {
+
+
+	.state('menu.tabs.cycles', {
 		url: "/cycles",
 		views: {
 			'tab-cycles': {
@@ -196,8 +200,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.cycles_pain', {
+
+	.state('menu.tabs.cycles_pain', {
 		url: "/cycles-pain",
 		views: {
 			'tab-cycles': {
@@ -206,8 +210,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.cycles_pain_copes', {
+
+	.state('menu.tabs.cycles_pain_copes', {
 		url: "/cycles-pain-copes",
 		views: {
 			'tab-cycles': {
@@ -216,8 +220,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.cycles_pain_results', {
+
+	.state('menu.tabs.cycles_pain_results', {
 		url: "/cycles-pain-results",
 		views: {
 			'tab-cycles': {
@@ -226,8 +230,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.cycles_peace', {
+
+	.state('menu.tabs.cycles_peace', {
 		url: "/cycles-peace",
 		views: {
 			'tab-cycles': {
@@ -236,8 +240,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.cycles_peace_response', {
+
+	.state('menu.tabs.cycles_peace_response', {
 		url: "/cycles-peace-response",
 		views: {
 			'tab-cycles': {
@@ -246,8 +250,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.cycles_results', {
+
+	.state('menu.tabs.cycles_results', {
 		url: "/cycles-results",
 		views: {
 			'tab-cycles': {
@@ -256,7 +260,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.4steps', {
 		url: "/4steps",
 		views: {
@@ -266,8 +270,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
-    .state('menu.tabs.4steps_setup', {
+
+	.state('menu.tabs.4steps_setup', {
 		url: "/4steps-setup",
 		views: {
 			'tab-4steps': {
@@ -276,8 +280,8 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	    
-    .state('menu.tabs.4steps_results', {
+
+	.state('menu.tabs.4steps_results', {
 		url: "/4steps-results",
 		views: {
 			'tab-4steps': {
@@ -286,7 +290,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.quizzes', {
 		url: "/quizzes",
 		views: {
@@ -296,7 +300,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
+
 	.state('menu.tabs.quizzes_usness', {
 		url: "/quizzes-usness",
 		views: {
@@ -306,7 +310,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
+
 	.state('menu.tabs.quizzes_usness_results', {
 		url: "/quizzes-usness-results",
 		views: {
@@ -316,7 +320,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.quizzes_boundaries', {
 		url: "/quizzes-boundaries",
 		views: {
@@ -326,7 +330,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-    
+
 	.state('menu.tabs.quizzes_boundaries_results', {
 		url: "/quizzes-boundaries-results",
 		views: {
@@ -337,7 +341,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		}
 	})
 
-    
+
 	.state('menu.tabs.decisions', {
 		url: "/decisions",
 		views: {
@@ -347,12 +351,12 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		},
 		resolve: {
-			test: function() {
+			test: function () {
 				console.log('menu.tabs.decisions');
 			}
 		}
 	})
-    
+
 	.state('menu.tabs.decisions_create', {
 		url: "/decisions-create",
 		views: {
@@ -362,13 +366,13 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		},
 		resolve: {
-			decision: function() {
+			decision: function () {
 				console.log('menu.tabs.decisions_create.resolve');
 				return {};
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.decisions_view', {
 		url: "/decisions-view/:decision",
 		views: {
@@ -378,14 +382,14 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		},
 		resolve: {
-			decision: function(UserService, $stateParams) {
+			decision: function (UserService, $stateParams) {
 				console.log('menu.tabs.decisions_view.resolve');
 				return UserService.decision($stateParams.decision);
 			}
 		}
-		
+
 	})
-	
+
 	.state('menu.tabs.decisions_edit', {
 		url: "/decisions-edit/:decision",
 		views: {
@@ -395,14 +399,14 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		},
 		resolve: {
-			decision: function(UserService, $stateParams) {
+			decision: function (UserService, $stateParams) {
 				console.log('menu.tabs.decisions_edit.resolve');
 				return UserService.decision($stateParams.decision);
 			}
 		}
-		
+
 	})
-    
+
 	.state('menu.tabs.decisions_revisit', {
 		url: "/decisions-revisit",
 		views: {
@@ -412,7 +416,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.about', {
 		url: "/about",
 		views: {
@@ -421,7 +425,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.find_group', {
 		url: "/find_group",
 		views: {
@@ -430,7 +434,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.lead_group', {
 		url: "/lead_group",
 		views: {
@@ -439,7 +443,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.resources', {
 		url: "/resources",
 		views: {
@@ -448,7 +452,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.products', {
 		url: "/products",
 		views: {
@@ -457,7 +461,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.app_info', {
 		url: "/app_info",
 		views: {
@@ -466,7 +470,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.profile', {
 		url: "/profile",
 		cache: false,
@@ -477,7 +481,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.link', {
 		url: "/link",
 		views: {
@@ -487,7 +491,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.photo', {
 		url: "/photo",
 		views: {
@@ -497,7 +501,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 			}
 		}
 	})
-	
+
 	.state('menu.tabs.notifications', {
 		url: "/notifications",
 		views: {
@@ -524,12 +528,12 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 		templateUrl: "templates/forgot.html",
 		controller: 'ForgotController'
 	})
-	
+
 	.state('terms', {
 		url: "/terms",
 		templateUrl: "templates/terms.html"
 	})
-	
+
 	.state('privacy', {
 		url: "/privacy",
 		templateUrl: "templates/privacy.html"

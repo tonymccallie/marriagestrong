@@ -64,9 +64,6 @@ angular.module('greyback.controllers', [])
 				});
 			});
 		});
-
-		console.log(ionicUser);
-
 	});
 
 	$scope.trust = function (snippet) {
@@ -618,9 +615,30 @@ angular.module('greyback.controllers', [])
 	$scope.boundariesValue = 0;
 })
 
-.controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, decision, UserService) {
+.controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, decision, UserService, DecisionService) {
 	console.log('DecisionController');
 	$scope.decision = decision;
+	
+	$scope.reminderDatePicker = {
+		//titleLabel: 'Title', //Optional
+		//todayLabel: 'Today', //Optional
+		//closeLabel: 'Close', //Optional
+		//setLabel: 'Set', //Optional
+		//errorMsgLabel: 'Please select time.', //Optional
+		//setButtonType: 'button-assertive', //Optional
+		//inputDate: new Date(), //Optional
+		//mondayFirst: false, //Optional
+		//disabledDates: disabledDates, //Optional
+		//monthList: monthList, //Optional
+		//from: new Date(2015, 7, 2), //Optional
+		//to: new Date(2015, 7, 29), //Optional
+		callback: function (val) { //Mandatory
+			if (typeof $scope.user.data == 'undefined') {
+				$scope.user.data = {};
+			}
+			$scope.decision.reminder = val;
+		}
+	};
 
 	$scope.save = function (form) {
 		if (typeof $scope.user.data == 'undefined') {
@@ -631,12 +649,14 @@ angular.module('greyback.controllers', [])
 			$scope.user.data.decisions = [];
 		}
 
-		if (typeof $scope.decision.index == 'undefined') {
-			$scope.user.data.decisions.push($scope.decision);
-		} else {
-			$scope.user.data.decisions[$scope.decision.index] = ($scope.decision);
-		}
-		UserService.updateUser($scope.user);
+		DecisionService.addReminder($scope.decision).then(function(decision) {
+			if (typeof $scope.decision.index == 'undefined') {
+				$scope.user.data.decisions.push(decision);
+			} else {
+				$scope.user.data.decisions[$scope.decision.index] = (decision);
+			}
+			UserService.updateUser($scope.user);	
+		})
 		$state.go('menu.tabs.decisions');
 	}
 

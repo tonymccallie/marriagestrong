@@ -58,6 +58,17 @@
 					<input name="decision.solution" type="text" ng-model="decision.solution" />
 				</label>
 			</div>
+			<div class="list list-inset">
+					<ionic-datepicker input-obj="reminderDatePicker" class="item item-input item-icon-right datepicker">
+						<div ng-if="decision.reminder">
+							{{decision.reminder | date:'MMMM dd, yyyy'}}
+						</div>
+						<div ng-if="!decision.reminder">
+							DATE TO BE REMINDED
+						</div>
+						<i class="icon ion-calendar icon-calm"></i>
+					</ionic-datepicker>
+				</div>
 			<div class="padding">
 				<h5>HINT:</h5>
 				<p>An Us decision does not include the thought, “okay, we will do it your way this time.” You must decide together.</p>

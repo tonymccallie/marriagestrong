@@ -212,11 +212,10 @@ angular.module('greyback.services', [])
 	}
 
 	self.syncUser = function (user) {
-		console.log('UserService.updateUser');
+		console.log('UserService.syncUser');
 
 		var promise = $http.post(DOMAIN + '/users/ajax_update', user)
 			.success(function (response, status, headers, config) {
-			console.log(response.data);
 			switch (response.status) {
 				case 'SUCCESS':
 					if (response.data.Spouse.id) {
@@ -245,6 +244,39 @@ angular.module('greyback.services', [])
 		self.user = null;
 		$localStorage.remove('User');
 		$state.go('login');
+	}
+})
+
+.service('DecisionService', function() {
+	var self = this;
+	
+	self.addReminder = function(decision) {
+		console.log('DecisionService.addReminder');
+
+		var promise = $http.post(DOMAIN + '/decisions/ajax_add', user)
+			.success(function (response, status, headers, config) {
+			console.log(response.data);
+			switch (response.status) {
+				case 'SUCCESS':
+					if (response.data.Spouse.id) {
+						response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
+					}
+					self.updateUser(response.data);
+					break;
+				case 'MESSAGE':
+					alert(response.data);
+					break;
+				default:
+					alert('there was a server error for Messages');
+					console.log(response);
+					break;
+			}
+		})
+			.error(function (response, status, headers, config) {
+			console.log(['error', status, headers, config]);
+		});
+
+		return promise;
 	}
 })
 
