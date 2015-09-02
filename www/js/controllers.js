@@ -40,15 +40,15 @@ angular.module('greyback.controllers', [])
 
 		//PUSH
 		var ionicUser = $ionicUser.get();
-		if (!ionicUser.user_id) {
-			ionicUser.user_id = $ionicUser.generateGUID();
+		if (!$scope.user.User.push_id) {
+			$scope.user.User.push_id = $ionicUser.generateGUID();
 		}
 
 		angular.extend(ionicUser, {
-			email: $scope.user.User.email
+			email: $scope.user.User.email,
+			user_id: $scope.user.User.push_id
 		});
 
-		$scope.user.User.push_id = ionicUser.user_id;
 		UserService.syncUser($scope.user).then(function (data) {
 			$ionicUser.identify(ionicUser).then(function () {
 				$ionicPush.register({
