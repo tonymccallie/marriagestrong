@@ -446,6 +446,12 @@ angular.module('greyback.controllers', [])
 		}
 
 		if (boolPass) {
+			if (form.$name == 'cyclesPeaceResponseForm') {
+				$scope.user.data.peace = true;
+			}
+			if (form.$name == 'cyclesPainCopesForm') {
+				$scope.user.data.pain = true;
+			}
 			$ionicLoading.show({
 				template: 'Syncing Results<br /><ion-spinner></ion-spinner>'
 			});
@@ -613,6 +619,22 @@ angular.module('greyback.controllers', [])
 		3: 0
 	};
 	$scope.boundariesValue = 0;
+	
+	$scope.yourPain = function() {
+		if(!$scope.user.data.pain) {
+			$state.go('menu.tabs.cycles_pain');
+		} else {
+			$state.go('menu.tabs.cycles_pain_results');
+		}
+	}
+	
+	$scope.yourPeace = function() {
+		if(!$scope.user.data.peace) {
+			$state.go('menu.tabs.cycles_peace');
+		} else {
+			$state.go('menu.tabs.cycles_results');
+		}
+	}
 })
 
 .controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, decision, UserService, DecisionService) {
