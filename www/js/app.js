@@ -11,6 +11,8 @@ if (devtest) {
 	isMobile = false;
 }
 
+DOMAIN+='/ajax';
+
 //TEMP
 //var DOMAIN = 'http://office.threeleaf.net:8080/marriagestrong_server';
 

@@ -43,7 +43,7 @@ angular.module('greyback.services', [])
 
 	self.loginUser = function (user) {
 		console.log('UserService.loginUser');
-		var promise = $http.post(DOMAIN + '/users/ajax_login', user)
+		var promise = $http.post(DOMAIN + '/users/login', user)
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
@@ -73,7 +73,7 @@ angular.module('greyback.services', [])
 
 	self.saveFacebook = function (fbuser) {
 		console.log('UserService.saveFacebook')
-		var promise = $http.post(DOMAIN + '/users/ajax_facebook', fbuser)
+		var promise = $http.post(DOMAIN + '/users/facebook', fbuser)
 			.success(function (response, status, headers, config) {
 
 			if (response.status === 'SUCCESS') {
@@ -112,7 +112,7 @@ angular.module('greyback.services', [])
 
 	self.createUser = function (user) {
 		console.log('UserService.createUser');
-		var promise = $http.post(DOMAIN + '/users/ajax_register', user)
+		var promise = $http.post(DOMAIN + '/users/register', user)
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
@@ -138,7 +138,7 @@ angular.module('greyback.services', [])
 
 	self.linkUser = function (user) {
 		console.log('UserService.linkUser');
-		var promise = $http.post(DOMAIN + '/users/ajax_link', user)
+		var promise = $http.post(DOMAIN + '/users/link', user)
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
@@ -173,7 +173,7 @@ angular.module('greyback.services', [])
 		params.user_id = self.user.User.id;
 		options.params = params;
 		var ft = new FileTransfer();
-		ft.upload(myImg, encodeURI(DOMAIN + '/users/ajax_upload'), function (success) {
+		ft.upload(myImg, encodeURI(DOMAIN + '/users/upload'), function (success) {
 			console.log('UserService.picUpload success: ' + success);
 			self.user.User.picture = 1;
 			self.updateUser(self.user).then(function (user) {
@@ -214,7 +214,7 @@ angular.module('greyback.services', [])
 	self.syncUser = function (user) {
 		console.log('UserService.syncUser');
 
-		var promise = $http.post(DOMAIN + '/users/ajax_update', user)
+		var promise = $http.post(DOMAIN + '/users/update', user)
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 				case 'SUCCESS':
@@ -247,34 +247,22 @@ angular.module('greyback.services', [])
 	}
 })
 
-.service('DecisionService', function() {
+.service('DecisionService', function($q, $http, $location, $localStorage, $state) {
 	var self = this;
 	
-	self.addReminder = function(decision) {
-		console.log('DecisionService.addReminder');
+	self.add = function(decision, user) {
+		console.log('DecisionService.add');
+		decision.user_id = user.User.id;
 
-		var promise = $http.post(DOMAIN + '/decisions/ajax_add', user)
-			.success(function (response, status, headers, config) {
-			console.log(response.data);
-			switch (response.status) {
-				case 'SUCCESS':
-					if (response.data.Spouse.id) {
-						response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
-					}
-					self.updateUser(response.data);
-					break;
-				case 'MESSAGE':
-					alert(response.data);
-					break;
-				default:
-					alert('there was a server error for Messages');
-					console.log(response);
-					break;
-			}
-		})
-			.error(function (response, status, headers, config) {
-			console.log(['error', status, headers, config]);
-		});
+		var promise = $http.post(DOMAIN + '/decisions/update', decision);
+
+		return promise;
+	}
+	
+	self.remove = function(decision) {
+		console.log('DecisionService.remove');
+
+		var promise = $http.post(DOMAIN + '/decisions/delete', decision);
 
 		return promise;
 	}

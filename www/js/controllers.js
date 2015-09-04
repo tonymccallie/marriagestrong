@@ -51,7 +51,6 @@ angular.module('greyback.controllers', [])
 
 		UserService.syncUser($scope.user).then(function (data) {
 			$ionicUser.identify(ionicUser).then(function () {
-				console.log($ionicPush);
 				$ionicPush.register({
 					canShowAlert: true, //Can pushes show an alert on your screen?
 					canSetBadge: true, //Can pushes update app icon badges?
@@ -320,10 +319,10 @@ angular.module('greyback.controllers', [])
 		//from: new Date(2015, 7, 2), //Optional
 		//to: new Date(2015, 7, 29), //Optional
 		callback: function (val) { //Mandatory
-			if (typeof $scope.user.data == 'undefined') {
-				$scope.user.data = {};
+			if (typeof $scope.user.User == 'undefined') {
+				$scope.user.User = {};
 			}
-			$scope.user.data.wedding_anniversary = val;
+			$scope.user.User.anniversary = val;
 		}
 	};
 
@@ -341,10 +340,10 @@ angular.module('greyback.controllers', [])
 		//from: new Date(2015, 7, 2), //Optional
 		//to: new Date(2015, 7, 29), //Optional
 		callback: function (val) { //Mandatory
-			if (typeof $scope.user.data == 'undefined') {
-				$scope.user.data = {};
+			if (typeof $scope.user.User == 'undefined') {
+				$scope.user.User = {};
 			}
-			$scope.user.data.first_date_anniversary = val;
+			$scope.user.User.first_date = val;
 		}
 	};
 
@@ -619,7 +618,9 @@ angular.module('greyback.controllers', [])
 .controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, decision, UserService, DecisionService) {
 	console.log('DecisionController');
 	$scope.decision = decision;
-	
+
+	console.log($scope.user.data.decisions);
+
 	$scope.reminderDatePicker = {
 		//titleLabel: 'Title', //Optional
 		//todayLabel: 'Today', //Optional
@@ -650,20 +651,49 @@ angular.module('greyback.controllers', [])
 			$scope.user.data.decisions = [];
 		}
 
-		DecisionService.addReminder($scope.decision).then(function(decision) {
-			if (typeof $scope.decision.index == 'undefined') {
-				$scope.user.data.decisions.push(decision);
-			} else {
-				$scope.user.data.decisions[$scope.decision.index] = (decision);
+		DecisionService.add($scope.decision, $scope.user).success(function (response, status, headers, config) {
+			switch (response.status) {
+			case 'SUCCESS':
+				$scope.decision.id = response.id;
+				$scope.decision.user_id = $scope.user.User.id;
+				if (typeof $scope.decision.index == 'undefined') {
+					$scope.user.data.decisions.push(decision);
+				} else {
+					$scope.user.data.decisions[$scope.decision.index] = (decision);
+				}
+				UserService.updateUser($scope.user);
+				$state.go('menu.tabs.decisions');
+				break;
+			case 'MESSAGE':
+				alert(response.data);
+				break;
+			default:
+				alert('there was a server error for Messages');
+				console.log(response);
+				break;
 			}
-			UserService.updateUser($scope.user);	
-		})
-		$state.go('menu.tabs.decisions');
+		}).error(function (response, status, headers, config) {
+			console.log(['error', status, headers, config]);
+		});
 	}
 
 	$scope.remove = function (decision_index) {
-		$scope.user.data.decisions.splice(decision_index, 1);
-		UserService.updateUser($scope.user);
-		$state.go('menu.tabs.decisions_revisit');
+		DecisionService.remove($scope.user.data.decisions[decision_index]).success(function (response) {
+			switch (response.status) {
+			case 'SUCCESS':
+				$scope.user.data.decisions.splice(decision_index, 1);
+				UserService.updateUser($scope.user);
+				$state.go('menu.tabs.decisions_revisit');
+				break;
+			case 'MESSAGE':
+				alert(response.data);
+				break;
+			default:
+				alert('there was a server error for Messages');
+				console.log(response);
+				break;
+
+			}
+		});
 	}
 })
