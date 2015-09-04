@@ -641,8 +641,6 @@ angular.module('greyback.controllers', [])
 	console.log('DecisionController');
 	$scope.decision = decision;
 
-	console.log($scope.user.data.decisions);
-
 	$scope.reminderDatePicker = {
 		//titleLabel: 'Title', //Optional
 		//todayLabel: 'Today', //Optional
@@ -685,6 +683,7 @@ angular.module('greyback.controllers', [])
 				}
 				UserService.updateUser($scope.user);
 				$state.go('menu.tabs.decisions');
+				$scope.decision = {};
 				break;
 			case 'MESSAGE':
 				alert(response.data);
