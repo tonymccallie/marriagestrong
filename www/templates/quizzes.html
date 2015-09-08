@@ -10,8 +10,10 @@
 		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
         <div class="padding">
             <p>How’s your Us-ness really doing? How well are you managing your boundaries these days? Take these quizzes and find out where you stand.</p>
-            <button ui-sref="menu.tabs.quizzes_usness" class="button button-block button-calm">US-NESS QUIZ</button>
-            <button ui-sref="menu.tabs.quizzes_boundaries" class="button button-block button-calm">BOUNDARIES QUIZ</button>
+            <button ng-if="!user.data.quizzesUnessForm" ui-sref="menu.tabs.quizzes_usness" class="button button-block button-calm">US-NESS QUIZ</button>
+            <button ng-if="user.data.quizzesUnessForm" ui-sref="menu.tabs.quizzes_usness_results" class="button button-block button-calm icon-left ion-ios-checkmark-outline">US-NESS QUIZ</button>
+            <button ng-if="!user.data.quizzesBoundariesForm" ui-sref="menu.tabs.quizzes_boundaries" class="button button-block button-calm">BOUNDARIES QUIZ</button>
+            <button ng-if="user.data.quizzesBoundariesForm" ui-sref="menu.tabs.quizzes_boundaries_results" class="button button-block button-calm icon-left ion-ios-checkmark-outline">BOUNDARIES QUIZ</button>
 		</div>
 	</ion-content>
 </ion-view>

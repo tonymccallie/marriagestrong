@@ -448,7 +448,7 @@ angular.module('greyback.services', [])
 			option3: 'co-pilots'
 		},
 		{
-			name: 'FINANACES',
+			name: 'FINANCES',
 			option1: "can't find the trailhead",
 			option2: 'steady ascent',
 			option3: 'at the peak'

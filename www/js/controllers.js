@@ -305,19 +305,24 @@ angular.module('greyback.controllers', [])
 		}
 	});
 
-	$scope.anniversaryDatePicker = {
-		//titleLabel: 'Title', //Optional
-		//todayLabel: 'Today', //Optional
-		//closeLabel: 'Close', //Optional
-		//setLabel: 'Set', //Optional
-		//errorMsgLabel: 'Please select time.', //Optional
-		//setButtonType: 'button-assertive', //Optional
-		//inputDate: new Date(), //Optional
-		//mondayFirst: false, //Optional
-		//disabledDates: disabledDates, //Optional
-		//monthList: monthList, //Optional
-		//from: new Date(2015, 7, 2), //Optional
-		//to: new Date(2015, 7, 29), //Optional
+	$scope.anniversaryDatePicker = {		
+//		titleLabel: 'Title', //Optional
+//		todayLabel: 'Today', //Optional
+//		closeLabel: 'Close', //Optional
+//		setLabel: 'Set', //Optional
+//		setButtonType: 'button-assertive', //Optional
+//		todayButtonType: 'button-assertive', //Optional
+//		closeButtonType: 'button-assertive', //Optional
+//		inputDate: new Date(), //Optional
+//		mondayFirst: true, //Optional
+//		disabledDates: disabledDates, //Optional
+//		weekDaysList: weekDaysList, //Optional
+//		monthList: monthList, //Optional
+//		templateType: 'popup', //Optional
+//		modalHeaderColor: 'bar-positive', //Optional
+//		modalFooterColor: 'bar-positive', //Optional
+//		from: new Date(2012, 8, 2), //Optional
+//		to: new Date(2018, 8, 25), //Optional
 		callback: function (val) { //Mandatory
 			if (typeof $scope.user.User == 'undefined') {
 				$scope.user.User = {};
@@ -419,7 +424,6 @@ angular.module('greyback.controllers', [])
 
 	$scope.process = function (next, form) {
 		var boolPass = true;
-		console.log($scope.user.data);
 		if (form.$name == 'usnessGiftsForm' && $scope.giftCount < 1) {
 			boolPass = false;
 			alert('You much choose at least one gift.');
@@ -446,6 +450,7 @@ angular.module('greyback.controllers', [])
 		}
 
 		if (boolPass) {
+			$scope.user.data[form.$name] = true;
 			if (form.$name == 'cyclesPeaceResponseForm') {
 				$scope.user.data.peace = true;
 			}
@@ -457,6 +462,7 @@ angular.module('greyback.controllers', [])
 			});
 			UserService.syncUser($scope.user).then(function (data) {
 				$ionicLoading.hide();
+				console.log($scope.user);
 			});
 			$state.go(next);
 		}
@@ -619,17 +625,17 @@ angular.module('greyback.controllers', [])
 		3: 0
 	};
 	$scope.boundariesValue = 0;
-	
-	$scope.yourPain = function() {
-		if(!$scope.user.data.pain) {
+
+	$scope.yourPain = function () {
+		if (!$scope.user.data.pain) {
 			$state.go('menu.tabs.cycles_pain');
 		} else {
 			$state.go('menu.tabs.cycles_pain_results');
 		}
 	}
-	
-	$scope.yourPeace = function() {
-		if(!$scope.user.data.peace) {
+
+	$scope.yourPeace = function () {
+		if (!$scope.user.data.peace) {
 			$state.go('menu.tabs.cycles_peace');
 		} else {
 			$state.go('menu.tabs.cycles_results');

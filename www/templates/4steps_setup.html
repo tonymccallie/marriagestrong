@@ -1,67 +1,63 @@
 <ion-view view-title="4 Steps">
-<ion-nav-title>
-    <img src="img/logo.png" class="title-image" />
-</ion-nav-title>
+	<ion-nav-title>
+		<img src="img/logo.png" class="title-image" />
+	</ion-nav-title>
 	<ion-content>
-       <h2><img src="img/steps-icon-small.png" class="cycles-icon" />&nbsp;The Four Steps</h2>
-        <div class="padding">
-            <p>When you get in a place of pain or stress, use the following 4 Steps to build new pathways in your brain that lead to different reactions. It’s important to say the steps out loud to your spouse. Verbalizing your 4 Steps moves you from the emotional part of your brain (amygdala) to the thinking part of your brain (prefrontal cortex), where you have the ability to choose a different response.</p> 
-            <h5>HELPFUL HINT:</h5 >
-            <p>Your Pain Cycle will remind you of your typical feelings and ways of reacting when you’re in pain (Steps 1 and 2). Your Peace Cycle will remind you of your typical truths and new actions (Steps 3 and 4).</p>
-            <button ui-sref="menu.tabs.cycles" class="button button-block button-calm">Review your Pain/Peace Cycle</button>
-        </div>
-            <ul class="steps-list list">
-                <li class="item">
-                    <div>
-                        <div class="circle-number-container">
-                            <span class="circle-number">1</span>
-                        </div>
-                        <div class="circle-number-text-to-the-right">
-                            SAY WHAT YOU FEEL<br><span class="small-button-text">(Important: don’t add to this statement; adding a<br>  “because you…” will only start another argument)</span>
-                        </div>
-                    </div>
-                </li>
-                <li class="item">
-                  <span class="circle-number">2</span>SAY WHAT YOU NORMALLY DO
-                </li>
-                <li class="item">
-                  <span class="circle-number">3</span>SAY THE TRUTH
-                </li>
-                <li class="item">
-                  <span class="circle-number">4</span>SAY WHAT YOU WILL DO DIFFERENTLY
-                </li>
-            </ul>
-         <div class="grey_bg">
-            <div class="padding">
-             <p>If your pain was connected to a conflict with someone, decide on a time to share your 4 Steps with the person. Use the section below to record your 4 Steps to reference later.</p>
-                <form name="stepsForm" novalidate="" ng-submit="process('menu.tabs.4steps_results',stepsForm)">
-                <div class="list list-inset">
-                  <label class="item item-input item-stacked-label">
-                    STEP 1 — I FEEL:
-                  <input name="gift" type="text" value="step1" ng-model="user.data.steps.step1" />				
-                  </label>
-                </div>
-                 <div class="list list-inset">
-                  <label class="item item-input item-stacked-label">
-                   STEP 2 — NORMALLY I WOULD:
-                  <input name="gift" type="text" value="step2" ng-model="user.data.steps.step2" />				
-                  </label>
-                </div>
-                 <div class="list list-inset">
-                  <label class="item item-input item-stacked-label">
-                   STEP 3 — THE TRUTH IS:
-                  <input name="gift" type="text" value="step3" ng-model="user.data.steps.step3" />				
-                  </label>
-                </div>
-                <div class="list list-inset">
-                  <label class="item item-input item-stacked-label">
-                    STEP 4 — WHAT I WILL DO DIFFERENTLY IS:
-                  <input name="gift" type="text" value="step4" ng-model="user.data.steps.step4" />				
-                  </label>
-                </div>
-            <input type="submit" value="Save these 4 Steps" class="button button-block button-positive" />
-                </form>        
-            </div>
-        </div>
+		<h2>
+			<img src="img/steps-icon-small.png" class="cycles-icon" />&nbsp;The Four Steps</h2>
+		<div class="padding">
+			<p>When you get in a place of pain or stress, use the following 4 Steps to build new pathways in your brain that lead to different reactions. It’s important to say the steps out loud to your spouse. Verbalizing your 4 Steps moves you from the emotional part of your brain (amygdala) to the thinking part of your brain (prefrontal cortex), where you have the ability to choose a different response.</p>
+			<h5>HELPFUL HINT:</h5>
+			<p>Your Pain Cycle will remind you of your typical feelings and ways of reacting when you’re in pain (Steps 1 and 2). Your Peace Cycle will remind you of your typical truths and new actions (Steps 3 and 4).</p>
+			<button ui-sref="menu.tabs.cycles" class="button button-block button-calm">Review your Pain/Peace Cycle</button>
+		</div>
+		<ul class="steps-list list">
+			<li class="item">
+				<div>
+					<div class="circle-number-container">
+						<span class="circle-number">1</span>
+					</div>
+					<div class="circle-number-text-to-the-right">SAY WHAT YOU FEEL
+						<br>
+						<span class="small-button-text">(Important: don’t add to this statement; adding a
+							<br>“because you…” will only start another argument)</span>
+					</div>
+				</div>
+			</li>
+			<li class="item">
+				<span class="circle-number">2</span>SAY WHAT YOU NORMALLY DO</li>
+			<li class="item">
+				<span class="circle-number">3</span>SAY THE TRUTH</li>
+			<li class="item">
+				<span class="circle-number">4</span>SAY WHAT YOU WILL DO DIFFERENTLY</li>
+		</ul>
+		<div class="grey_bg">
+			<div class="padding">
+				<p>If your pain was connected to a conflict with someone, decide on a time to share your 4 Steps with the person. Use the section below to record your 4 Steps to reference later.</p>
+				<form name="stepsForm" novalidate="" ng-submit="process('menu.tabs.4steps_results',stepsForm)">
+					<div class="list list-inset">
+						<label class="item item-input item-stacked-label">STEP 1 — I FEEL:
+							<input name="gift" type="text" value="step1" ng-model="user.data.steps.step1" />
+						</label>
+					</div>
+					<div class="list list-inset">
+						<label class="item item-input item-stacked-label">STEP 2 — NORMALLY I WOULD:
+							<input name="gift" type="text" value="step2" ng-model="user.data.steps.step2" />
+						</label>
+					</div>
+					<div class="list list-inset">
+						<label class="item item-input item-stacked-label">STEP 3 — THE TRUTH IS:
+							<input name="gift" type="text" value="step3" ng-model="user.data.steps.step3" />
+						</label>
+					</div>
+					<div class="list list-inset">
+						<label class="item item-input item-stacked-label">STEP 4 — WHAT I WILL DO DIFFERENTLY IS:
+							<input name="gift" type="text" value="step4" ng-model="user.data.steps.step4" />
+						</label>
+					</div>
+					<input type="submit" value="Save these 4 Steps" class="button button-block button-positive" />
+				</form>
+			</div>
+		</div>
 	</ion-content>
 </ion-view>

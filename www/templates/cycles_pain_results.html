@@ -51,7 +51,8 @@
 			<form name="painResults"></form>
 			<button ng-click="process('menu.tabs.cycles_pain_results',painResults)" class="button button-block button-calm">Sync with your spouse</button>
 			<button ui-sref="menu.tabs.cycles_pain" class="button button-block button-positive">Edit Your Pain Cycle</button>
-			<button ui-sref="menu.tabs.cycles_peace" class="button button-block button-calm">Discover Your Peace Cycle</button>
+			<button ng-if="!user.data.cyclesPeaceResponseForm" ui-sref="menu.tabs.cycles_peace" class="button button-block button-calm">Discover Your Peace Cycle</button>
+       		<button ng-if="user.data.cyclesPeaceResponseForm" ui-sref="menu.tabs.cycles_results" class="button button-block button-calm">View Your Peace Cycle</button>
         </div>
 	</ion-content>
 </ion-view>
