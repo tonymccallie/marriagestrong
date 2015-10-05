@@ -10,15 +10,10 @@
 		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
         <div class="padding">
             <p>While some days in your relationship are filled with peace and joy, there are inevitability days when it’s just the opposite between the two of you. It’s been proven that how you and your spouse handle conflict together is a key factor in the health and sustainability of your relationship. Discover not only what’s happening when you fight, but also a clear pathway out of conflict. </p>
-            {{user.data.pain}}
             <button ng-if="user.data.pain" ui-sref="menu.tabs.cycles_pain_results" class="button button-block button-calm">Your Pain Cycle</button>
             <button ng-if="user.data.peace" ui-sref="menu.tabs.cycles_results" class="button button-block button-calm">Your Peace Cycle</button>
-			<p></p>
             <button ng-if="!user.data.pain" ui-sref="menu.tabs.cycles_pain" class="button button-block button-calm">Start Your Pain Cycle</button>
             <button ng-if="!user.data.peace" ui-sref="menu.tabs.cycles_peace" class="button button-block button-calm">Start Your Peace Cycle</button>
-			<p></p>
-            <button ng-click="yourPain()" class="button button-block button-calm">OLD Your Pain Cycle</button>
-            <button ng-click="yourPeace()" class="button button-block button-calm">OLD Your Peace Cycle</button>
 		</div>
 	</ion-content>
 </ion-view>
