@@ -378,7 +378,7 @@ angular.module('greyback.controllers', [])
 	var picSuccess = function (FILE_URI) {
 		UserService.picUpload(FILE_URI).then(function (user) {
 			$scope.user = user;
-			$state.transitionTo('menu.tabs.profile', {}, {
+			$state.go('menu.tabs.profile', {}, {
 				reload: true,
 				inherit: false,
 				notify: true

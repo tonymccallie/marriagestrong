@@ -148,6 +148,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 
 	.state('menu.tabs.usness_personality_results_spouse', {
 		url: "/usness-personality-results-spouse",
+		cache: false,
 		views: {
 			'tab-home': {
 				templateUrl: "templates/usness_personality_results_spouse.html",
@@ -178,6 +179,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 
 	.state('menu.tabs.usness_gifts_results_spouse', {
 		url: "/usness-gifts-results-spouse",
+		cache: false,
 		views: {
 			'tab-home': {
 				templateUrl: "templates/usness_gifts_results_spouse.html",
@@ -219,6 +221,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 
 	.state('menu.tabs.cycles_pain_results', {
 		url: "/cycles-pain-results",
+		cache: false,
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles_pain_results.html",
@@ -239,6 +242,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 
 	.state('menu.tabs.cycles_peace_response', {
 		url: "/cycles-peace-response",
+		cache: false,
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles_peace_response.html",
@@ -249,6 +253,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 
 	.state('menu.tabs.cycles_results', {
 		url: "/cycles-results",
+		cache: false,
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles_results.html",
