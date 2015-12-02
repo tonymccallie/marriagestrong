@@ -12,7 +12,7 @@ angular.module('greyback.controllers', [])
 		$scope.logs.push(moment().format('h:mm:ss') + ': ' + obj);
 	}
 	
-	$scope.urlForImage = function(imageUrl) {
+	$scope.urlForImage = function(imageName) {
 		var trueOrigin = cordova.file.dataDirectory + imageName;
 		console.log(trueOrigin);
 		return trueOrigin;
