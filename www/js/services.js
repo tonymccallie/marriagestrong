@@ -1,6 +1,6 @@
 angular.module('greyback.services', [])
 
-.service('UserService', function ($q, $http, $location, $localStorage, $state) {
+.service('UserService', function ($q, $http, $location, $localStorage, $state, $cordovaFile) {
 	var self = this;
 	self.user = null;
 
@@ -144,7 +144,9 @@ angular.module('greyback.services', [])
 			case 'SUCCESS':
 				console.log(['SUCCESS', response]);
 				self.updateUser(response.data).then(function () {
-					$state.go('menu.tabs.profile', {}, {reload:true});
+					$state.go('menu.tabs.profile', {}, {
+						reload: true
+					});
 				});
 				break;
 			case 'MESSAGE':
@@ -162,12 +164,35 @@ angular.module('greyback.services', [])
 		return promise;
 	}
 
-	self.picSave = function(FILE_URI) {
+	self.makeid = function() {
+		var text = '';
+		var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+		for (var i = 0; i < 5; i++) {
+			text += possible.charAt(Math.floor(Math.random() * possible.length));
+		}
+		return text;
+	};
+
+	self.picSave = function (FILE_URI) {
 		console.log('UserService.picSave');
 		var deferred = $q.defer();
 		var myImg = FILE_URI;
+
+		var name = FILE_URI.substr(FILE_URI.lastIndexOf('/') + 1);
+		var namePath = FILE_URI.substr(0, FILE_URI.lastIndexOf('/') + 1);
+		var newName = self.makeid() + name;
+		$cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName).then(function (info) {
+			self.user.picture = newName;
+			self.updateUser().then(function(user) {
+				deferred.resolve(user);
+			});
+		}, function (e) {
+			deferred.reject();
+		});
+		return deferred.promise;
 	}
-	
+
 	self.picUpload = function (FILE_URI) {
 		console.log('UserService.picUpload');
 		var deferred = $q.defer();
@@ -223,19 +248,19 @@ angular.module('greyback.services', [])
 		var promise = $http.post(DOMAIN + '/ajax/users/update', user)
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
-				case 'SUCCESS':
-					if (response.data.Spouse.id) {
-						response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
-					}
-					self.updateUser(response.data);
-					break;
-				case 'MESSAGE':
-					alert(response.data);
-					break;
-				default:
-					alert('there was a server error for Sync');
-					console.log(response);
-					break;
+			case 'SUCCESS':
+				if (response.data.Spouse.id) {
+					response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
+				}
+				self.updateUser(response.data);
+				break;
+			case 'MESSAGE':
+				alert(response.data);
+				break;
+			default:
+				alert('there was a server error for Sync');
+				console.log(response);
+				break;
 			}
 		})
 			.error(function (response, status, headers, config) {
@@ -253,10 +278,10 @@ angular.module('greyback.services', [])
 	}
 })
 
-.service('DecisionService', function($q, $http, $location, $localStorage, $state) {
+.service('DecisionService', function ($q, $http, $location, $localStorage, $state) {
 	var self = this;
-	
-	self.add = function(decision, user) {
+
+	self.add = function (decision, user) {
 		console.log('DecisionService.add');
 		decision.user_id = user.User.id;
 
@@ -264,8 +289,8 @@ angular.module('greyback.services', [])
 
 		return promise;
 	}
-	
-	self.remove = function(decision) {
+
+	self.remove = function (decision) {
 		console.log('DecisionService.remove');
 
 		var promise = $http.post(DOMAIN + '/ajax/decisions/delete', decision);
@@ -420,23 +445,23 @@ angular.module('greyback.services', [])
 
 	self.truthList = [
 		'LOVED', 'ACCEPTED', 'EMPOWERED', 'ENCOURAGED',
-		'PRICELESS', 'PROMISING', 'VALUABLE', 'CONNECTED', 
+		'PRICELESS', 'PROMISING', 'VALUABLE', 'CONNECTED',
 		'TREASURED', 'SIGNIFICANT', 'KNOWN', 'CAN CONTROL SELF',
 		'APPRECIATED', 'BELONGING', 'FULL OF WORTH', 'WANTED',
 		'ADEQUATE', 'VALUED', 'CELEBRATED', 'SAFE'
 	];
 
 	self.actionList = [
-		'ACCEPTING', 'NON-DEFENSIVE', 'ENERGETIC', 'NURTURING', 
+		'ACCEPTING', 'NON-DEFENSIVE', 'ENERGETIC', 'NURTURING',
 		'VULNERABLE', 'HOPEFUL', 'SUPPORTIVE', 'COMMUNICATE CARE',
-		'RESPECTFUL', 'ENCOURAGING', 'ENGAGING', 'OPEN', 
+		'RESPECTFUL', 'ENCOURAGING', 'ENGAGING', 'OPEN',
 		'GIVING', 'PEACEFUL', 'INTIMATE', 'WELCOMING',
 		'RELAXED', 'ABLE TO PERSIST', 'KIND', 'SETTLED',
-		'RESPONSIBLE', 'GENTLE', 'SEEKING GOOD', 'TRUSTWORTHY', 
+		'RESPONSIBLE', 'GENTLE', 'SEEKING GOOD', 'TRUSTWORTHY',
 		'LISTENING', 'SELF VALUING', 'RELIABLY CONNECTED', 'LOVING',
-		'MERCIFUL', 'HONEST', 'EMPATHETIC', 'SOBER', 
-		'RELIABLE', 'HUMBLE', 'SELF-CONTROLLED', 
-		'INCLUSIVE', 'POSITIVE',  
+		'MERCIFUL', 'HONEST', 'EMPATHETIC', 'SOBER',
+		'RELIABLE', 'HUMBLE', 'SELF-CONTROLLED',
+		'INCLUSIVE', 'POSITIVE',
 	];
 
 	self.usnessQuiz = [
