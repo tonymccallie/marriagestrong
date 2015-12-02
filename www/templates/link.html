@@ -5,10 +5,10 @@
 	<ion-content>
 		<h2>
 			<i class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></i>&nbsp;Link To Your Spouse's Account</h2>
-		<a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
+		<a ng-if="!user.picture" ui-sref="menu.tabs.photo">
 			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
 		</a>
-		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
+		<img ng-if="user.picture" ng-src="{{urlForImage(user.picture)}}" width="100%">
 		<div class="padding">
 			<p>For both you and your spouse to get the most of this app, you will need to link your accounts so that you can sync each other's information. Both of you do not need to do this, just one of you will activate the link.</p>
 			<h5>Your Code</h5>

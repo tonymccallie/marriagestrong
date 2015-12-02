@@ -4,10 +4,10 @@
 </ion-nav-title>
 	<ion-content>
        <h2><img src="img/steps-icon-small.png" class="cycles-icon" />&nbsp;The Four Steps</h2>
-        <a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
+        <a ng-if="!user.picture" ui-sref="menu.tabs.photo">
 			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
 		</a>
-		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
+		<img ng-if="user.picture" ng-src="{{urlForImage(user.picture)}}" width="100%">
         <div class="padding">
             <p>To break out of destructive conflict, you have to connect to your truth and then consciously make a choice to respond with a new action. The best way to do this is to follow a four-step method that helps train the brain for a new response. Current research tells us that we can change unhealthy patterns in our brains!</p>
             <button ui-sref="menu.tabs.4steps_setup" class="button button-block button-positive">Setup Your 4 Steps</button>

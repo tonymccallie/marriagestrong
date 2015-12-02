@@ -4,10 +4,10 @@
 </ion-nav-title>
 	<ion-content>
        <h2><img src="img/decision-icon-small.png" class="cycles-icon" />&nbsp;OUR DECISIONS</h2>
-        <a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
+        <a ng-if="!user.picture" ui-sref="menu.tabs.photo">
 			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
 		</a>
-		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
+		<img ng-if="user.picture" ng-src="{{urlForImage(user.picture)}}" width="100%">
         <div class="padding">
             <p>Remaining in your peace cycle makes it much easier to land on decisions together as a couple. Use the following decision-making steps to reach your Us solutions. Visit your pain/peace cycles before you begin, if needed.</p>
             <button ui-sref="menu.tabs.decisions_create" class="button button-block button-calm">NEW DECISION</button>

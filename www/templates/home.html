@@ -3,15 +3,18 @@
 		<img src="img/logo.png" class="title-image" />
 	</ion-nav-title>
 	<ion-content>
-		<h2><img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Welcome to MarriageStrong</h2>
-		<a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
+		<h2>
+			<img src="img/usness-icon-small.png" class="cycles-icon" />&nbsp;Welcome to MarriageStrong</h2>
+		<a ng-if="!user.picture" ui-sref="menu.tabs.photo">
 			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
 		</a>
-		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
-            <div class="padding">
+		<img ng-if="user.picture" ng-src="{{urlForImage(user.picture)}}" width="100%">
+		<div class="padding">
 			<h1>Welcome</h1>
 			<p>It's time your marriage had it's own app. Find out what makes your marriage tick and ways to make it even stronger.</p>
-			<p>You can start by discovering what's unique about your marriage in <a ui-sref="menu.tabs.usness">US-NESS</a>.  Then blow the whistle on how you conflict and learn proven ways to do it better in <a ui-sref="menu.tabs.cycles">CYCLES</a>.</p>
+			<p>You can start by discovering what's unique about your marriage in
+				<a ui-sref="menu.tabs.usness">US-NESS</a>. Then blow the whistle on how you conflict and learn proven ways to do it better in
+				<a ui-sref="menu.tabs.cycles">CYCLES</a>.</p>
 			<p>The benefit and blessing of a strong marriage is waiting. Go get it!</p>
 			<a ng-if="!user.data.profileForm" ui-sref="menu.tabs.profile" class="button button-block button-positive">Set Up Your Profile</a>
 			<a ng-if="user.data.profileForm" ui-sref="menu.tabs.profile" class="button button-block button-positive">Edit Your Profile</a>
