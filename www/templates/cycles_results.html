@@ -13,22 +13,34 @@
 				</div>
 				<div class="top-middle">
 					<h5>Your Truths</h5>
-					<span ng-repeat="(truth, val) in user.data.usness.truths" ng-if="val">{{truth}}<br /></span>
-					<span ng-repeat="(truth, val) in user.data.usness.truths_other" ng-if="val">{{val}}<br /></span>
+					<span ng-repeat="(truth, val) in user.data.usness.truths" ng-if="val">{{truth}}
+						<br />
+					</span>
+					<span ng-repeat="(truth, val) in user.data.usness.truths_other" ng-if="val">{{val}}
+						<br />
+					</span>
 				</div>
 				<div class="top-right">
 					<img src="img/top-right-arrow.svg" class="top-right-arrow" width="100%" />
 				</div>
 				<div class="middle-left">
 					<h5>Spouse Actions</h5>
-					<span ng-repeat="(truth, val) in user.spouse_data.usness.actions" ng-if="val">{{truth}}<br /></span>
-					<span ng-repeat="(truth, val) in user.spouse_data.usness.actions_other" ng-if="val">{{val}}<br /></span>
+					<span ng-repeat="(truth, val) in user.spouse_data.usness.actions" ng-if="val">{{truth}}
+						<br />
+					</span>
+					<span ng-repeat="(truth, val) in user.spouse_data.usness.actions_other" ng-if="val">{{val}}
+						<br />
+					</span>
 				</div>
 				<div class="middle-middle"></div>
 				<div class="middle-right">
 					<h5>Your Actions</h5>
-					<span ng-repeat="(action, val) in user.data.usness.actions" ng-if="val">{{action}}<br /></span>
-					<span ng-repeat="(action, val) in user.data.usness.actions_other" ng-if="val">{{val}}<br /></span>
+					<span ng-repeat="(action, val) in user.data.usness.actions" ng-if="val">{{action}}
+						<br />
+					</span>
+					<span ng-repeat="(action, val) in user.data.usness.actions_other" ng-if="val">{{val}}
+						<br />
+					</span>
 				</div>
 				<div class="bottom-left">
 					<img src="img/bottom-left-arrow.svg" class="bottom-left-arrow" width="100%" />
@@ -36,8 +48,12 @@
 				<div class="bottom-middle">
 					<br>
 					<h5>Spouse Truths</h5>
-					<span ng-repeat="(truth, val) in user.spouse_data.usness.truths" ng-if="val">{{truth}}<br /></span>
-					<span ng-repeat="(truth, val) in user.spouse_data.usness.truths_other" ng-if="val">{{val}}<br /></span>
+					<span ng-repeat="(truth, val) in user.spouse_data.usness.truths" ng-if="val">{{truth}}
+						<br />
+					</span>
+					<span ng-repeat="(truth, val) in user.spouse_data.usness.truths_other" ng-if="val">{{val}}
+						<br />
+					</span>
 				</div>
 				<div class="bottom-right">
 					<img src="img/bottom-right-arrow.svg" class="bottom-right-arrow" width="100%" />
@@ -48,10 +64,13 @@
 			</div>
 			<div class="padding">
 				<form name="peaceResults"></form>
-				<button ng-click="process('menu.tabs.cycles_results',peaceResults)" class="button button-block button-calm">Sync with your spouse</button>
+				<button ng-if="!user.Spouse.id" ui-sref="menu.tabs.link" class="button button-block button-calm">Link to Spouse</button>
+				<div ng-if="user.Spouse.id">
+					<button ng-click="process('menu.tabs.cycles_results',peaceResults)" class="button button-block button-calm">Check for Spouse Update</button>
+				</div>
 				<button ui-sref="menu.tabs.cycles_peace" class="button button-block button-positive">Edit Your Peace Cycle</button>
 				<button ng-if="!user.data.cyclesPainCopesForm" ui-sref="menu.tabs.cycles_pain" class="button button-block button-calm">Discover Your Pain Cycle</button>
-       			<button ng-if="user.data.cyclesPainCopesForm" ui-sref="menu.tabs.cycles_pain_results" class="button button-block button-calm">View Your Pain Cycle</button>
+				<button ng-if="user.data.cyclesPainCopesForm" ui-sref="menu.tabs.cycles_pain_results" class="button button-block button-calm">View Your Pain Cycle</button>
 			</div>
 		</div>
 	</ion-content>
