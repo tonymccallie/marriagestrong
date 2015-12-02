@@ -162,6 +162,12 @@ angular.module('greyback.services', [])
 		return promise;
 	}
 
+	self.picSave = function(FILE_URI) {
+		console.log('UserService.picSave');
+		var deferred = $q.defer();
+		var myImg = FILE_URI;
+	}
+	
 	self.picUpload = function (FILE_URI) {
 		console.log('UserService.picUpload');
 		var deferred = $q.defer();

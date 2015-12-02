@@ -397,26 +397,28 @@ angular.module('greyback.controllers', [])
 	}
 
 	var picSuccess = function (FILE_URI) {
-		UserService.picUpload(FILE_URI).then(function (user) {
-			$scope.user = user;
-			$state.go('menu.tabs.profile', {}, {
-				reload: true,
-				inherit: false,
-				notify: true
-			});
-		});
+		
+		
+//		UserService.picUpload(FILE_URI).then(function (user) {
+//			$scope.user = user;
+//			$state.go('menu.tabs.profile', {}, {
+//				reload: true,
+//				inherit: false,
+//				notify: true
+//			});
+//		});
 
-		//		$jrCrop.crop({
-		//			url: FILE_URI,
-		//			width: 800,
-		//			height: 450
-		//		}).then(function(canvas) {
-		//			console.log(canvas);
-		//			$scope.picData = canvas.toDataURL();
-		//			console.log($scope.picData);
-		//		}, function(data) {
-		//			console.log(['error',data]);
-		//		})
+		$jrCrop.crop({
+			url: FILE_URI,
+			width: 800,
+			height: 450
+		}).then(function(canvas) {
+			console.log(canvas);
+			$scope.picData = canvas.toDataURL();
+			console.log($scope.picData);
+		}, function(data) {
+			console.log(['error',data]);
+		})
 	}
 
 	var picFail = function () {
