@@ -191,6 +191,7 @@ angular.module('greyback', ['ionic', 'ngIOS9UIWebViewPatch', 'ngCordova', 'ImgCa
 
 	.state('menu.tabs.cycles', {
 		url: "/cycles",
+		cache: false,
 		views: {
 			'tab-cycles': {
 				templateUrl: "templates/cycles.html",
@@ -264,6 +265,7 @@ angular.module('greyback', ['ionic', 'ngIOS9UIWebViewPatch', 'ngCordova', 'ImgCa
 
 	.state('menu.tabs.4steps', {
 		url: "/4steps",
+		cache: false,
 		views: {
 			'tab-4steps': {
 				templateUrl: "templates/4steps.html",
@@ -294,6 +296,7 @@ angular.module('greyback', ['ionic', 'ngIOS9UIWebViewPatch', 'ngCordova', 'ImgCa
 
 	.state('menu.tabs.quizzes', {
 		url: "/quizzes",
+		cache: false,
 		views: {
 			'tab-quizzes': {
 				templateUrl: "templates/quizzes.html",
@@ -345,6 +348,7 @@ angular.module('greyback', ['ionic', 'ngIOS9UIWebViewPatch', 'ngCordova', 'ImgCa
 
 	.state('menu.tabs.decisions', {
 		url: "/decisions",
+		cache: false,
 		views: {
 			'tab-decisions': {
 				templateUrl: "templates/decisions.html",
