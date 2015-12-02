@@ -221,7 +221,6 @@ angular.module('greyback.services', [])
 					if (response.data.Spouse.id) {
 						response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
 					}
-					console.log(['response',response.data]);
 					self.updateUser(response.data);
 					break;
 				case 'MESSAGE':
