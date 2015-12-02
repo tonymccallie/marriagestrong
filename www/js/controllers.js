@@ -383,6 +383,7 @@ angular.module('greyback.controllers', [])
 	}
 
 	$scope.getPic = function (type) {
+		console.log(['getPic',type]);
 		var options = {
 			quality: 50,
 			destinationType: Camera.DestinationType.FILE_URI,
@@ -397,7 +398,7 @@ angular.module('greyback.controllers', [])
 	}
 
 	var picSuccess = function (FILE_URI) {
-		
+		console.log(['picSuccess',FILE_URI]);
 		
 //		UserService.picUpload(FILE_URI).then(function (user) {
 //			$scope.user = user;

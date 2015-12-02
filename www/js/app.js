@@ -31,7 +31,7 @@ angular.module('greyback', ['ionic', 'ngCordova', 'ImgCache', 'ionic.service.cor
 	});
 	$ionicPlatform.ready(function () {
 		console.log('platform.ready');
-		$ionicAnalytics.register();
+		//$ionicAnalytics.register();
 		// Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
 		// for form inputs)
 		if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
