@@ -14,6 +14,7 @@ angular.module('greyback.controllers', [])
 	
 	$scope.urlForImage = function(imageUrl) {
 		var trueOrigin = cordova.file.dataDirectory + imageName;
+		console.log(trueOrigin);
 		return trueOrigin;
 	}
 
