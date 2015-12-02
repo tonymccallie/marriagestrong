@@ -60,7 +60,7 @@ angular.module('greyback.services', [])
 				$state.go('login');
 				break;
 			default:
-				alert('there was a server error for Messages');
+				alert('there was a server error for Login');
 				console.log(response);
 				break;
 			}
@@ -85,7 +85,7 @@ angular.module('greyback.services', [])
 					$state.go('menu.tabs.home');
 				});
 			} else {
-				alert('there was a server error for Messages');
+				alert('there was a server error for Facebook');
 				console.log(response);
 			}
 		})
@@ -125,7 +125,7 @@ angular.module('greyback.services', [])
 				$state.go('login');
 				break;
 			default:
-				alert('there was a server error for Messages');
+				alert('there was a server error for creating the user');
 				console.log(response);
 				break;
 			}
@@ -151,7 +151,7 @@ angular.module('greyback.services', [])
 				alert(response.data);
 				break;
 			default:
-				alert('there was a server error for Messages');
+				alert('there was a server error for Linking');
 				console.log(response);
 				break;
 			}
@@ -221,13 +221,14 @@ angular.module('greyback.services', [])
 					if (response.data.Spouse.id) {
 						response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
 					}
+					console.log(['response',response.data]);
 					self.updateUser(response.data);
 					break;
 				case 'MESSAGE':
 					alert(response.data);
 					break;
 				default:
-					alert('there was a server error for Messages');
+					alert('there was a server error for Sync');
 					console.log(response);
 					break;
 			}

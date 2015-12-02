@@ -352,6 +352,27 @@ angular.module('greyback.controllers', [])
 		}
 	};
 
+	$scope.test_link = function() {
+		console.log('test_link');
+		UserService.syncUser($scope.user).then(function(user) {
+			UserService.checkUser().then(function(user) {
+				console.log(user);
+				$scope.user = user;
+				if($scope.user.Spouse.id) {
+					alert('You have successfully linked accounts.');
+					$ionicHistory.clearCache()
+					$state.transitionTo('menu.tabs.profile', {}, {
+						reload: true,
+						inherit: false,
+						notify: true
+					});
+				} else {
+					alert('The accounts are not linked yet.');
+				}
+			})
+		});
+	}
+	
 	$scope.share = function (code) {
 		console.log(code);
 		window.plugins.socialsharing.shareViaSMS('My MarriageStrong code: ' + code, null, function (msg) {
@@ -410,13 +431,16 @@ angular.module('greyback.controllers', [])
 			UserService.linkUser($scope.linkUser).then(function (response) {
 				console.log(['UserController.link', response]);
 				if (response.data.status == 'SUCCESS') {
-					$scope.user = UserService.checkUser();
-					$ionicHistory.clearCache()
-					$state.transitionTo('menu.tabs.profile', {}, {
-						reload: true,
-						inherit: false,
-						notify: true
+					UserService.checkUser().then(function(user) {
+						$scope.user = user;
+						$ionicHistory.clearCache()
+						$state.transitionTo('menu.tabs.profile', {}, {
+							reload: true,
+							inherit: false,
+							notify: true
+						});
 					});
+					
 				}
 			});
 		}
