@@ -182,7 +182,9 @@ angular.module('greyback.services', [])
 		var name = FILE_URI.substr(FILE_URI.lastIndexOf('/') + 1);
 		var namePath = FILE_URI.substr(0, FILE_URI.lastIndexOf('/') + 1);
 		var newName = self.makeid() + name;
+		console.log([name, namePath, newName]);
 		$cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName).then(function (info) {
+			console.log('copyFile');
 			self.user.picture = newName;
 			self.updateUser().then(function(user) {
 				deferred.resolve(user);
