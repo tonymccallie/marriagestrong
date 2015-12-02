@@ -388,7 +388,7 @@ angular.module('greyback.controllers', [])
 			quality: 50,
 			destinationType: Camera.DestinationType.FILE_URI,
 			correctOrientation: true,
-			allowEdit: true,
+			allowEdit: false,
 			targetWidth: 600,
 			targetHeight: 600,
 			sourceType: type, // 0:Photo Library, 1=Camera, 2=Saved Photo Album
@@ -399,6 +399,7 @@ angular.module('greyback.controllers', [])
 
 	var picSuccess = function (FILE_URI) {
 		console.log(['picSuccess',FILE_URI]);
+		alert('picSuccess');
 		
 //		UserService.picUpload(FILE_URI).then(function (user) {
 //			$scope.user = user;
@@ -414,10 +415,12 @@ angular.module('greyback.controllers', [])
 			width: 800,
 			height: 450
 		}).then(function(canvas) {
+			alert('then');
 			console.log(canvas);
 			$scope.picData = canvas.toDataURL();
 			console.log($scope.picData);
 		}, function(data) {
+			alert('error');
 			console.log(['error',data]);
 		})
 	}
