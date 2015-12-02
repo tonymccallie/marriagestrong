@@ -1,6 +1,6 @@
 angular.module('greyback.controllers', [])
 
-.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $ionicUser, $ionicPush, $state, $ionicSideMenuDelegate, UserService, user) {
+.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $ionicUser, $ionicPush, $state, $ionicSideMenuDelegate, $cordovaFile, UserService, user) {
 	console.log('AppController');
 	//app wide variables
 	$scope.DOMAIN = DOMAIN;
@@ -10,6 +10,11 @@ angular.module('greyback.controllers', [])
 
 	$scope.log = function (obj) {
 		$scope.logs.push(moment().format('h:mm:ss') + ': ' + obj);
+	}
+	
+	$scope.urlForImage = function(imageUrl) {
+		var trueOrigin = cordova.file.dataDirectory + imageName;
+		return trueOrigin;
 	}
 
 	$ionicPlatform.ready(function () {

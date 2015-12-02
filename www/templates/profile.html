@@ -5,10 +5,10 @@
 	<ion-content>
 		<h2>
 			<i class="ion-gear-b" data-pack="default" data-tags="settings, options, cog"></i>&nbsp;Your Couple’s Profile</h2>
-		<a ng-if="!user.User.picture" ui-sref="menu.tabs.photo">
+		<a ng-if="!user.picture" ui-sref="menu.tabs.photo">
 			<img src="img/upload-photo.jpg" alt="Usness" width="100%">
 		</a>
-		<img ng-if="user.User.picture" ng-src="{{DOMAIN + '/uploads/image_'+user.User.id+'.jpg'}}" width="100%">
+		<img ng-if="user.picture" ng-src="{{urlForImage(user.picture)}}" width="100%">
 		<div class="padding">
 			<a ui-sref="menu.tabs.photo" class="button button-block button-calm">Change Photo</a>
 			<form name="profileForm" novalidate="" ng-submit="process('menu.tabs.home',profileForm)">
