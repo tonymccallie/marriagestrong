@@ -105,7 +105,9 @@ angular.module('greyback.services', [])
 			});
 		} else {
 			console.log('UserService.checkUser: had user');
-			deferred.resolve(self.user);
+			self.getPic().then(function() {
+				deferred.resolve(self.user);
+			});
 		}
 		return deferred.promise;
 	}
@@ -177,6 +179,16 @@ angular.module('greyback.services', [])
 		}
 		return text;
 	};
+	
+	self.getPic = function() {
+		var deferred = $q.defer();
+		var localPic = $localStorage.getObject('localPic');
+		self.user.picture = localPic;
+		self.updateUser(self.user).then(function(user) {
+			deferred.resolve();
+		});
+		return deferred.promise;
+	}
 
 	self.picSave = function (FILE_URI) {
 		console.log('UserService.picSave');
@@ -189,6 +201,7 @@ angular.module('greyback.services', [])
 		console.log([name, namePath, newName]);
 		$cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName).then(function (info) {
 			console.log('copyFile');
+			$localStorage.setObject('localPic',newName);
 			self.user.picture = newName;
 			self.updateUser(self.user).then(function(user) {
 				deferred.resolve(user);
