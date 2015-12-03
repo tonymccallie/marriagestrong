@@ -143,6 +143,10 @@ angular.module('greyback.services', [])
 			switch (response.status) {
 			case 'SUCCESS':
 				console.log(['SUCCESS', response]);
+				response.data.data = $localStorage.toObj(response.data.User.json);
+				if (response.data.Spouse.id) {
+					response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
+				}
 				self.updateUser(response.data).then(function () {
 					$state.go('menu.tabs.profile', {}, {
 						reload: true
