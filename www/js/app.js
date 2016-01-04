@@ -415,6 +415,7 @@ angular.module('greyback', ['ionic', 'ngIOS9UIWebViewPatch', 'ngCordova', 'ImgCa
 
 	.state('menu.tabs.decisions_revisit', {
 		url: "/decisions-revisit",
+		cache: false,
 		views: {
 			'tab-decisions': {
 				templateUrl: "templates/decisions_revisit.html",
