@@ -89,6 +89,7 @@ angular.module('greyback', ['ionic', 'ngIOS9UIWebViewPatch', 'ngCordova', 'ImgCa
 
 	.state('menu.tabs.home', {
 		url: "/home",
+		cache: false,
 		views: {
 			'tab-static': {
 				templateUrl: "templates/home.html",
