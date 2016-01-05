@@ -7,13 +7,19 @@ angular.module('greyback.controllers', [])
 	$scope.imageDir = DOMAIN + '/img/thumb/';
 	$scope.logs = [];
 	$scope.user = user;
+	$scope.loginUser = {};
+	$scope.signupUser = {};
 
 	$scope.log = function (obj) {
 		$scope.logs.push(moment().format('h:mm:ss') + ': ' + obj);
 	}
 	
 	$scope.urlForImage = function(imageName) {
-		var trueOrigin = cordova.file.dataDirectory + imageName;
+		if(typeof cordova !== 'undefined') {
+			var trueOrigin = cordova.file.dataDirectory + imageName;
+		} else {
+			var trueOrigin = 'img/upload-photo.jpg';
+		}
 		return trueOrigin;
 	}
 
@@ -89,7 +95,7 @@ angular.module('greyback.controllers', [])
 		console.log(['LoginController.login', $scope.loginUser]);
 		if (form.$valid) {
 			UserService.loginUser($scope.loginUser).then(function (data) {
-
+				$scope.loginUser = {};
 			});
 		}
 	}
@@ -131,13 +137,12 @@ angular.module('greyback.controllers', [])
 
 .controller('SignupController', function ($scope, UserService) {
 	console.log('SignupController');
-	$scope.signupUser = {};
 
 	$scope.signup = function (form) {
 		console.log(['SignupController.signup', $scope.signupUser]);
 		if (form.$valid) {
 			UserService.createUser($scope.signupUser).then(function (data) {
-
+				$scope.signupUser = {};
 			});
 		}
 	}
@@ -148,7 +153,7 @@ angular.module('greyback.controllers', [])
 })
 
 .controller('HomeController', function ($scope, $q, $ionicModal, $timeout, $ionicSlideBoxDelegate, ImgCache, PtrService, ngFB, user) {
-	console.log('HomeController');
+	console.log(['HomeController',user]);
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
 	// To listen for when this page is active (for example, to refresh data),

@@ -183,6 +183,9 @@ angular.module('greyback.services', [])
 	self.getPic = function() {
 		var deferred = $q.defer();
 		var localPic = $localStorage.getObject('localPic');
+		if(typeof localPic == 'object') {
+			localPic = false;
+		}
 		self.user.picture = localPic;
 		self.updateUser(self.user).then(function(user) {
 			deferred.resolve();
@@ -294,6 +297,7 @@ angular.module('greyback.services', [])
 		console.log('UserService.logout');
 		self.user = null;
 		$localStorage.remove('User');
+		$localStorage.remove('localPic');
 		$state.go('login');
 	}
 })
@@ -304,7 +308,7 @@ angular.module('greyback.services', [])
 	self.add = function (decision, user) {
 		console.log('DecisionService.add');
 		decision.user_id = user.User.id;
-		console.log(decision);
+		console.log(decision, user);
 		var promise = $http.post(DOMAIN + '/ajax/decisions/update', decision);
 
 		return promise;
