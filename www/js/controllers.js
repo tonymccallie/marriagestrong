@@ -712,6 +712,7 @@ angular.module('greyback.controllers', [])
 		}
 
 		DecisionService.add($scope.decision, $scope.user).success(function (response, status, headers, config) {
+			console.log(['DecisionService.add success',response]);
 			switch (response.status) {
 			case 'SUCCESS':
 				$scope.decision.id = response.id;

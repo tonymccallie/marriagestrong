@@ -246,6 +246,7 @@ angular.module('greyback.services', [])
 			} else {
 				var decision = self.user.data.decisions[decision_index];
 				decision.index = decision_index;
+				console.log(decision);
 				deferred.resolve(decision);
 			}
 		}, 0);
@@ -303,7 +304,7 @@ angular.module('greyback.services', [])
 	self.add = function (decision, user) {
 		console.log('DecisionService.add');
 		decision.user_id = user.User.id;
-
+		console.log(decision);
 		var promise = $http.post(DOMAIN + '/ajax/decisions/update', decision);
 
 		return promise;
@@ -311,7 +312,6 @@ angular.module('greyback.services', [])
 
 	self.remove = function (decision) {
 		console.log('DecisionService.remove');
-
 		var promise = $http.post(DOMAIN + '/ajax/decisions/delete', decision);
 
 		return promise;
