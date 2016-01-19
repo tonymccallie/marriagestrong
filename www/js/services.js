@@ -144,7 +144,6 @@ angular.module('greyback.services', [])
 			.success(function (response, status, headers, config) {
 			switch (response.status) {
 			case 'SUCCESS':
-				console.log(['SUCCESS', response]);
 				response.data.data = $localStorage.toObj(response.data.User.json);
 				if (response.data.Spouse.id) {
 					response.data.spouse_data = $localStorage.toObj(response.data.Spouse.json);
@@ -201,9 +200,7 @@ angular.module('greyback.services', [])
 		var name = FILE_URI.substr(FILE_URI.lastIndexOf('/') + 1);
 		var namePath = FILE_URI.substr(0, FILE_URI.lastIndexOf('/') + 1);
 		var newName = self.makeid() + name;
-		console.log([name, namePath, newName]);
 		$cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName).then(function (info) {
-			console.log('copyFile');
 			$localStorage.setObject('localPic',newName);
 			self.user.picture = newName;
 			self.updateUser(self.user).then(function(user) {
@@ -249,7 +246,6 @@ angular.module('greyback.services', [])
 			} else {
 				var decision = self.user.data.decisions[decision_index];
 				decision.index = decision_index;
-				console.log(decision);
 				deferred.resolve(decision);
 			}
 		}, 0);
@@ -308,7 +304,6 @@ angular.module('greyback.services', [])
 	self.add = function (decision, user) {
 		console.log('DecisionService.add');
 		decision.user_id = user.User.id;
-		console.log(decision, user);
 		var promise = $http.post(DOMAIN + '/ajax/decisions/update', decision);
 
 		return promise;

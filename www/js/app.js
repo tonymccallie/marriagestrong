@@ -355,16 +355,12 @@ angular.module('greyback', ['ionic', 'ngIOS9UIWebViewPatch', 'ngCordova', 'ImgCa
 				templateUrl: "templates/decisions.html",
 				controller: "UserController"
 			}
-		},
-		resolve: {
-			test: function () {
-				console.log('menu.tabs.decisions');
-			}
 		}
 	})
 
 	.state('menu.tabs.decisions_create', {
 		url: "/decisions-create",
+		cache: false,
 		views: {
 			'tab-decisions': {
 				templateUrl: "templates/decisions_create.html",
@@ -398,6 +394,7 @@ angular.module('greyback', ['ionic', 'ngIOS9UIWebViewPatch', 'ngCordova', 'ImgCa
 
 	.state('menu.tabs.decisions_edit', {
 		url: "/decisions-edit/:decision",
+		cache: false,
 		views: {
 			'tab-decisions': {
 				templateUrl: "templates/decisions_create.html",

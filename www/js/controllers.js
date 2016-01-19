@@ -231,6 +231,8 @@ angular.module('greyback.controllers', [])
 	console.log('UserController');
 	$scope.link_code = "";
 	$scope.user = user;
+	//$scope.user.data.decisions = [];
+	//console.warn(['UserController',$scope.user.data.decisions]);
 	//$scope.user.data = {};
 
 	var countBool = function (obj) {
@@ -708,6 +710,7 @@ angular.module('greyback.controllers', [])
 	};
 
 	$scope.save = function (form) {
+		console.log('DecisionController.save');
 		if (typeof $scope.user.data == 'undefined') {
 			$scope.user.data = {};
 		}
@@ -717,7 +720,6 @@ angular.module('greyback.controllers', [])
 		}
 
 		DecisionService.add($scope.decision, $scope.user).success(function (response, status, headers, config) {
-			console.log(['DecisionService.add success',response]);
 			switch (response.status) {
 			case 'SUCCESS':
 				$scope.decision.id = response.id;
