@@ -137,9 +137,10 @@ angular.module('greyback.controllers', [])
 
 .controller('SignupController', function ($scope, UserService) {
 	console.log('SignupController');
+	$scope.signupUser = {};
 
 	$scope.signup = function (form) {
-		console.log(['SignupController.signup', $scope.signupUser]);
+		console.log('SignupController.signup');
 		if (form.$valid) {
 			UserService.createUser($scope.signupUser).then(function (data) {
 				$scope.signupUser = {};

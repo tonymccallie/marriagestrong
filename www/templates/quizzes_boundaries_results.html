@@ -10,14 +10,14 @@
 			<p>As you view your scores, remember the results might put you into a place of pain. If so, use the 4 Steps to move from your pain cycle to your peace cycle.</p>
 		</div>
 		<ul class="quizzes-results-list list">
-			<li ng-if="boundariesValue == 2" class="item">
+			<li ng-if="boundariesValue == 1" class="item">
 				<div class="quizzes-circle-container">
 					<span class="red-circle">RED</span>
 				</div>
 				<div class="quizzes-circle-text">THE WALL OF CHINA HAS NOTHING ON YOU
 					<br>Your boundaries are firm, like cement. You reserve your energy for things that matter the most to you. You prefer to have a plan and struggle when the plan shifts. Friends think of you as reliable, but a little rigid. Pick 1-3 categories where your US would be helped in you becoming more flexible in your boundaries. What are 3 ways you can move in that direction?</div>
 			</li>
-			<li ng-if="boundariesValue == 1" class="item">
+			<li ng-if="boundariesValue == 2" class="item">
 				<div class="quizzes-circle-container">
 					<span class="orange-circle circle-selceted">ORANGE</span>
 				</div>
@@ -59,7 +59,7 @@
 		<div class="padding">
 			<br>
 			<button ui-sref="menu.tabs.quizzes" class="button button-block button-positive">Continue</button>
-			<button ui-sref="menu.tabs.quizzes_boundaries" class="button button-block button-calm">Edit Answers</button>
+			<button ui-sref="menu.tabs.quizzes_boundaries" class="button button-block button-calm">Retake Quiz</button>
 		</div>
 	</ion-content>
 </ion-view>
