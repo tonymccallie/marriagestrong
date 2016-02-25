@@ -41,6 +41,7 @@
 	<plugin name="com.ionic.keyboard" source="pgb" version="1.0.3" />
 	<plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" source="pgb" />
 	<plugin name="com.ionic.deploy" version="0.1.6" source="pgb" />
+	<plugin name="com.jamiestarke.webviewdebug" spec="1.0.8" source="pgb" />
 	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 	<feature name="StatusBar">
 		<param name="ios-package" value="CDVStatusBar" onload="true" />
