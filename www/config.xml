@@ -42,7 +42,6 @@
 	<plugin name="com.ionic.deploy" version="0.1.6" source="pgb" />
 	<plugin name="com.jamiestarke.webviewdebug" spec="1.0.8" source="pgb" />
 	<plugin name="cordova-plugin-whitelist" source="npm" />
-	<plugin name="cordova-plugin-splashscreen" source="npm" />
 	<feature name="StatusBar">
 		<param name="ios-package" value="CDVStatusBar" onload="true" />
 	</feature>
@@ -96,7 +95,4 @@
 		<splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" qualifier="port-xxhdpi" />
 		<splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" qualifier="port-xxxhdpi" />
 	</platform>
-    <preference name="SplashScreen" value="splash.png" />
-    <preference name="SplashScreenDelay" value="2000" />
-    <preference name="SplashMaintainAspectRatio" value="true" />
 </widget>
