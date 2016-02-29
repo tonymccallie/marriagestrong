@@ -96,4 +96,7 @@
 		<splash src="resources/android/splash/drawable-port-xxhdpi-screen.png" density="port-xxhdpi" />
 		<splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi" />
 	</platform>
+    <preference name="SplashScreen" value="resources/splash.png" />
+    <preference name="SplashScreenDelay" value="2000" />
+    <preference name="SplashMaintainAspectRatio" value="true" />
 </widget>
