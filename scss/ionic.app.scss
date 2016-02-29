@@ -19,82 +19,88 @@ $positive: #8f2b21;
 //$dark: #808184;
 $calm: #808184;
 $lightGrey: #d0d2d3;
-
 //$font-default: "LatoBold";
 $font-default: "HelveticaNeue";
 $font-italic: "HelveticaNeueOblique";
-
-
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
-
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-
 @import "scss/fonts.scss";
 @import "scss/greyback.scss";
-
 @mixin transform($transforms) {
-	-moz-transform: $transforms;
-	-o-transform: $transforms;
-	-ms-transform: $transforms;
-	-webkit-transform: $transforms;
-	transform: $transforms;
+    -moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+    -webkit-transform: $transforms;
+    transform: $transforms;
 }
 
 @mixin rotate ($deg) {
- 	@include transform(rotate(#{$deg}deg));
+    @include transform(rotate(#{$deg}deg));
 }
-
 
 .light {
-	background: $light;
-	color: $dark;
-	a {
-		color: $positive;
-	}
+    background: $light;
+    color: $dark;
+    a {
+        color: $positive;
+    }
 }
 
-.pane, .view, .menu-left {
-	background-image: url(../img/marriage-blur.jpg);
-	background-size: cover;
-	background-position: center top;
+.pane,
+.view,
+.menu-left {
+    background-image: url(../img/marriage-blur.jpg);
+    background-size: cover;
+    background-position: center top;
 }
 
 .tab-content .pane {
-	background: $light;
+    background: $light;
 }
 
 .whitebg {
-	background: #ffffff;
+    background: #ffffff;
 }
 
 .menu-left {
-	font-family: $font-default;
-	.title {
-		text-align: left;
-		font-family: $font-default;
-		.threeleaf {
-			@include rotate(180);
-		}
-	}
-	.threeleaf {
-		font-weight: bold;
-	}
-	.item {
-		background: none;
-		border: none;
-		a {
-			color: $light;
-		}
-	}
-	.item-complex .item-content, .item-radio .item-content {
-		background: none;
-	}
+    font-family: $font-default;
+    .title {
+        text-align: left;
+        font-family: $font-default;
+        .threeleaf {
+            @include rotate(180);
+        }
+    }
+    .threeleaf {
+        font-weight: bold;
+    }
+    .item {
+        background: none;
+        border: none;
+        a {
+            color: $light;
+        }
+    }
+    .item-complex .item-content,
+    .item-radio .item-content {
+        background: none;
+    }
 }
 
-body, h1, h2, h3, h4, h5, h6, input, button, select, textarea {
-	font-family: $font-default;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+button,
+select,
+textarea {
+    font-family: $font-default;
     font-weight: 400;
     letter-spacing: 1px;
     color: $calm;
@@ -116,7 +122,6 @@ h1 {
     text-transform: uppercase;
     margin-bottom: 0px;
     line-height: 20px;
-    
     img {
         vertical-align: sub;
     }
@@ -134,14 +139,12 @@ h2 {
     text-transform: uppercase;
     margin-bottom: 0px;
     line-height: 20px;
-    
     img {
         vertical-align: sub;
     }
 }
 
 h3 {
-    
     padding-left: 14px;
     color: $positive;
     font-size: 16px;
@@ -175,7 +178,6 @@ h6 {
     color: $positive;
 }
 
-
 hr {
     border: 0;
     height: 1px;
@@ -183,50 +185,47 @@ hr {
 }
 
 i {
-	font-family: $font-italic;
+    font-family: $font-italic;
 }
 
-input[placeholder] {
-	//color: $dark;
-}
-
-.checkbox input:before, .checkbox-icon:before {
-	border-radius: 0px;
+.checkbox input:before,
+.checkbox-icon:before {
+    border-radius: 0px;
 }
 
 .padding {
-	padding: 15px;
-	a {
-		color: $positive;
-		text-decoration: none;
-		font-family: "HelveticaNeue";
-	}
-	.button {
-		font-family: "HelveticaNeue";
-		color: $light;
-	}
+    padding: 15px;
+    a {
+        color: $positive;
+        text-decoration: none;
+        font-family: "HelveticaNeue";
+    }
+    .button {
+        font-family: "HelveticaNeue";
+        color: $light;
+    }
 }
 
 .scaleVid {
-	position:relative;
-	height:0;
+    position: relative;
+    height: 0;
 }
 
 .ratio16x9 {
-	padding-bottom:56.25%;
+    padding-bottom: 56.25%;
 }
 
 .ratio4x3 {
-	padding-bottom:75%;
+    padding-bottom: 75%;
 }
 
 .audioPlayerRatio {
-	padding-bottom:15%;
+    padding-bottom: 15%;
 }
 
 .scaleVid {
-	background: url(../img/loading.gif) center center no-repeat #9d9d9d;
-	background-size: 20%;
+    background: url(../img/loading.gif) center center no-repeat #9d9d9d;
+    background-size: 20%;
 }
 
 .scaleVid div,
@@ -234,92 +233,104 @@ input[placeholder] {
 .scaleVid embed,
 .scaleVid iframe,
 .scaleVid video {
-	position:absolute !important;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .title-image {
-	margin-top: 7px;
-	height: 30px;
+    margin-top: 7px;
+    height: 30px;
 }
 
 .threeleaf {
-	font-family: 'Threeleaf';
-	font-size: 1.5em;
-	vertical-align: -.15em;
-	font-weight: normal;
+    font-family: 'Threeleaf';
+    font-size: 1.5em;
+    vertical-align: -.15em;
+    font-weight: normal;
 }
 
 .threeleaf-separator {
-	color: $light;
-	font-size: 18px;
-	text-align: center;
-	.threeleaf {
-		vertical-align: -.13em;
-	}
-	background: $positive;
-	line-height: 30px;
-	padding: 10px;
-	margin-top: -5px;
+    color: $light;
+    font-size: 18px;
+    text-align: center;
+    .threeleaf {
+        vertical-align: -.13em;
+    }
+    background: $positive;
+    line-height: 30px;
+    padding: 10px;
+    margin-top: -5px;
 }
 
 .tabs {
-	height: 58px;
-	padding-top: 5px;
+    height: 58px;
+    padding-top: 5px;
 }
 
-.tabs-icon-top > .tabs .tab-item, .tabs-icon-top.tabs .tab-item, .tabs-icon-bottom > .tabs .tab-item, .tabs-icon-bottom.tabs .tab-item {
-	line-height: 16px;
+.tabs-icon-top > .tabs .tab-item,
+.tabs-icon-top.tabs .tab-item,
+.tabs-icon-bottom > .tabs .tab-item,
+.tabs-icon-bottom.tabs .tab-item {
+    line-height: 16px;
 }
 
 .tab-item .threeleaf {
-	font-size: 40px;
-	line-height: 38px;
-	font-family: $font-default;
+    font-size: 40px;
+    line-height: 38px;
+    font-family: $font-default;
 }
 
 .tab-title {
-	font-family: $font-default;
+    font-family: $font-default;
 }
 
-.threeleaf-usness {content: url(../img/icon_usness.png);}
-.threeleaf-cycles {content: url(../img/icon_cycles.png);}
-.threeleaf-4steps {content: url(../img/icon_4steps.png);}
-.threeleaf-quizzes {content: url(../img/icon_quizzes.png);}
-.threeleaf-decisions {content: url(../img/icon_decisions.png);}
+.threeleaf-usness {
+    content: url(../img/icon_usness.png);
+}
 
+.threeleaf-cycles {
+    content: url(../img/icon_cycles.png);
+}
+
+.threeleaf-4steps {
+    content: url(../img/icon_4steps.png);
+}
+
+.threeleaf-quizzes {
+    content: url(../img/icon_quizzes.png);
+}
+
+.threeleaf-decisions {
+    content: url(../img/icon_decisions.png);
+}
 
 .user_form {
-	.logo {
-		width: 100%;
-	}
-	
-	.padding {
-		padding: 60px 40px 10px;
-	}
-	
-	.list, .list-inset {
-		border-radius: 0px;
-	}
-	
-	.item {
-		border-radius: 0px;
-		background: none;
-		color: $light;
-		border: none;
-	}
-	
-	.item-checkbox {
-		padding: 5px 5px 5px 60px;
-	}
-	
-	.button {
-		border-radius: 30px;
-		border-width: 0px;
-	}
+    .logo {
+        width: 100%;
+    }
+    .padding {
+        padding: 60px 40px 10px;
+    }
+    .list,
+    .list-inset {
+        border-radius: 0px;
+    }
+    .item {
+        border-radius: 0px;
+        background: none;
+        color: $light;
+        border: none;
+    }
+    .item-checkbox {
+        padding: 5px 5px 5px 60px;
+    }
+    .button {
+        border-radius: 30px;
+        border-width: 0px;
+    }
 }
 
 .button {
@@ -334,10 +345,10 @@ input[placeholder] {
 }
 
 .datepicker {
-	font-size: 22px;
-	color: $calm;
-	border: solid 1px $lightGrey;
-	padding: 15px 10px 13px 10px;
+    font-size: 22px;
+    color: $calm;
+    border: solid 1px $lightGrey;
+    padding: 15px 10px 13px 10px;
 }
 
 .item-checkbox {
@@ -363,11 +374,9 @@ input[type="radio"] {
 }
 
 .usnessGiftsForm {
-    
     .item {
-    font-size: 12px;
+        font-size: 12px;
     }
-    
     strong {
         color: $positive;
         font-size: 16px;
@@ -391,9 +400,7 @@ input[type="radio"] {
     margin-right: 10px;
 }
 
-.circle-number-text-to-the-right {
-       
-}
+.circle-number-text-to-the-right {}
 
 .gifts-list li {
     font-size: 24px;
@@ -411,59 +418,45 @@ input[type="radio"] {
     border-bottom: 1px $lightGrey solid;
 }
 
-.cycles-pain, .cycles-peace {
-	width: 100%;
-	float: left;
-
+.cycles-pain,
+.cycles-peace {
+    width: 100%;
+    float: left;
     li {
-		width: 50%;
-		float:left;
-		display:inline;
-		text-transform: uppercase;
-		font-size: 12px;
-		letter-spacing: 0px;
-		//margin-left: -4%;
+        width: 50%;
+        float: left;
+        display: inline;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0px;
+        //margin-left: -4%;
     }
-    
     .checkbox {
         padding: 6px 0px;
     }
-    
-
-    
-    .item-checkbox  {
+    .item-checkbox {
         padding-left: 44px;
     }
-    
     #measure {
         width: 100%;
     }
-    
-   
 }
 
 .cyclesCopes {
-    
     li {
-    text-transform: uppercase;
-    font-size: 16px;
-    letter-spacing: 0px;
+        text-transform: uppercase;
+        font-size: 16px;
+        letter-spacing: 0px;
     }
-    
     .checkbox {
         padding: 6px 0px;
     }
-    
-
-    
-    .item-checkbox  {
+    .item-checkbox {
         padding-left: 44px;
     }
-    
     #measure {
         width: 100%;
     }
-    
 }
 
 .tip-text {
@@ -480,7 +473,7 @@ input[type="radio"] {
     border-radius: 150px;
 }
 
-.small-button-text{
+.small-button-text {
     font-size: 10px;
     line-height: 10px;
     font-family: $font-italic;
@@ -491,9 +484,8 @@ input[type="radio"] {
     line-height: 16px;
 }
 
-li.item  {
-    white-space:normal;
-
+li.item {
+    white-space: normal;
 }
 
 .item-stacked-label {
@@ -505,14 +497,14 @@ li.item  {
     font-size: 20px;
     padding-top: 7px;
     border-top: 1px solid $calm;
-    }
+}
 
 .green-check.checkbox input:before {
     border-radius: 0px;
     background-color: #7db584;
     border-radius: 30px;
 }
-    
+
 .yellow-check.checkbox input:before {
     border-radius: 0px;
     background-color: #f7b568;
@@ -532,19 +524,16 @@ li.item  {
 }
 
 .quizzesUnessForm {
-
     input[type="radio"] {
         font-size: 24px;
     }
-    
     label {
         line-height: 30px;
     }
-    
     h3 {
-    text-align: center;
-    font-size: 22px;
-    line-height: 20px;
+        text-align: center;
+        font-size: 22px;
+        line-height: 20px;
     }
 }
 
@@ -620,21 +609,16 @@ li.item  {
 
 .quizzes-circle-text {
     float: left;
-   width: 75%;
+    width: 75%;
 }
 
-
 //Cylces Circles
-
 .cycles {
     display: block;
     position: relative;
     padding-top: 120;
     width: 100%;
-    
-    .padding {
-
-    }
+    .padding {}
 }
 
 .cycles-results {
@@ -642,7 +626,6 @@ li.item  {
     position: absolute;
     margin: 23% 10% 5%;
     line-height: 15px;
-    
     h5 {
         text-transform: uppercase;
         line-height: 10px;
@@ -650,20 +633,17 @@ li.item  {
         color: $positive;
         padding-bottom: 5px;
     }
-    
     img {
         padding: 28%;
     }
-
 }
 
 .circle-cycle {
     display: block;
     position: relative;
     top: 30px;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
-
 
 .top-left {
     width: 25%;
@@ -671,6 +651,7 @@ li.item  {
     text-align: center;
     vertical-align: middle;
 }
+
 .top-middle {
     width: 50%;
     float: left;
@@ -678,11 +659,11 @@ li.item  {
     vertical-align: middle;
     min-height: 80px;
 }
+
 .top-right {
     width: 25%;
     float: left;
     text-align: center;
-    
     img {
         text-align: left;
     }
@@ -695,12 +676,14 @@ li.item  {
     vertical-align: middle;
     min-height: 80px;
 }
+
 .middle-middle {
     width: 0%;
     float: left;
     text-align: center;
     vertical-align: middle;
 }
+
 .middle-right {
     width: 50%;
     float: left;
@@ -715,6 +698,7 @@ li.item  {
     text-align: center;
     vertical-align: middle;
 }
+
 .bottom-middle {
     width: 50%;
     float: left;
@@ -722,6 +706,7 @@ li.item  {
     vertical-align: middle;
     min-height: 80px;
 }
+
 .bottom-right {
     width: 25%;
     float: left;
@@ -735,7 +720,6 @@ li.item  {
     text-transform: uppercase;
     a {
         text-decoration: none;
-        
         font-size: 20px;
         font-weight: bolder;
     }
@@ -743,7 +727,6 @@ li.item  {
 
 .disclaimer {
     color: #ffffff;
-    
     a {
         color: #ffffff;
         font-weight: bolder;
@@ -759,12 +742,12 @@ li.item  {
 }
 
 .steps-list li {
-    font-size: 12px; 
+    font-size: 12px;
     letter-spacing: 0px;
 }
 
 .foursteps-results {
-    padding: 10px 15px 25px; 
+    padding: 10px 15px 25px;
     border-bottom: 1px $lightGrey solid;
 }
 
@@ -781,7 +764,7 @@ li.item  {
 }
 
 .quiz-results {
-    padding: 10px 30px 25px;  
+    padding: 10px 30px 25px;
     border-bottom: 1px $lightGrey solid;
 }
 
@@ -792,11 +775,5 @@ li.item  {
 }
 
 .quiz-results-category-second {
-    padding-top: 20px;   
+    padding-top: 20px;
 }
-
-
-
-    
-
-
