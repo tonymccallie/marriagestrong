@@ -228,7 +228,7 @@ angular.module('greyback.controllers', [])
 	});
 })
 
-.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $ionicLoading, $jrCrop, $state, ImgCache, PtrService, ngFB, user, UserService, ListService) {
+.controller('UserController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $ionicLoading, $state, ImgCache, PtrService, ngFB, user, UserService, ListService) {
 	console.log('UserController');
 	$scope.link_code = "";
 	$scope.user = user;
@@ -421,20 +421,6 @@ angular.module('greyback.controllers', [])
 				notify: true
 			});
 		});
-
-//		$jrCrop.crop({
-//			url: FILE_URI,
-//			width: 800,
-//			height: 450
-//		}).then(function(canvas) {
-//			alert('then');
-//			console.log(canvas);
-//			$scope.picData = canvas.toDataURL();
-//			console.log($scope.picData);
-//		}, function(data) {
-//			alert('error');
-//			console.log(['error',data]);
-//		})
 	}
 
 	var picFail = function () {
@@ -685,7 +671,7 @@ angular.module('greyback.controllers', [])
 	}
 })
 
-.controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $jrCrop, $state, ImgCache, PtrService, ngFB, user, decision, UserService, DecisionService) {
+.controller('DecisionController', function ($scope, $q, $ionicModal, $timeout, $ionicHistory, $state, ImgCache, PtrService, ngFB, user, decision, UserService, DecisionService) {
 	console.log('DecisionController');
 	$scope.decision = decision;
 
