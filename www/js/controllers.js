@@ -1,6 +1,6 @@
 angular.module('greyback.controllers', [])
 
-.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $ionicUser, $ionicPush, $state, $ionicSideMenuDelegate, $cordovaFile, UserService, user) {
+.controller('AppController', function ($scope, $sce, $ionicDeploy, $ionicActionSheet, $location, $ionicPlatform, $ionicUser, $ionicPush, $state, $ionicSideMenuDelegate, $cordovaFile, $cordovaCapture, UserService, user) {
 	console.log('AppController');
 	//app wide variables
 	$scope.DOMAIN = DOMAIN;
