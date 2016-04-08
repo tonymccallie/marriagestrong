@@ -198,9 +198,10 @@ angular.module('greyback.services', [])
 		var myImg = FILE_URI;
 
 		var name = FILE_URI.substr(FILE_URI.lastIndexOf('/') + 1);
-		console.log(name);
+		if(name.lastIndexOf("?")) {
+			name = name.substr(0,name.lastIndexOf("?") + 1);
+		}
 		var namePath = FILE_URI.substr(0, FILE_URI.lastIndexOf('/') + 1);
-		console.log(namePath);
 		var newName = self.makeid() + name;
 		console.log(newName);
 		$cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName).then(function (info) {
