@@ -199,7 +199,7 @@ angular.module('greyback.services', [])
 
 		var name = FILE_URI.substr(FILE_URI.lastIndexOf('/') + 1);
 		if(name.lastIndexOf("?")) {
-			name = name.substr(0,name.lastIndexOf("?") + 1);
+			name = name.substr(0,name.lastIndexOf("?"));
 		}
 		var namePath = FILE_URI.substr(0, FILE_URI.lastIndexOf('/') + 1);
 		var newName = self.makeid() + name;
