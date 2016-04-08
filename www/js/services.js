@@ -198,8 +198,11 @@ angular.module('greyback.services', [])
 		var myImg = FILE_URI;
 
 		var name = FILE_URI.substr(FILE_URI.lastIndexOf('/') + 1);
+		console.log(name);
 		var namePath = FILE_URI.substr(0, FILE_URI.lastIndexOf('/') + 1);
+		console.log(namePath);
 		var newName = self.makeid() + name;
+		console.log(newName);
 		$cordovaFile.copyFile(namePath, name, cordova.file.dataDirectory, newName).then(function (info) {
 			$localStorage.setObject('localPic',newName);
 			self.user.picture = newName;
@@ -207,6 +210,7 @@ angular.module('greyback.services', [])
 				deferred.resolve(user);
 			});
 		}, function (e) {
+			console.log(e);
 			deferred.reject();
 		});
 		return deferred.promise;
@@ -444,7 +448,7 @@ angular.module('greyback.services', [])
 		'DEVALUED', 'DEFECTIVE', 'INADEQUATE', 'REJECTED', 'UNACCEPTABLE',
 		'HOPELESS', 'UNWANTED', 'ABANDONED', 'UNAPPRECIATED', 'DISCOURAGED',
 		'UNSAFE', 'INSECURE', 'UNSURE', 'USED', 'FEARFUL', 'POWERLESS', 'OUT OF CONTROL', 'CONTROLLED', 'VULNERABLE',
-		'DISCONNECTED', 'UNKOWN', 'BETRAYED', 'INVALIDATED', 'UNABLE TO MEASURE UP',
+		'DISCONNECTED', 'UNKNOWN', 'BETRAYED', 'INVALIDATED', 'UNABLE TO MEASURE UP',
 	];
 
 	self.copeList = [
@@ -454,9 +458,9 @@ angular.module('greyback.services', [])
 		'SARCASTIC', 'INCONSOLABLE', 'JUDGING', 'IMPULSIVE',
 		'ARROGANT', 'CATASTROPHIZING', 'DEMANDING', 'AVOIDANT',
 		'AGGRESSIVE', 'WHINE/NEEDY', 'CRITICAL', 'SECRETIVE',
-		'DISCOURAGING', 'MANIPLUATES', 'NAGGING', 'DRAMATIC',
+		'DISCOURAGING', 'MANIPULATES', 'NAGGING', 'DRAMATIC',
 		'THREATENING', 'WITHDRAW TO POUT', 'INTELLECTUALIZING', 'SELFISH',
-		'HOLD GRUDGES', 'ISOLOATE', 'PERFORMING', 'MINIMIZES',
+		'HOLD GRUDGES', 'ISOLATE', 'PERFORMING', 'MINIMIZES',
 		'RETALIATORY', 'SHAMES SELF', 'WITHDRAW TO DEFEND', 'ESCAPE',
 		'WITHDRAW TO PUNISH', 'WITHDRAW TO AVOID'
 	];
